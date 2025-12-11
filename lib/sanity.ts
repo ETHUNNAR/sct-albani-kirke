@@ -58,11 +58,15 @@ export const queries = {
     description,
     membershipFee,
     registrationUrl,
+    ageGroupsTitle,
+    ageGroupsDescription,
     ageGroups[] {
       name,
       ageRange,
       description
     },
+    boardTitle,
+    boardDescription,
     boardMembers[] {
       name,
       role,

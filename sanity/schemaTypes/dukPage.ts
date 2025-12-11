@@ -46,6 +46,20 @@ export const dukPage = defineType({
       description: 'Link til tilmelding (f.eks. www.duk.dk)',
     }),
     defineField({
+      name: 'ageGroupsTitle',
+      title: 'Vores Grupper Titel',
+      type: 'string',
+      initialValue: 'Vores Grupper',
+      description: 'Overskrift for aldersgruppe sektionen',
+    }),
+    defineField({
+      name: 'ageGroupsDescription',
+      title: 'Vores Grupper Beskrivelse',
+      type: 'text',
+      rows: 4,
+      description: 'Introduktionstekst om aldersgrupperne (vises over grupperne)',
+    }),
+    defineField({
       name: 'ageGroups',
       title: 'Aldersgrupper',
       type: 'array',
@@ -74,6 +88,20 @@ export const dukPage = defineType({
           ],
         },
       ],
+    }),
+    defineField({
+      name: 'boardTitle',
+      title: 'Bestyrelse Titel',
+      type: 'string',
+      initialValue: 'Bestyrelsen',
+      description: 'Overskrift for bestyrelse sektionen',
+    }),
+    defineField({
+      name: 'boardDescription',
+      title: 'Bestyrelse Beskrivelse',
+      type: 'text',
+      rows: 4,
+      description: 'Introduktionstekst om bestyrelsen (vises over bestyrelsesmedlemmerne)',
     }),
     defineField({
       name: 'boardMembers',

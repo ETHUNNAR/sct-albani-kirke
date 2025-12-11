@@ -157,9 +157,18 @@ export default async function DukPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
-                Vores Grupper
+                {pageData.ageGroupsTitle || 'Vores Grupper'}
               </h2>
               <div className="w-24 h-1 bg-[#c5a059] mx-auto rounded-full" />
+
+              {/* Age Groups Description */}
+              {pageData.ageGroupsDescription && (
+                <div className="max-w-4xl mx-auto mt-6">
+                  <p className="text-lg text-slate-600 leading-relaxed">
+                    {pageData.ageGroupsDescription}
+                  </p>
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -192,9 +201,18 @@ export default async function DukPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
-                Bestyrelsen
+                {pageData.boardTitle || 'Bestyrelsen'}
               </h2>
               <div className="w-24 h-1 bg-[#c5a059] mx-auto rounded-full" />
+
+              {/* Board Description */}
+              {pageData.boardDescription && (
+                <div className="max-w-4xl mx-auto mt-6">
+                  <p className="text-lg text-slate-600 leading-relaxed">
+                    {pageData.boardDescription}
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Board Photo */}
