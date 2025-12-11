@@ -17,67 +17,36 @@ export function urlFor(source: any) {
 
 // GROQ queries
 export const queries = {
-  // Get all service times, ordered by 'order' field
-  serviceTimes: `*[_type == "serviceTime"] | order(order asc) {
+  // Get home page content (there should only be one)
+  homePage: `*[_type == "homePage"] [0] {
     _id,
-    day,
-    time,
-    type,
-    language,
-    order
-  }`,
-
-  // Get all news items, newest first
-  newsItems: `*[_type == "newsItem"] | order(date desc) {
-    _id,
-    title,
-    date,
-    excerpt,
-    content,
-    image,
-    category
-  }`,
-
-  // Get the active weekly program
-  activeWeeklyProgram: `*[_type == "weeklyProgram" && isActive == true] | order(year desc, week desc) [0] {
-    _id,
-    week,
-    year,
-    title,
-    events[] {
+    heroTitle,
+    heroSubtitle,
+    heroImage,
+    aboutTitle,
+    aboutText,
+    serviceTimes[] {
       day,
-      date,
       time,
+      type,
+      language,
+      order
+    } | order(order asc),
+    newsItems[] {
       title,
+      date,
+      excerpt,
+      content,
+      image,
+      category
+    } | order(date desc),
+    weeklyProgram[] {
+      day,
+      time,
+      event,
       description,
       location
     }
-  }`,
-
-  // Get site settings (there should only be one)
-  siteSettings: `*[_type == "siteSettings"] [0] {
-    _id,
-    title,
-    description,
-    heroTitle,
-    heroSubtitle,
-    heroTagline,
-    aboutText,
-    contactEmail,
-    contactPhone,
-    address
-  }`,
-
-  // Get all priests, ordered by 'order' field
-  priests: `*[_type == "priest"] | order(order asc) {
-    _id,
-    name,
-    title,
-    photo,
-    bio,
-    email,
-    phone,
-    order
   }`,
 
   // Get DUK page content (there should only be one)

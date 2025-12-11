@@ -1,8 +1,4 @@
-import {serviceTime} from './serviceTime'
-import {newsItem} from './newsItem'
-import {weeklyProgram} from './weeklyProgram'
-import {siteSettings} from './siteSettings'
-import {priest} from './priest'
+import {homePage} from './homePage'
 import {dukPage} from './dukPage'
 
-export const schemaTypes = [serviceTime, newsItem, weeklyProgram, siteSettings, priest, dukPage]
+export const schemaTypes = [homePage, dukPage]
