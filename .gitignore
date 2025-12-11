@@ -1,0 +1,57 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dependencies
+node_modules
+/sanity/node_modules
+/.pnp
+.pnp.js
+
+# Build outputs
+dist
+dist-ssr
+/.next/
+/out/
+/build
+
+# Environment variables
+*.local
+.env
+.env*.local
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Sanity
+/sanity/.next
+/sanity/dist
+
+# Testing
+/coverage
+
+# Production
+/build
+
+# Vercel
+.vercel
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.pem
