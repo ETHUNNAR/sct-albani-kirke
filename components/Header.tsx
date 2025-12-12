@@ -26,6 +26,7 @@ export function Header() {
       href: '#activities',
       dropdown: [
         { name: 'Sct. Albani DUK', href: '/aktiviteter/duk' },
+        { name: 'Besøgsgruppen', href: '/aktiviteter/besoegsgruppen' },
       ]
     },
     {

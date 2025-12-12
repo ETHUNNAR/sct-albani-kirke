@@ -78,4 +78,21 @@ export const queries = {
     contactEmail,
     contactPhone
   }`,
+
+  // Get Besøgsgruppen page content (there should only be one)
+  besoesgruppenPage: `*[_type == "besoesgruppenPage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    description,
+    aboutTitle,
+    aboutText,
+    objectives[] {
+      text
+    },
+    contactEmail,
+    contactPhone,
+    contactPerson
+  }`,
 }
