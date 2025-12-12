@@ -1,20 +1,26 @@
 import React from 'react';
 import { Button } from './ui/Button';
 import { ChevronDown } from 'lucide-react';
+import { urlFor } from '@/lib/sanity';
 
 interface HeroProps {
   siteSettings?: {
     heroTitle?: string;
     heroSubtitle?: string;
     heroTagline?: string;
+    heroImage?: any;
   } | null;
 }
 
 export function Hero({ siteSettings }: HeroProps) {
+  const heroImageUrl = siteSettings?.heroImage
+    ? urlFor(siteSettings.heroImage).width(2000).height(1200).url()
+    : "https://images.unsplash.com/photo-1548625361-e88c60eb355c?q=80&w=2070&auto=format&fit=crop";
+
   return <div className="relative h-screen w-full overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img src="https://images.unsplash.com/photo-1548625361-e88c60eb355c?q=80&w=2070&auto=format&fit=crop" alt="Church Interior" className="w-full h-full object-cover" />
+        <img src={heroImageUrl} alt="Church Interior" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1e3a8a]/90 mix-blend-multiply" />
       </div>
 
