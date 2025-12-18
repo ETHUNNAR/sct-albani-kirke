@@ -22,6 +22,10 @@ export function Header() {
       href: '/'
     },
     {
+      name: 'Nyheder',
+      href: '/nyheder'
+    },
+    {
       name: 'Aktiviteter',
       href: '#activities',
       dropdown: [

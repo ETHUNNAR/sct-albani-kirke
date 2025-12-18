@@ -1,6 +1,5 @@
 import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
-import { PortableText } from '@portabletext/react';
 import { Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';

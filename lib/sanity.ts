@@ -95,4 +95,40 @@ export const queries = {
     contactPhone,
     contactPerson
   }`,
+
+  // Get all news posts, ordered by date (newest first)
+  newsPosts: `*[_type == "newsPost"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    category,
+    excerpt,
+    featuredImage,
+    featured
+  }`,
+
+  // Get a single news post by slug
+  newsPostBySlug: (slug: string) => `*[_type == "newsPost" && slug.current == "${slug}"] [0] {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    category,
+    excerpt,
+    featuredImage,
+    content,
+    featured
+  }`,
+
+  // Get featured news posts (for home page)
+  featuredNewsPosts: `*[_type == "newsPost" && featured == true] | order(publishedAt desc) [0...4] {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    category,
+    excerpt,
+    featuredImage
+  }`,
 }

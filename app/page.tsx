@@ -9,15 +9,16 @@ export const revalidate = 60; // Revalidate every 60 seconds
 async function getContent() {
   try {
     const homePage = await client.fetch(queries.homePage);
-    return { homePage };
+    const newsPosts = await client.fetch(queries.featuredNewsPosts);
+    return { homePage, newsPosts };
   } catch (error) {
     console.error('Error fetching content from Sanity:', error);
-    return { homePage: null };
+    return { homePage: null, newsPosts: [] };
   }
 }
 
 export default async function Home() {
-  const { homePage } = await getContent();
+  const { homePage, newsPosts } = await getContent();
 
   // Provide fallback data if homePage is null
   const pageData = homePage || {
@@ -34,7 +35,7 @@ export default async function Home() {
     <Layout>
       <Hero siteSettings={pageData} />
       <ServiceTimes serviceTimes={pageData.serviceTimes || []} />
-      <NewsSection newsItems={pageData.newsItems || []} />
+      <NewsSection newsItems={newsPosts || []} />
 
       {/* Quick About Section */}
       <section className="py-24 bg-white text-center">

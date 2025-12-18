@@ -2,12 +2,16 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/Button';
 import { urlFor } from '@/lib/sanity';
+import Link from 'next/link';
 
 interface NewsItem {
   _id: string;
   title: string;
-  date: string;
+  slug?: { current: string };
+  publishedAt?: string;
+  date?: string;
   excerpt: string;
+  featuredImage?: any;
   image?: any;
   category?: string;
 }
@@ -17,45 +21,31 @@ interface NewsSectionProps {
 }
 
 const categoryTranslations: Record<string, string> = {
+  news: 'Nyhed',
   event: 'Begivenhed',
-  announcement: 'Annoncering',
+  announcement: 'Meddelelse',
   liturgy: 'Liturgi',
   community: 'Fællesskab',
 };
 
 export function NewsSection({ newsItems = [] }: NewsSectionProps) {
-  // Fallback data if CMS data is not available
-  const news = newsItems.length > 0 ? newsItems.slice(0, 3).map(item => ({
+  const news = newsItems.slice(0, 4).map(item => ({
     ...item,
-    date: new Date(item.date).toLocaleDateString('da-DK', {
+    date: new Date(item.publishedAt || item.date || new Date()).toLocaleDateString('da-DK', {
       day: 'numeric',
       month: 'long',
       year: 'numeric'
     }),
     category: item.category ? categoryTranslations[item.category] || item.category : 'Nyhed',
-    image: item.image ? urlFor(item.image).width(800).height(600).url() : 'https://images.unsplash.com/photo-1548625361-e88c60eb355c?q=80&w=1000&auto=format&fit=crop'
-  })) : [{
-    _id: '1',
-    title: 'Kirkekaffe efter Højmesse',
-    date: 'Hver Søndag',
-    category: 'Fællesskab',
-    image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1000&auto=format&fit=crop',
-    excerpt: 'Kom og vær med til hyggeligt samvær i menighedssalen efter søndagens højmesse kl. 10.00.'
-  }, {
-    _id: '2',
-    title: 'Caritas Indsamling',
-    date: '15. Marts 2024',
-    category: 'Velgørenhed',
-    image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?q=80&w=1000&auto=format&fit=crop',
-    excerpt: 'Vi samler ind til fordel for verdens fattigste. Støt op om Caritas Danmarks vigtige arbejde.'
-  }, {
-    _id: '3',
-    title: 'Koncert i Kirken',
-    date: '22. Marts 2024',
-    category: 'Kultur',
-    image: 'https://images.unsplash.com/photo-1514117445516-2ecfc9c4ec90?q=80&w=1000&auto=format&fit=crop',
-    excerpt: 'Oplev kirkens kor fremføre værker af Bach og Mozart. En aften med smuk musik og eftertanke.'
-  }];
+    image: (item.featuredImage || item.image) ? urlFor(item.featuredImage || item.image).width(800).height(600).url() : 'https://images.unsplash.com/photo-1548625361-e88c60eb355c?q=80&w=1000&auto=format&fit=crop',
+    slug: item.slug?.current
+  }));
+
+  // Don't render the section if there are no news items
+  if (news.length === 0) {
+    return null;
+  }
+
   return <section id="activities" className="py-20 bg-[#f8f6f1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -68,12 +58,14 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
               aktiviteter i Sct. Albani menighed.
             </p>
           </div>
-          <Button variant="outline" className="mt-6 md:mt-0 hidden md:flex">
-            Se alle nyheder
-          </Button>
+          <Link href="/nyheder">
+            <Button variant="outline" className="mt-6 md:mt-0 hidden md:flex">
+              Se alle nyheder
+            </Button>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {news.map((item) => <article key={item._id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
               <div className="relative h-48 overflow-hidden">
                 <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -92,17 +84,25 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
                 <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
                   {item.excerpt}
                 </p>
-                <a href="#" className="inline-flex items-center text-sm font-semibold text-[#1e3a8a] hover:text-[#c5a059] transition-colors mt-auto">
-                  Læs mere <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
+                {item.slug ? (
+                  <Link href={`/nyheder/${item.slug}`} className="inline-flex items-center text-sm font-semibold text-[#1e3a8a] hover:text-[#c5a059] transition-colors mt-auto">
+                    Læs mere <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                ) : (
+                  <span className="inline-flex items-center text-sm font-semibold text-[#1e3a8a] hover:text-[#c5a059] transition-colors mt-auto">
+                    Læs mere <ArrowRight className="ml-2 h-4 w-4" />
+                  </span>
+                )}
               </div>
             </article>)}
         </div>
 
         <div className="mt-10 text-center md:hidden">
-          <Button variant="outline" className="w-full">
-            Se alle nyheder
-          </Button>
+          <Link href="/nyheder">
+            <Button variant="outline" className="w-full">
+              Se alle nyheder
+            </Button>
+          </Link>
         </div>
       </div>
     </section>;
