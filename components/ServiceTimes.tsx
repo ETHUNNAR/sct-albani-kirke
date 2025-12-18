@@ -92,7 +92,7 @@ export function ServiceTimes({ serviceTimes = [] }: ServiceTimesProps) {
             </div>
 
             <div className="space-y-4">
-              {schedule.map((item) => <div key={item._id} className="flex items-center justify-between py-3 border-b border-slate-200 last:border-0 hover:bg-white transition-colors px-2 rounded-md">
+              {schedule.map((item, index) => <div key={item._id || `service-${index}`} className="flex items-center justify-between py-3 border-b border-slate-200 last:border-0 hover:bg-white transition-colors px-2 rounded-md">
                   <div className="flex items-center">
                     <span className="w-24 font-medium text-slate-900">
                       {item.day}
