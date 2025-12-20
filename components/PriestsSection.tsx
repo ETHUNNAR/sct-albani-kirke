@@ -18,7 +18,6 @@ interface PriestsSectionProps {
 }
 
 export function PriestsSection({ priests = [] }: PriestsSectionProps) {
-  // Fallback data if CMS data is not available
   const priestsList = priests.length > 0 ? priests : [
     {
       _id: '1',

@@ -41,10 +41,7 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
     slug: item.slug?.current
   }));
 
-  // Don't render the section if there are no news items
-  if (news.length === 0) {
-    return null;
-  }
+  if (news.length === 0) return null;
 
   return <section id="activities" className="py-20 bg-[#f8f6f1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

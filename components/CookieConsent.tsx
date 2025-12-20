@@ -15,13 +15,10 @@ export function CookieConsent() {
   });
 
   useEffect(() => {
-    // Check if user has already made a choice
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      // Show banner after a short delay for better UX
       setTimeout(() => setShowBanner(true), 1000);
     } else {
-      // Load saved preferences
       try {
         const saved = JSON.parse(consent);
         setPreferences(saved);
@@ -78,7 +75,6 @@ export function CookieConsent() {
         <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden">
             {!showSettings ? (
-              // Simple Banner
               <div className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 bg-[#1e3a8a] rounded-full p-3">
@@ -132,7 +128,6 @@ export function CookieConsent() {
                 </div>
               </div>
             ) : (
-              // Settings Panel
               <div className="relative z-50">
                 <div className="p-6 md:p-8 max-h-[80vh] overflow-y-auto">
                   <div className="flex items-start justify-between mb-6">

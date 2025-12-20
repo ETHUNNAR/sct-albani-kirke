@@ -3,69 +3,11 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Calendar } from 'lucide-react';
 import Link from 'next/link';
-
-interface WeeklyProgramItem {
-  datetime: string;
-  recurring?: boolean;
-  massType: string;
-  language?: string;
-  description?: string;
-  location?: string;
-}
+import { WeeklyProgramItem } from '@/lib/types';
+import { getNextEvent } from '@/lib/eventUtils';
 
 interface FooterProps {
   weeklyProgram?: WeeklyProgramItem[];
-}
-
-function getNextMass(weeklyProgram: WeeklyProgramItem[]): WeeklyProgramItem | null {
-  // Use all weekly program items (masses, tilbedelse, rosenkrans, etc.)
-  if (weeklyProgram.length === 0) return null;
-
-  const now = new Date();
-  const expandedEvents: WeeklyProgramItem[] = [];
-
-  weeklyProgram.forEach(item => {
-    const originalDate = new Date(item.datetime);
-
-    if (item.recurring) {
-      // For recurring events, find the next occurrence
-      const dayOfWeek = originalDate.getDay();
-      const timeOfDay = originalDate.getHours() * 60 + originalDate.getMinutes();
-
-      // Check the next 14 days to find the next occurrence
-      for (let i = 0; i <= 14; i++) {
-        const checkDate = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
-
-        if (checkDate.getDay() === dayOfWeek) {
-          const eventDateTime = new Date(checkDate);
-          eventDateTime.setHours(Math.floor(timeOfDay / 60), timeOfDay % 60, 0, 0);
-
-          if (eventDateTime >= now) {
-            expandedEvents.push({
-              ...item,
-              datetime: eventDateTime.toISOString(),
-            });
-            break; // Only add the next occurrence
-          }
-        }
-      }
-    } else {
-      // For one-time events, add if in the future
-      if (originalDate >= now) {
-        expandedEvents.push(item);
-      }
-    }
-  });
-
-  // If no upcoming events, return null
-  if (expandedEvents.length === 0) return null;
-
-  // Sort by datetime and return the first one
-  expandedEvents.sort((a, b) => {
-    return new Date(a.datetime).getTime() - new Date(b.datetime).getTime();
-  });
-
-  return expandedEvents[0];
 }
 
 export function Footer({ weeklyProgram = [] }: FooterProps) {
@@ -73,16 +15,12 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
   const [isClient, setIsClient] = React.useState(false);
 
   React.useEffect(() => {
-    // Mark as client-side
     setIsClient(true);
+    setNextMass(getNextEvent(weeklyProgram));
 
-    // Calculate next event on client side to get current time
-    setNextMass(getNextMass(weeklyProgram));
-
-    // Update every minute to stay current
     const interval = setInterval(() => {
-      setNextMass(getNextMass(weeklyProgram));
-    }, 60000); // Update every minute
+      setNextMass(getNextEvent(weeklyProgram));
+    }, 60000);
 
     return () => clearInterval(interval);
   }, [weeklyProgram]);

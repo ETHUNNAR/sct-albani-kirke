@@ -2,15 +2,7 @@ import React from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { CookieConsent } from './CookieConsent';
-
-interface WeeklyProgramItem {
-  datetime: string;
-  recurring?: boolean;
-  massType: string;
-  language?: string;
-  description?: string;
-  location?: string;
-}
+import { WeeklyProgramItem } from '@/lib/types';
 
 interface LayoutProps {
   children: React.ReactNode;

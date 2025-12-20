@@ -1,69 +1,16 @@
 import React from 'react';
 import { Clock, CalendarDays } from 'lucide-react';
-
-interface WeeklyProgramItem {
-  datetime: string;
-  recurring?: boolean;
-  massType: string;
-  language?: string;
-  description?: string;
-  location?: string;
-}
+import { WeeklyProgramItem } from '@/lib/types';
+import { expandRecurringEvents } from '@/lib/eventUtils';
 
 interface WeeklyProgramProps {
   weeklyProgram?: WeeklyProgramItem[];
 }
 
 export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
-  // Expand recurring events to create instances for the next 8 days
-  const now = new Date();
-  // Set to end of day 8 days from now (23:59:59) to include all events on that day
-  const eightDaysFromNow = new Date(now);
-  eightDaysFromNow.setDate(eightDaysFromNow.getDate() + 8);
-  eightDaysFromNow.setHours(23, 59, 59, 999);
+  const schedule = expandRecurringEvents(weeklyProgram, 8);
 
-  const expandedEvents: WeeklyProgramItem[] = [];
-
-  weeklyProgram.forEach(item => {
-    const originalDate = new Date(item.datetime);
-
-    if (item.recurring) {
-      // For recurring events, create instances for each week in the next 8 days
-      const dayOfWeek = originalDate.getDay();
-      const timeOfDay = originalDate.getHours() * 60 + originalDate.getMinutes();
-
-      // Check every day in the next 15 days to catch up to 2 occurrences
-      for (let i = 0; i <= 15; i++) {
-        const checkDate = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
-
-        if (checkDate.getDay() === dayOfWeek) {
-          // Set the time to match the original event
-          const eventDateTime = new Date(checkDate);
-          eventDateTime.setHours(Math.floor(timeOfDay / 60), timeOfDay % 60, 0, 0);
-
-          // Only add if it's in the future and within 8 days
-          if (eventDateTime >= now && eventDateTime <= eightDaysFromNow) {
-            expandedEvents.push({
-              ...item,
-              datetime: eventDateTime.toISOString(),
-            });
-          }
-        }
-      }
-    } else {
-      // For one-time events, just add them if they're within the range
-      if (originalDate >= now && originalDate <= eightDaysFromNow) {
-        expandedEvents.push(item);
-      }
-    }
-  });
-
-  // Sort by datetime
-  const schedule = expandedEvents.sort((a, b) => {
-    return new Date(a.datetime).getTime() - new Date(b.datetime).getTime();
-  });
   return <section id="mass-times" className="py-20 bg-white relative overflow-hidden">
-      {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[#1e3a8a] via-[#c5a059] to-[#1e3a8a]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
