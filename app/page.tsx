@@ -2,6 +2,7 @@ import { Layout } from '@/components/Layout';
 import { Hero } from '@/components/Hero';
 import { WeeklyProgram } from '@/components/WeeklyProgram';
 import { NewsSection } from '@/components/NewsSection';
+import { LocationMap } from '@/components/LocationMap';
 import { client, queries } from '@/lib/sanity';
 
 export const revalidate = 60; // Revalidate every 60 seconds
@@ -48,6 +49,9 @@ export default async function Home() {
           <div className="w-16 h-1 bg-[#c5a059] mx-auto rounded-full" />
         </div>
       </section>
+
+      {/* Location Map */}
+      <LocationMap />
     </Layout>
   );
 }
