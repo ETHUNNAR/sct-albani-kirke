@@ -1,6 +1,6 @@
 import { Layout } from '@/components/Layout';
 import { Hero } from '@/components/Hero';
-import { ServiceTimes } from '@/components/ServiceTimes';
+import { WeeklyProgram } from '@/components/WeeklyProgram';
 import { NewsSection } from '@/components/NewsSection';
 import { client, queries } from '@/lib/sanity';
 
@@ -26,15 +26,14 @@ export default async function Home() {
     heroSubtitle: 'Den katolske kirke i Odense',
     aboutTitle: 'Velkommen til Sct. Albani Kirke',
     aboutText: 'Sct. Albani Kirke er den katolske sognekirke i Odense. Vi er et levende fællesskab af mennesker fra mange forskellige nationer, der forenes i troen på Jesus Kristus. Uanset hvem du er, og hvor du kommer fra, er du velkommen her.',
-    serviceTimes: [],
     newsItems: [],
     weeklyProgram: [],
   };
 
   return (
-    <Layout>
+    <Layout weeklyProgram={pageData.weeklyProgram || []}>
       <Hero siteSettings={pageData} />
-      <ServiceTimes serviceTimes={pageData.serviceTimes || []} />
+      <WeeklyProgram weeklyProgram={pageData.weeklyProgram || []} />
       <NewsSection newsItems={newsPosts || []} />
 
       {/* Quick About Section */}

@@ -3,7 +3,90 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Calendar } from 'lucide-react';
 import Link from 'next/link';
-export function Footer() {
+
+interface WeeklyProgramItem {
+  datetime: string;
+  recurring?: boolean;
+  massType: string;
+  language?: string;
+  description?: string;
+  location?: string;
+}
+
+interface FooterProps {
+  weeklyProgram?: WeeklyProgramItem[];
+}
+
+function getNextMass(weeklyProgram: WeeklyProgramItem[]): WeeklyProgramItem | null {
+  // Use all weekly program items (masses, tilbedelse, rosenkrans, etc.)
+  if (weeklyProgram.length === 0) return null;
+
+  const now = new Date();
+  const expandedEvents: WeeklyProgramItem[] = [];
+
+  weeklyProgram.forEach(item => {
+    const originalDate = new Date(item.datetime);
+
+    if (item.recurring) {
+      // For recurring events, find the next occurrence
+      const dayOfWeek = originalDate.getDay();
+      const timeOfDay = originalDate.getHours() * 60 + originalDate.getMinutes();
+
+      // Check the next 14 days to find the next occurrence
+      for (let i = 0; i <= 14; i++) {
+        const checkDate = new Date(now.getTime() + i * 24 * 60 * 60 * 1000);
+
+        if (checkDate.getDay() === dayOfWeek) {
+          const eventDateTime = new Date(checkDate);
+          eventDateTime.setHours(Math.floor(timeOfDay / 60), timeOfDay % 60, 0, 0);
+
+          if (eventDateTime >= now) {
+            expandedEvents.push({
+              ...item,
+              datetime: eventDateTime.toISOString(),
+            });
+            break; // Only add the next occurrence
+          }
+        }
+      }
+    } else {
+      // For one-time events, add if in the future
+      if (originalDate >= now) {
+        expandedEvents.push(item);
+      }
+    }
+  });
+
+  // If no upcoming events, return null
+  if (expandedEvents.length === 0) return null;
+
+  // Sort by datetime and return the first one
+  expandedEvents.sort((a, b) => {
+    return new Date(a.datetime).getTime() - new Date(b.datetime).getTime();
+  });
+
+  return expandedEvents[0];
+}
+
+export function Footer({ weeklyProgram = [] }: FooterProps) {
+  const [nextMass, setNextMass] = React.useState<WeeklyProgramItem | null>(null);
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    // Mark as client-side
+    setIsClient(true);
+
+    // Calculate next event on client side to get current time
+    setNextMass(getNextMass(weeklyProgram));
+
+    // Update every minute to stay current
+    const interval = setInterval(() => {
+      setNextMass(getNextMass(weeklyProgram));
+    }, 60000); // Update every minute
+
+    return () => clearInterval(interval);
+  }, [weeklyProgram]);
+
   return <footer className="bg-[#0f172a] text-white pt-16 pb-8" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
@@ -101,21 +184,54 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Next Mass */}
+          {/* Next Event */}
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold">Næste Messe</h4>
-            <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
-              <div className="flex items-start mb-2">
-                <Calendar className="h-5 w-5 text-[#c5a059] mr-2 mt-0.5" />
-                <div>
-                  <p className="font-medium text-white">Søndagshøjmessen</p>
-                  <p className="text-sm text-slate-300">Søndag kl. 10:00</p>
-                </div>
+            <h4 className="font-serif text-lg font-semibold">Næste Begivenhed</h4>
+            {!isClient ? (
+              <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
+                <p className="text-sm text-slate-300">
+                  Indlæser...
+                </p>
               </div>
-              <p className="text-xs text-slate-400 mt-2">
-                Kom og vær med til at fejre messen. Alle er velkomne.
-              </p>
-            </div>
+            ) : nextMass ? (
+              <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
+                <div className="flex items-start mb-2">
+                  <Calendar className="h-5 w-5 text-[#c5a059] mr-2 mt-0.5" />
+                  <div>
+                    <p className="font-medium text-white">{nextMass.massType}</p>
+                    <p className="text-sm text-slate-300">
+                      {new Date(nextMass.datetime).toLocaleDateString('da-DK', {
+                        weekday: 'long',
+                        day: 'numeric',
+                        month: 'long',
+                      })} kl. {new Date(nextMass.datetime).toLocaleTimeString('da-DK', {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      })}
+                    </p>
+                    {nextMass.language && (
+                      <p className="text-xs text-slate-400">({nextMass.language})</p>
+                    )}
+                  </div>
+                </div>
+                {nextMass.description && (
+                  <p className="text-xs text-slate-400 mt-2">
+                    {nextMass.description}
+                  </p>
+                )}
+                {!nextMass.description && (
+                  <p className="text-xs text-slate-400 mt-2">
+                    Kom og vær med. Alle er velkomne.
+                  </p>
+                )}
+              </div>
+            ) : (
+              <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
+                <p className="text-sm text-slate-300">
+                  Se vores messetider i menuen ovenfor.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 

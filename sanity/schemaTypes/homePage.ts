@@ -44,63 +44,6 @@ export const homePage = defineType({
         'Sct. Albani Kirke er den katolske sognekirke i Odense. Vi er et levende fællesskab af mennesker fra mange forskellige nationer, der forenes i troen på Jesus Kristus. Uanset hvem du er, og hvor du kommer fra, er du velkommen her.',
     }),
 
-    // Service Times Section
-    defineField({
-      name: 'serviceTimes',
-      title: 'Messetider',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            {
-              name: 'day',
-              title: 'Dag',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'time',
-              title: 'Tidspunkt',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'type',
-              title: 'Type',
-              type: 'string',
-              description: 'F.eks. "Højmesse", "Aftenmesse"',
-            },
-            {
-              name: 'language',
-              title: 'Sprog',
-              type: 'string',
-              description: 'F.eks. "Dansk", "Engelsk"',
-            },
-            {
-              name: 'order',
-              title: 'Rækkefølge',
-              type: 'number',
-              description: 'Bruges til sortering',
-            },
-          ],
-          preview: {
-            select: {
-              day: 'day',
-              time: 'time',
-              type: 'type',
-            },
-            prepare({day, time, type}) {
-              return {
-                title: `${day} - ${time}`,
-                subtitle: type,
-              }
-            },
-          },
-        },
-      ],
-    }),
-
     // News/Announcements Section
     defineField({
       name: 'newsItems',
@@ -185,22 +128,54 @@ export const homePage = defineType({
           type: 'object',
           fields: [
             {
-              name: 'day',
-              title: 'Dag',
+              name: 'recurring',
+              title: 'Gentages Ugentligt',
+              type: 'boolean',
+              description: 'Marker denne hvis messen/begivenheden gentages hver uge på samme dag og tidspunkt',
+              initialValue: false,
+            },
+            {
+              name: 'datetime',
+              title: 'Dato og Tidspunkt',
+              type: 'datetime',
+              validation: (Rule) => Rule.required(),
+              options: {
+                dateFormat: 'DD-MM-YYYY',
+                timeFormat: 'HH:mm',
+              },
+              description: 'For ugentlige begivenheder: vælg den første dato. For engangsbegivenheder: vælg den specifikke dato.',
+            },
+            {
+              name: 'massType',
+              title: 'Messe Type',
               type: 'string',
+              options: {
+                list: [
+                  { title: 'Søndagsmesse', value: 'Søndagsmesse' },
+                  { title: 'Højtidsmesse', value: 'Højtidsmesse' },
+                  { title: 'Højmesse', value: 'Højmesse' },
+                  { title: 'Aftenmesse', value: 'Aftenmesse' },
+                  { title: 'Rosenkrans', value: 'Rosenkrans' },
+                  { title: 'Tilbedelse', value: 'Tilbedelse' },
+                  { title: 'Andet', value: 'Andet' },
+                ],
+              },
+              description: 'Vælg messe type',
               validation: (Rule) => Rule.required(),
             },
             {
-              name: 'time',
-              title: 'Tidspunkt',
+              name: 'language',
+              title: 'Sprog',
               type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'event',
-              title: 'Begivenhed',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
+              options: {
+                list: [
+                  { title: 'Dansk', value: 'Dansk' },
+                  { title: 'Polsk', value: 'Polsk' },
+                  { title: 'Vietnamesisk', value: 'Vietnamesisk' },
+                  { title: 'Engelsk', value: 'Engelsk' },
+                ],
+              },
+              description: 'Vælg sprog',
             },
             {
               name: 'description',
@@ -216,14 +191,26 @@ export const homePage = defineType({
           ],
           preview: {
             select: {
-              day: 'day',
-              time: 'time',
-              event: 'event',
+              datetime: 'datetime',
+              massType: 'massType',
+              language: 'language',
+              recurring: 'recurring',
             },
-            prepare({day, time, event}) {
+            prepare({datetime, massType, language, recurring}) {
+              const date = new Date(datetime);
+              const formattedDate = date.toLocaleDateString('da-DK', {
+                weekday: 'short',
+                day: 'numeric',
+                month: 'short',
+              });
+              const formattedTime = date.toLocaleTimeString('da-DK', {
+                hour: '2-digit',
+                minute: '2-digit',
+              });
+              const recurringLabel = recurring ? ' 🔄 (Ugentlig)' : '';
               return {
-                title: `${day} ${time}`,
-                subtitle: event,
+                title: `${formattedDate} ${formattedTime}${recurringLabel}`,
+                subtitle: `${massType}${language ? ` (${language})` : ''}`,
               }
             },
           },

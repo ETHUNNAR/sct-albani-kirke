@@ -25,13 +25,6 @@ export const queries = {
     heroImage,
     aboutTitle,
     aboutText,
-    serviceTimes[] {
-      day,
-      time,
-      type,
-      language,
-      order
-    } | order(order asc),
     newsItems[] {
       title,
       date,
@@ -40,10 +33,11 @@ export const queries = {
       image,
       category
     } | order(date desc),
-    weeklyProgram[] {
-      day,
-      time,
-      event,
+    weeklyProgram[] | order(datetime asc) {
+      datetime,
+      recurring,
+      massType,
+      language,
       description,
       location
     }
