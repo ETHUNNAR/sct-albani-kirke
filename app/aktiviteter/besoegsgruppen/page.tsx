@@ -106,14 +106,28 @@ export default async function BesoesgruppenPage() {
       </section>
 
       {/* Main Content Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
           {/* About Section */}
           <div className="mb-16">
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mb-6">
+            <div className="inline-block mb-6">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+                Om os
+              </span>
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
               {pageData.aboutTitle}
             </h2>
+
+            <div className="flex items-start gap-3 mb-8">
+              <div className="w-12 h-px bg-gradient-to-r from-[#c5a059] to-transparent mt-3" />
+              <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50 mt-2.5" />
+            </div>
             <p className="text-slate-700 text-lg leading-relaxed mb-8">
               {pageData.aboutText}
             </p>
@@ -139,12 +153,30 @@ export default async function BesoesgruppenPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-[#f8f6f1]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 border border-slate-200">
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mb-8 text-center">
-              Kontakt os
-            </h2>
+            <div className="text-center mb-8">
+              <div className="inline-block mb-4">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+                  Kontakt
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+                Kontakt os
+              </h2>
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+                <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+              </div>
+            </div>
 
             {pageData.contactPerson && (
               <div className="mb-8 text-center">

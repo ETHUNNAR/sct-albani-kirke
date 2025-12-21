@@ -203,8 +203,13 @@ export default async function NewsPostPage({ params }: PageProps) {
       </section>
 
       {/* Article Content */}
-      <article className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <article className="py-24 bg-gradient-to-b from-white via-[#f8f6f1] to-white relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute top-[800px] right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Excerpt/Lead */}
           {post.excerpt && (
             <div className="text-xl text-slate-600 leading-relaxed mb-12 pb-8 border-b border-slate-200">
@@ -231,12 +236,30 @@ export default async function NewsPostPage({ params }: PageProps) {
       </article>
 
       {/* Share Section */}
-      <section className="py-12 bg-[#f8f6f1]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-4">
+      <section className="py-20 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-block mb-6">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+              Del artiklen
+            </span>
+          </div>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
             Del denne nyhed
           </h2>
-          <p className="text-slate-600 mb-6">
+
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+          </div>
+
+          <p className="text-lg text-slate-600 mb-8">
             Hjælp os med at sprede budskabet ved at dele med dit netværk
           </p>
           <div className="flex justify-center gap-4">
@@ -244,7 +267,7 @@ export default async function NewsPostPage({ params }: PageProps) {
               href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 bg-[#1877f2] text-white font-semibold rounded-lg hover:bg-[#1877f2]/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-[#1877f2] text-white font-semibold rounded-lg hover:bg-[#1877f2]/80 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Del på Facebook
             </a>

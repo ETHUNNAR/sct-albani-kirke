@@ -38,15 +38,43 @@ export default async function Home() {
       <NewsSection newsItems={newsPosts || []} />
 
       {/* Quick About Section */}
-      <section className="py-24 bg-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+      <section className="py-32 bg-gradient-to-b from-white to-[#fdfbf7] text-center relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        {/* Decorative Cross Pattern */}
+        <div className="absolute top-10 left-10 text-[#1e3a8a]/5 text-6xl font-serif">✦</div>
+        <div className="absolute bottom-10 right-10 text-[#c5a059]/10 text-6xl font-serif">✦</div>
+
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <div className="inline-block mb-6">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+              Om Kirken
+            </span>
+          </div>
+
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1e3a8a] mb-8 leading-tight">
             {pageData.aboutTitle}
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed mb-8">
+
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+          </div>
+
+          <p className="text-xl text-slate-700 leading-relaxed mb-12 max-w-3xl mx-auto">
             {pageData.aboutText}
           </p>
-          <div className="w-16 h-1 bg-[#c5a059] mx-auto rounded-full" />
+
+          {/* Decorative Quote Marks */}
+          <div className="relative inline-block">
+            <span className="absolute -top-8 -left-8 text-6xl text-[#c5a059]/20 font-serif">"</span>
+            <span className="absolute -bottom-8 -right-8 text-6xl text-[#c5a059]/20 font-serif">"</span>
+          </div>
         </div>
       </section>
 

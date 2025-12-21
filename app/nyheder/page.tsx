@@ -83,8 +83,12 @@ export default async function NyhederPage() {
       </section>
 
       {/* News Grid */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {posts.length === 0 ? (
             <div className="text-center py-16">
               <p className="text-lg text-slate-600">
@@ -180,24 +184,42 @@ export default async function NyhederPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-16 bg-[#f8f6f1]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mb-4">
+      <section className="py-20 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-block mb-6">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+              Hold dig opdateret
+            </span>
+          </div>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
             Vil du holde dig opdateret?
           </h2>
-          <p className="text-lg text-slate-600 mb-8">
+
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+          </div>
+
+          <p className="text-lg text-slate-600 mb-12">
             Følg os på sociale medier eller kontakt kirken for at modtage vores nyhedsbrev
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/#contact"
-              className="inline-flex items-center px-6 py-3 bg-[#1e3a8a] text-white font-semibold rounded-lg hover:bg-[#1e3a8a]/90 transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-[#1e3a8a] text-white font-semibold rounded-lg hover:bg-[#172554] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Kontakt os
             </Link>
             <a
               href="#"
-              className="inline-flex items-center px-6 py-3 bg-white text-[#1e3a8a] font-semibold rounded-lg hover:bg-slate-50 transition-colors border-2 border-[#1e3a8a]"
+              className="inline-flex items-center px-6 py-3 bg-white text-[#1e3a8a] font-semibold rounded-lg hover:bg-[#1e3a8a] hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#1e3a8a]"
             >
               Følg os på Facebook
             </a>

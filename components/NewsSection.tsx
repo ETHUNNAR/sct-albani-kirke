@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CalendarDays } from 'lucide-react';
 import { Button } from './ui/Button';
 import { urlFor } from '@/lib/sanity';
 import Link from 'next/link';
@@ -43,61 +43,105 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
 
   if (news.length === 0) return null;
 
-  return <section id="activities" className="py-20 bg-[#f8f6f1]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-          <div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
+  return <section id="activities" className="py-24 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+      {/* Decorative Elements */}
+      <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-40 right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+          <div className="mb-8 md:mb-0">
+            <div className="inline-block mb-4">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+                Nyheder & Aktiviteter
+              </span>
+            </div>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1e3a8a] mb-6">
               Aktuelt i Kirken
             </h2>
-            <p className="text-slate-600 max-w-xl">
+            <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
               Hold dig opdateret med de seneste nyheder, arrangementer og
               aktiviteter i Sct. Albani menighed.
             </p>
           </div>
           <Link href="/nyheder">
-            <Button variant="outline" className="mt-6 md:mt-0 hidden md:flex">
+            <Button
+              variant="outline"
+              className="mt-6 md:mt-0 hidden md:flex border-2 border-[#1e3a8a] text-[#1e3a8a]
+                       hover:!bg-[#1e3a8a] hover:text-white font-semibold
+                       shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
               Se alle nyheder
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {news.map((item) => <article key={item._id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col h-full">
-              <div className="relative h-48 overflow-hidden">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-[#1e3a8a] uppercase tracking-wide">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {news.map((item) => <article
+              key={item._id}
+              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl
+                       transition-all duration-500 border border-slate-200/50 flex flex-col h-full
+                       hover:-translate-y-2"
+            >
+              <div className="relative h-56 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent
+                              opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full
+                              text-xs font-bold text-[#1e3a8a] uppercase tracking-wide shadow-lg">
                   {item.category}
+                </div>
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="flex items-center text-white/90 text-xs font-medium">
+                    <CalendarDays className="h-3.5 w-3.5 mr-1.5" />
+                    {item.date}
+                  </div>
                 </div>
               </div>
 
               <div className="p-6 flex flex-col flex-grow">
-                <div className="text-sm text-[#c5a059] font-medium mb-2">
-                  {item.date}
-                </div>
-                <h3 className="font-serif text-xl font-bold text-slate-900 mb-3 group-hover:text-[#1e3a8a] transition-colors">
+                <h3 className="font-serif text-xl font-bold text-slate-900 mb-3 leading-tight
+                             group-hover:text-[#1e3a8a] transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
                   {item.excerpt}
                 </p>
                 {item.slug ? (
-                  <Link href={`/nyheder/${item.slug}`} className="inline-flex items-center text-sm font-semibold text-[#1e3a8a] hover:text-[#c5a059] transition-colors mt-auto">
-                    Læs mere <ArrowRight className="ml-2 h-4 w-4" />
+                  <Link
+                    href={`/nyheder/${item.slug}`}
+                    className="inline-flex items-center text-sm font-bold text-[#1e3a8a]
+                             hover:text-[#c5a059] transition-all duration-300 mt-auto group/link"
+                  >
+                    Læs mere
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 ) : (
-                  <span className="inline-flex items-center text-sm font-semibold text-[#1e3a8a] hover:text-[#c5a059] transition-colors mt-auto">
-                    Læs mere <ArrowRight className="ml-2 h-4 w-4" />
+                  <span className="inline-flex items-center text-sm font-bold text-[#1e3a8a]
+                               hover:text-[#c5a059] transition-all duration-300 mt-auto group/link cursor-pointer">
+                    Læs mere
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                   </span>
                 )}
               </div>
             </article>)}
         </div>
 
-        <div className="mt-10 text-center md:hidden">
+        <div className="mt-12 text-center md:hidden">
           <Link href="/nyheder">
-            <Button variant="outline" className="w-full">
+            <Button
+              variant="outline"
+              className="w-full border-2 border-[#1e3a8a] text-[#1e3a8a]
+                       hover:!bg-[#1e3a8a] hover:text-white font-semibold
+                       shadow-lg hover:shadow-xl transition-all duration-300"
+            >
               Se alle nyheder
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
         </div>

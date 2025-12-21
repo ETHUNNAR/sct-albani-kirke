@@ -114,8 +114,12 @@ export default async function DukPage() {
       </section>
 
       {/* Main Description */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="prose prose-lg max-w-none">
             {pageData.description && (
               <PortableText value={pageData.description} />
@@ -153,13 +157,29 @@ export default async function DukPage() {
 
       {/* Age Groups */}
       {pageData.ageGroups && pageData.ageGroups.length > 0 && (
-        <section className="py-20 bg-[#f8f6f1]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
+        <section className="py-24 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+          {/* Decorative Elements */}
+          <div className="absolute top-40 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-40 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-block mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+                  Grupper
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
                 {pageData.ageGroupsTitle || 'Vores Grupper'}
               </h2>
-              <div className="w-24 h-1 bg-[#c5a059] mx-auto rounded-full" />
+
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+                <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+              </div>
 
               {/* Age Groups Description */}
               {pageData.ageGroupsDescription && (
@@ -197,13 +217,29 @@ export default async function DukPage() {
 
       {/* Board Members */}
       {pageData.boardMembers && pageData.boardMembers.length > 0 && (
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
+        <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
+          {/* Decorative Elements */}
+          <div className="absolute top-20 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center mb-16">
+              <div className="inline-block mb-6">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+                  Bestyrelse
+                </span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
                 {pageData.boardTitle || 'Bestyrelsen'}
               </h2>
-              <div className="w-24 h-1 bg-[#c5a059] mx-auto rounded-full" />
+
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+                <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+                <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+              </div>
 
               {/* Board Description */}
               {pageData.boardDescription && (
@@ -267,11 +303,22 @@ export default async function DukPage() {
       )}
 
       {/* Contact & Social */}
-      <section className="py-20 bg-[#1e3a8a] text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-8">
+      <section className="py-24 bg-[#1e3a8a] text-white relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/20 rounded-full blur-3xl" />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">
             Kontakt Os
           </h2>
+          <div className="flex items-center justify-center gap-3 mb-12">
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {pageData.contactEmail && (
