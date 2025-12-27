@@ -22,15 +22,12 @@ export function Header() {
       href: '/'
     },
     {
-      name: 'Nyheder',
-      href: '/nyheder'
-    },
-    {
       name: 'Aktiviteter',
       href: '#activities',
       dropdown: [
         { name: 'Sct. Albani DUK', href: '/aktiviteter/duk' },
         { name: 'Besøgsgruppen', href: '/aktiviteter/besoegsgruppen' },
+        { name: '1. Kommunikanter', href: '/aktiviteter/1kommunikanter' },
       ]
     },
     {

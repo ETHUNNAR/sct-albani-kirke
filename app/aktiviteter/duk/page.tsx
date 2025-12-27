@@ -23,6 +23,23 @@ async function getDukContent() {
   }
 }
 
+// Custom PortableText components for proper list rendering
+const portableTextComponents = {
+  list: {
+    bullet: ({children}: any) => <ul className="list-disc list-inside text-slate-700 space-y-2 ml-4">{children}</ul>,
+    number: ({children}: any) => <ol className="list-decimal list-inside text-slate-700 space-y-2 ml-4">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({children}: any) => <li className="text-slate-700">{children}</li>,
+    number: ({children}: any) => <li className="text-slate-700">{children}</li>,
+  },
+  block: {
+    normal: ({children}: any) => <p className="text-slate-700 mb-4">{children}</p>,
+    h2: ({children}: any) => <h2 className="font-serif text-2xl font-bold text-[#1e3a8a] mt-6 mb-4">{children}</h2>,
+    h3: ({children}: any) => <h3 className="font-serif text-xl font-bold text-[#1e3a8a] mt-5 mb-3">{children}</h3>,
+  },
+};
+
 export default async function DukPage() {
   const { dukPage } = await getDukContent();
 
@@ -120,9 +137,9 @@ export default async function DukPage() {
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="prose prose-lg max-w-none">
+          <div>
             {pageData.description && (
-              <PortableText value={pageData.description} />
+              <PortableText value={pageData.description} components={portableTextComponents} />
             )}
           </div>
 

@@ -1,5 +1,6 @@
 import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
+import { PortableText } from '@portabletext/react';
 import { Mail, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
@@ -21,6 +22,23 @@ async function getBesoesgruppenContent() {
     return { besoesgruppenPage: null };
   }
 }
+
+// Custom PortableText components for proper rendering
+const portableTextComponents = {
+  list: {
+    bullet: ({children}: any) => <ul className="list-disc list-inside text-slate-700 space-y-2 ml-4">{children}</ul>,
+    number: ({children}: any) => <ol className="list-decimal list-inside text-slate-700 space-y-2 ml-4">{children}</ol>,
+  },
+  listItem: {
+    bullet: ({children}: any) => <li className="text-slate-700">{children}</li>,
+    number: ({children}: any) => <li className="text-slate-700">{children}</li>,
+  },
+  block: {
+    normal: ({children}: any) => <p className="text-slate-700 mb-4">{children}</p>,
+    h2: ({children}: any) => <h2 className="font-serif text-2xl font-bold text-[#1e3a8a] mt-6 mb-4">{children}</h2>,
+    h3: ({children}: any) => <h3 className="font-serif text-xl font-bold text-[#1e3a8a] mt-5 mb-3">{children}</h3>,
+  },
+};
 
 export default async function BesoesgruppenPage() {
   const { besoesgruppenPage } = await getBesoesgruppenContent();
@@ -128,9 +146,13 @@ export default async function BesoesgruppenPage() {
               <div className="w-12 h-px bg-gradient-to-r from-[#c5a059] to-transparent mt-3" />
               <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50 mt-2.5" />
             </div>
-            <p className="text-slate-700 text-lg leading-relaxed mb-8">
-              {pageData.aboutText}
-            </p>
+            <div className="text-slate-700 text-lg leading-relaxed mb-8">
+              {pageData.aboutText && Array.isArray(pageData.aboutText) ? (
+                <PortableText value={pageData.aboutText} components={portableTextComponents} />
+              ) : (
+                <p>{pageData.aboutText}</p>
+              )}
+            </div>
 
             {/* Objectives List */}
             {pageData.objectives && pageData.objectives.length > 0 && (

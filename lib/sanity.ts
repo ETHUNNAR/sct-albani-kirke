@@ -90,6 +90,29 @@ export const queries = {
     contactPerson
   }`,
 
+  // Get 1. Kommunikanter page content (there should only be one)
+  kommunikanterPage: `*[_type == "kommunikanterPage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    description,
+    aboutTitle,
+    aboutText,
+    requirementsTitle,
+    requirements,
+    contactTitle,
+    contactEmail,
+    contactPhone,
+    contactPerson,
+    downloadTitle,
+    downloads[] {
+      name,
+      url,
+      description
+    }
+  }`,
+
   // Get all news posts, ordered by date (newest first)
   newsPosts: `*[_type == "newsPost"] | order(publishedAt desc) {
     _id,

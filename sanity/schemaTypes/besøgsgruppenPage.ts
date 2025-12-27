@@ -36,8 +36,8 @@ export const besoesgruppenPage = defineType({
     defineField({
       name: 'aboutText',
       title: 'Om Os Tekst',
-      type: 'text',
-      rows: 4,
+      type: 'array',
+      of: [{type: 'block'}],
       description: 'Introduktionstekst om Besøgsgruppen',
     }),
     defineField({
