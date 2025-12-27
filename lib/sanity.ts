@@ -113,6 +113,50 @@ export const queries = {
     }
   }`,
 
+  // Get Firmander page content (there should only be one)
+  firmanderPage: `*[_type == "firmanderPage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    description,
+    aboutTitle,
+    aboutText,
+    requirementsTitle,
+    requirements,
+    contactTitle,
+    contactEmail,
+    contactPhone,
+    contactPerson,
+    downloadTitle,
+    downloads[] {
+      name,
+      url,
+      description
+    }
+  }`,
+
+  // Get Ministranter page content (there should only be one)
+  ministranterPage: `*[_type == "ministranterPage"] [0] {
+    _id,
+    title,
+    heroImage,
+    description,
+    contactTitle,
+    contact1 {
+      sectionTitle,
+      email,
+      phone,
+      person
+    },
+    contact2 {
+      sectionTitle,
+      email,
+      phone,
+      person
+    }
+  }`,
+
   // Get all news posts, ordered by date (newest first)
   newsPosts: `*[_type == "newsPost"] | order(publishedAt desc) {
     _id,

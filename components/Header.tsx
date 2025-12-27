@@ -28,6 +28,8 @@ export function Header() {
         { name: 'Sct. Albani DUK', href: '/aktiviteter/duk' },
         { name: 'Besøgsgruppen', href: '/aktiviteter/besoegsgruppen' },
         { name: '1. Kommunikanter', href: '/aktiviteter/1kommunikanter' },
+        { name: 'Firmander', href: '/aktiviteter/firmander' },
+        { name: 'Ministranter', href: '/aktiviteter/ministranter' },
       ]
     },
     {
