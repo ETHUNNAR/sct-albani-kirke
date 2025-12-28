@@ -69,12 +69,6 @@ export default async function Home() {
           <p className="text-xl text-slate-700 leading-relaxed mb-12 max-w-3xl mx-auto">
             {pageData.aboutText}
           </p>
-
-          {/* Decorative Quote Marks */}
-          <div className="relative inline-block">
-            <span className="absolute -top-8 -left-8 text-6xl text-[#c5a059]/20 font-serif">"</span>
-            <span className="absolute -bottom-8 -right-8 text-6xl text-[#c5a059]/20 font-serif">"</span>
-          </div>
         </div>
       </section>
 
