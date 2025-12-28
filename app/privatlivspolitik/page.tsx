@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout';
+import { ServerLayout } from '@/components/ServerLayout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivatlivspolitikPage() {
   return (
-    <Layout>
+    <ServerLayout>
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[300px] w-full overflow-hidden bg-[#1e3a8a]">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-[#1e3a8a]" />
@@ -237,6 +237,6 @@ export default function PrivatlivspolitikPage() {
           </div>
         </div>
       </section>
-    </Layout>
+    </ServerLayout>
   );
 }

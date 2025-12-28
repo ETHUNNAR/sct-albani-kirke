@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '@/components/Layout';
+import { ServerLayout } from '@/components/ServerLayout';
 import { Coins, Heart, AlertCircle, Info, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
 
 export default function Kirkeskat() {
@@ -25,7 +25,7 @@ export default function Kirkeskat() {
   ];
 
   return (
-    <Layout>
+    <ServerLayout>
       <div className="h-1 bg-gradient-to-r from-[#1e3a8a] via-[#c5a059] to-[#1e3a8a]" />
 
       <section className="bg-white border-b border-slate-200">
@@ -224,6 +224,6 @@ export default function Kirkeskat() {
       </div>
 
       <div className="h-1 bg-gradient-to-r from-[#1e3a8a] via-[#c5a059] to-[#1e3a8a]" />
-    </Layout>
+    </ServerLayout>
   );
 }

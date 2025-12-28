@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '@/components/Layout';
+import { ServerLayout } from '@/components/ServerLayout';
 import { Users, Shield, FileText, Calendar, Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Menighedsraad() {
@@ -32,7 +32,7 @@ export default function Menighedsraad() {
   ];
 
   return (
-    <Layout>
+    <ServerLayout>
       <div className="h-1 bg-gradient-to-r from-[#1e3a8a] via-[#c5a059] to-[#1e3a8a]" />
 
       <section className="relative bg-white border-b-4 border-[#c5a059]">
@@ -183,6 +183,6 @@ export default function Menighedsraad() {
       </div>
 
       <div className="h-1 bg-gradient-to-r from-[#1e3a8a] via-[#c5a059] to-[#1e3a8a]" />
-    </Layout>
+    </ServerLayout>
   );
 }

@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout';
+import { ServerLayout } from '@/components/ServerLayout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { Users, Mail, Phone, ExternalLink } from 'lucide-react';
@@ -86,7 +86,7 @@ export default async function DukPage() {
   };
 
   return (
-    <Layout>
+    <ServerLayout>
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -400,6 +400,6 @@ export default async function DukPage() {
           )}
         </div>
       </section>
-    </Layout>
+    </ServerLayout>
   );
 }

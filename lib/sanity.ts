@@ -192,4 +192,16 @@ export const queries = {
     excerpt,
     featuredImage
   }`,
+
+  // Get weekly program (for footer on all pages)
+  weeklyProgram: `*[_type == "homePage"] [0] {
+    weeklyProgram[] | order(datetime asc) {
+      datetime,
+      recurring,
+      massType,
+      language,
+      description,
+      location
+    }
+  }.weeklyProgram`,
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout } from '@/components/Layout';
+import { ServerLayout } from '@/components/ServerLayout';
 import { Cross, Book, Heart, Globe, MapPin, Mail, Phone } from 'lucide-react';
 
 export default function RedemptoristOrden() {
   return (
-    <Layout>
+    <ServerLayout>
       <div className="h-1 bg-gradient-to-r from-transparent via-[#c5a059] to-transparent" />
 
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2d4a9a] to-[#1e3a8a] text-white">
@@ -232,6 +232,6 @@ export default function RedemptoristOrden() {
       </div>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-[#c5a059] to-transparent" />
-    </Layout>
+    </ServerLayout>
   );
 }
