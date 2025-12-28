@@ -37,23 +37,29 @@ export function Header() {
       href: '#mass-times'
     },
     {
-      name: 'Historie',
-      href: '#history'
+      name: 'Menighedens historie',
+      href: '#history',
+      dropdown: [
+        { name: 'Redemptorist - ordenen', href: '/menighedens-historie/redemptorist-ordenen' },
+        { name: 'Menighedsrådet 2018-2022', href: '/menighedens-historie/menighedsraad' },
+        { name: 'Kirkens historie', href: '/menighedens-historie/kirkens-historie' },
+        { name: 'Kirkeskat', href: '/menighedens-historie/kirkeskat' },
+      ]
     },
     {
       name: 'Kontakt',
       href: '#contact'
     }
   ];
-  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-transparent py-6'}`}>
+  return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-white/80 backdrop-blur-sm py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo / Brand */}
           <div className="flex items-center space-x-3">
-            <div className={`p-2 rounded-full ${isScrolled ? 'bg-[#1e3a8a] text-white' : 'bg-white/10 text-white backdrop-blur-md'}`}>
+            <div className="p-2 rounded-full bg-[#1e3a8a] text-white">
               <Church className="h-6 w-6" />
             </div>
-            <div className={`flex flex-col ${isScrolled ? 'text-[#1e3a8a]' : 'text-white'}`}>
+            <div className="flex flex-col text-[#1e3a8a]">
               <span className="font-serif font-bold text-lg leading-none">
                 Sct. Albani Kirke
               </span>
@@ -74,7 +80,7 @@ export function Header() {
               >
                 {link.dropdown ? (
                   <>
-                    <button className={`text-sm font-medium transition-colors hover:text-[#c5a059] flex items-center gap-1 ${isScrolled ? 'text-slate-700' : 'text-white/90'}`}>
+                    <button className="text-sm font-medium transition-colors hover:text-[#c5a059] flex items-center gap-1 text-slate-700">
                       {link.name}
                       <ChevronDown className="h-4 w-4" />
                     </button>
@@ -95,19 +101,19 @@ export function Header() {
                     )}
                   </>
                 ) : (
-                  <Link href={link.href} className={`text-sm font-medium transition-colors hover:text-[#c5a059] ${isScrolled ? 'text-slate-700' : 'text-white/90'}`}>
+                  <Link href={link.href} className="text-sm font-medium transition-colors hover:text-[#c5a059] text-slate-700">
                     {link.name}
                   </Link>
                 )}
               </div>
             ))}
-            <Button variant={isScrolled ? 'primary' : 'secondary'} size="sm">
+            <Button variant="primary" size="sm">
               Støt Kirken
             </Button>
           </nav>
 
           {/* Mobile Menu Button */}
-          <button className={`md:hidden p-2 rounded-md ${isScrolled ? 'text-slate-900' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
+          <button className="md:hidden p-2 rounded-md text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
             {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
