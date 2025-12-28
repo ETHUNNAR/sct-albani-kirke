@@ -169,8 +169,8 @@ export const queries = {
     featured
   }`,
 
-  // Get a single news post by slug
-  newsPostBySlug: (slug: string) => `*[_type == "newsPost" && slug.current == "${slug}"] [0] {
+  // Get a single news post by slug (use with parameters: { slug: "..." })
+  newsPostBySlug: `*[_type == "newsPost" && slug.current == $slug] [0] {
     _id,
     title,
     slug,

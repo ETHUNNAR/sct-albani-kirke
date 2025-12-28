@@ -39,7 +39,7 @@ const categoryColors: Record<string, string> = {
 
 async function getNewsPost(slug: string) {
   try {
-    const post = await client.fetch<NewsPost>(queries.newsPostBySlug(slug));
+    const post = await client.fetch<NewsPost>(queries.newsPostBySlug, { slug });
     return post;
   } catch (error) {
     console.error('Error fetching news post:', error);
