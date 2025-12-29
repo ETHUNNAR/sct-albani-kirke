@@ -1,0 +1,20 @@
+BEGIN:VCARD
+VERSION:3.0
+N:;Sognekontoret;
+FN:Sognekontoret
+TITLE:Adelgade 1, 5000 Odense C
+TEL;TYPE=WORK,VOICE:
+TEL;TYPE=WORK,FAX:
+TEL;TYPE=WORK,MOBILE:28965517
+ADR;TYPE=WORK:;;Adelgade 1, Odense C
+;Odense C;;5000;
+LABEL;TYPE=WORK:Adelgade 1, Odense C
+
+Odense C
+
+5000
+
+EMAIL;TYPE=PREF,INTERNET:sognepraest@sct-albani.dk
+URL:
+REV:2018-11-15T09:51:10+01:00Z
+END:VCARD

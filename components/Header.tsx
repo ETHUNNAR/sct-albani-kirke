@@ -52,7 +52,7 @@ export function Header() {
     },
     {
       name: 'Kontakt',
-      href: '#contact'
+      href: '/kontakt'
     }
   ];
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-white/80 backdrop-blur-sm py-6'}`}>
@@ -111,9 +111,11 @@ export function Header() {
                 )}
               </div>
             ))}
-            <Button variant="primary" size="sm">
-              Støt Kirken
-            </Button>
+            <Link href="/stot-kirken">
+              <Button variant="primary" size="sm">
+                Støt Kirken
+              </Button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -157,7 +159,9 @@ export function Header() {
               )}
             </div>
           ))}
-          <Button className="w-full justify-center">Støt Kirken</Button>
+          <Link href="/stot-kirken" className="w-full">
+            <Button className="w-full justify-center">Støt Kirken</Button>
+          </Link>
         </div>
       )}
     </header>;
