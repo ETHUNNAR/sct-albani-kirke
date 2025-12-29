@@ -36,8 +36,14 @@ export function Header() {
       ]
     },
     {
-      name: 'Messetider',
-      href: '#mass-times'
+      name: 'Messe',
+      href: '#mass-times',
+      dropdown: [
+        { name: 'Messetider', href: '/#mass-times' },
+        { name: 'Messe', href: '/messetider-mass-times/messe' },
+        { name: 'Rosenkransen', href: '/messetider-mass-times/rosenkransen' },
+        { name: 'Sakramenterne', href: '/messetider-mass-times/sakramenterne' },
+      ]
     },
     {
       name: 'Menighedens historie',
