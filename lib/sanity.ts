@@ -226,4 +226,45 @@ export const queries = {
     contactEmail,
     contactPerson
   }`,
+
+  // Get Familiegruppen page content (there should only be one)
+  familiegruppenPage: `*[_type == "familiegruppenPage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    description,
+    featureImage,
+    contactTitle,
+    contactEmail,
+    contactPhone,
+    contactPerson
+  }`,
+
+  // Get Bibelgruppe page content (there should only be one)
+  bibelgruppePage: `*[_type == "bibelgruppePage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    description,
+    featureImage,
+    contactTitle,
+    contactEmail,
+    contactPhone,
+    contactPerson
+  }`,
+
+  // Get Kirkekaffe page content (there should only be one)
+  kirkekaffePage: `*[_type == "kirkekaffePage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    featureImage,
+    contactTitle,
+    contactEmail,
+    contactPhone,
+    contactPerson
+  }`,
 }
