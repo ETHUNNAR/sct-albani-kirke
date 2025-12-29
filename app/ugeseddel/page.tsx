@@ -1,0 +1,368 @@
+import { ServerLayout } from '@/components/ServerLayout';
+import { client, queries, urlFor } from '@/lib/sanity';
+import { Download, FileText, FileQuestion, Mail, User, Calendar } from 'lucide-react';
+import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const revalidate = 60;
+
+export const metadata: Metadata = {
+  title: 'Ugeseddel - Sct. Albani Kirke',
+  description: 'Den aktuelle ugeseddel for Sct. Albani Kirke i Odense.',
+};
+
+async function getUgeseddelContent() {
+  try {
+    const ugeseddelPage = await client.fetch(queries.ugeseddelPage);
+    return { ugeseddelPage };
+  } catch (error) {
+    console.error('Error fetching Ugeseddel content:', error);
+    return { ugeseddelPage: null };
+  }
+}
+
+// Format date to Danish format
+function formatDate(dateString: string) {
+  if (!dateString) return '';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('da-DK', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
+
+export default async function UgeseddelPage() {
+  const { ugeseddelPage } = await getUgeseddelContent();
+
+  // Fallback data
+  const pageData = ugeseddelPage || {
+    title: 'Ugeseddel',
+    subtitle: 'Den aktuelle ugeseddel for Sct. Albani Kirke',
+    currentBulletin: null,
+    bulletinTitle: '',
+    publishedDate: '',
+    description: '',
+    contactEmail: '',
+    contactPerson: '',
+  };
+
+  const hasPDF = pageData.currentBulletin?.asset?.url;
+
+  return (
+    <ServerLayout>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          {pageData.heroImage ? (
+            <img
+              src={urlFor(pageData.heroImage).width(2000).height(1200).url()}
+              alt={pageData.title}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <img
+              src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=2070&auto=format&fit=crop"
+              alt="Church bulletin"
+              className="w-full h-full object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1e3a8a]/90 mix-blend-multiply" />
+
+          {/* Decorative golden cross pattern overlay */}
+          <div className="absolute inset-0 opacity-5" style={{
+            backgroundImage: `radial-gradient(circle, #c5a059 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
+          {/* Decorative top ornament */}
+          <div className="mb-6 flex items-center gap-3">
+            <div className="h-px w-12 bg-[#c5a059]" />
+            <div className="w-2 h-2 rotate-45 bg-[#c5a059]" />
+            <div className="h-px w-12 bg-[#c5a059]" />
+          </div>
+
+          <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
+            {pageData.title}
+          </h1>
+          {pageData.subtitle && (
+            <p className="text-xl md:text-2xl text-[#c5a059] font-light mb-6 italic">
+              {pageData.subtitle}
+            </p>
+          )}
+
+          {/* Decorative divider */}
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-1 h-1 rounded-full bg-white/60" />
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+            <div className="w-2 h-2 rounded-full bg-[#c5a059]" />
+            <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
+            <div className="w-1 h-1 rounded-full bg-white/60" />
+          </div>
+        </div>
+
+        {/* Breadcrumb */}
+        <div className="absolute bottom-6 left-6 z-10">
+          <nav className="flex items-center space-x-2 text-sm text-white/80">
+            <Link href="/" className="hover:text-white transition-colors">
+              Forside
+            </Link>
+            <span>/</span>
+            <span className="text-white">{pageData.title}</span>
+          </nav>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      {hasPDF ? (
+        <>
+          {/* Bulletin Info Section */}
+          <section className="py-12 bg-white relative overflow-hidden">
+            {/* Subtle background pattern */}
+            <div className="absolute inset-0 opacity-[0.02]" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%231e3a8a' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+              backgroundSize: '30px 30px'
+            }} />
+
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+              <div className="text-center mb-8">
+                {pageData.bulletinTitle && (
+                  <div className="inline-flex items-center gap-3 mb-4">
+                    <div className="h-px w-8 bg-[#c5a059]" />
+                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a]">
+                      {pageData.bulletinTitle}
+                    </h2>
+                    <div className="h-px w-8 bg-[#c5a059]" />
+                  </div>
+                )}
+
+                {pageData.publishedDate && (
+                  <div className="flex items-center justify-center gap-2 text-slate-600 mb-4">
+                    <Calendar className="h-4 w-4 text-[#c5a059]" />
+                    <time className="text-sm font-medium tracking-wide uppercase">
+                      {formatDate(pageData.publishedDate)}
+                    </time>
+                  </div>
+                )}
+
+                {pageData.description && (
+                  <p className="text-lg text-slate-700 max-w-2xl mx-auto leading-relaxed">
+                    {pageData.description}
+                  </p>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* PDF Viewer Section */}
+          <section className="py-16 bg-[#f8f6f1]">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Desktop PDF Viewer */}
+              <div className="hidden md:block">
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#c5a059]/20">
+                  {/* Viewer Header */}
+                  <div className="bg-gradient-to-r from-[#1e3a8a] to-[#2a5aa8] px-6 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-[#c5a059]/20 flex items-center justify-center">
+                        <FileText className="h-5 w-5 text-[#c5a059]" />
+                      </div>
+                      <div>
+                        <h3 className="font-serif text-lg font-semibold text-white">
+                          Ugeseddel
+                        </h3>
+                        <p className="text-xs text-slate-300">
+                          {pageData.currentBulletin?.asset?.originalFilename || 'ugeseddel.pdf'}
+                        </p>
+                      </div>
+                    </div>
+                    <a
+                      href={pageData.currentBulletin.asset.url}
+                      download={pageData.currentBulletin.asset.originalFilename || 'ugeseddel.pdf'}
+                      className="flex items-center gap-2 bg-[#c5a059] text-white px-5 py-2.5 rounded-lg hover:bg-[#b89549] transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    >
+                      <Download className="h-4 w-4" />
+                      Download PDF
+                    </a>
+                  </div>
+
+                  {/* PDF Embed */}
+                  <div className="w-full h-[900px] bg-slate-100">
+                    <iframe
+                      src={`${pageData.currentBulletin.asset.url}#view=FitH`}
+                      width="100%"
+                      height="100%"
+                      aria-label="Ugeseddel PDF dokument"
+                      title="Aktuel ugeseddel"
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile Download Card */}
+              <div className="md:hidden">
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                  <div className="relative h-48 bg-gradient-to-br from-[#1e3a8a] via-[#2a5aa8] to-[#1e3a8a] flex items-center justify-center overflow-hidden">
+                    {/* Decorative background */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#c5a059] blur-3xl" />
+                      <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-white blur-3xl" />
+                    </div>
+
+                    <div className="relative w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                      <FileText className="h-10 w-10 text-[#c5a059]" />
+                    </div>
+                  </div>
+
+                  <div className="p-8 text-center">
+                    {pageData.bulletinTitle && (
+                      <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-2">
+                        {pageData.bulletinTitle}
+                      </h3>
+                    )}
+                    {pageData.description && (
+                      <p className="text-slate-600 mb-6 leading-relaxed">
+                        {pageData.description}
+                      </p>
+                    )}
+                    {pageData.publishedDate && (
+                      <p className="text-sm text-slate-500 mb-8 flex items-center justify-center gap-2">
+                        <Calendar className="h-4 w-4 text-[#c5a059]" />
+                        {formatDate(pageData.publishedDate)}
+                      </p>
+                    )}
+
+                    <a
+                      href={pageData.currentBulletin.asset.url}
+                      download={pageData.currentBulletin.asset.originalFilename || 'ugeseddel.pdf'}
+                      className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1e3a8a] to-[#2a5aa8] text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 w-full justify-center"
+                    >
+                      <Download className="h-6 w-6" />
+                      Download Ugeseddel
+                    </a>
+
+                    <p className="text-xs text-slate-400 mt-4">
+                      PDF åbner i din browsers fremviser
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Additional Info */}
+              <div className="mt-8 text-center">
+                <p className="text-sm text-slate-500">
+                  Ugesedlen opdateres automatisk hver uge
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Section (if available) */}
+          {(pageData.contactEmail || pageData.contactPerson) && (
+            <section className="py-20 bg-white">
+              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="bg-gradient-to-br from-[#1e3a8a] to-[#2a5aa8] text-white rounded-2xl shadow-xl p-12 relative overflow-hidden">
+                  {/* Decorative elements */}
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-[#c5a059] rounded-full blur-3xl opacity-10 transform translate-x-32 -translate-y-32" />
+                  <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl opacity-5 transform -translate-x-32 translate-y-32" />
+
+                  <div className="relative">
+                    <div className="text-center mb-10">
+                      <div className="inline-flex items-center gap-2 mb-4">
+                        <div className="h-px w-8 bg-[#c5a059]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#c5a059]" />
+                        <div className="h-px w-8 bg-[#c5a059]" />
+                      </div>
+                      <h2 className="font-serif text-4xl font-bold mb-3">
+                        Har du spørgsmål?
+                      </h2>
+                      <p className="text-slate-200 text-lg">
+                        Kontakt os gerne om ugesedlen
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                      {pageData.contactEmail && (
+                        <a
+                          href={`mailto:${pageData.contactEmail}`}
+                          className="flex flex-col items-center p-6 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm border border-white/10 group"
+                        >
+                          <div className="w-12 h-12 rounded-full bg-[#c5a059]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <Mail className="h-6 w-6 text-[#c5a059]" />
+                          </div>
+                          <span className="text-sm text-slate-300 mb-2">Email</span>
+                          <span className="font-semibold text-center break-all">
+                            {pageData.contactEmail}
+                          </span>
+                        </a>
+                      )}
+
+                      {pageData.contactPerson && (
+                        <div className="flex flex-col items-center p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
+                          <div className="w-12 h-12 rounded-full bg-[#c5a059]/20 flex items-center justify-center mb-4">
+                            <User className="h-6 w-6 text-[#c5a059]" />
+                          </div>
+                          <span className="text-sm text-slate-300 mb-2">Kontaktperson</span>
+                          <span className="font-semibold">{pageData.contactPerson}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
+        </>
+      ) : (
+        /* No PDF Fallback State */
+        <section className="py-32 bg-gradient-to-b from-white via-[#f8f6f1] to-white">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              {/* Decorative icon container */}
+              <div className="relative inline-block mb-8">
+                <div className="absolute inset-0 bg-[#c5a059]/10 rounded-full blur-2xl scale-150" />
+                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#f8f6f1] to-white border-2 border-[#c5a059]/30 flex items-center justify-center mx-auto">
+                  <FileQuestion className="h-12 w-12 text-[#c5a059]" />
+                </div>
+              </div>
+
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1e3a8a] mb-6">
+                Ingen ugeseddel tilgængelig
+              </h2>
+
+              <div className="flex items-center justify-center gap-2 mb-6">
+                <div className="h-px w-12 bg-[#c5a059]/30" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#c5a059]" />
+                <div className="h-px w-12 bg-[#c5a059]/30" />
+              </div>
+
+              <p className="text-xl text-slate-600 mb-8 leading-relaxed">
+                Der er i øjeblikket ingen ugeseddel uploadet.<br />
+                Kom gerne tilbage senere for at se den nyeste udgave.
+              </p>
+
+              {pageData.contactEmail && (
+                <div className="inline-flex items-center gap-2 text-slate-500 bg-white px-6 py-3 rounded-lg border border-slate-200 shadow-sm">
+                  <Mail className="h-4 w-4 text-[#c5a059]" />
+                  <span className="text-sm">
+                    Kontakt{' '}
+                    <a
+                      href={`mailto:${pageData.contactEmail}`}
+                      className="text-[#1e3a8a] hover:text-[#c5a059] font-medium transition-colors underline decoration-[#c5a059]/30 hover:decoration-[#c5a059]"
+                    >
+                      {pageData.contactEmail}
+                    </a>
+                    {' '}for mere information
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+    </ServerLayout>
+  );
+}

@@ -47,6 +47,10 @@ export function Header() {
       ]
     },
     {
+      name: 'Ugeseddel',
+      href: '/ugeseddel'
+    },
+    {
       name: 'Kontakt',
       href: '#contact'
     }

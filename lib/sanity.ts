@@ -204,4 +204,26 @@ export const queries = {
       location
     }
   }.weeklyProgram`,
+
+  // Get Ugeseddel page content (there should only be one)
+  ugeseddelPage: `*[_type == "ugeseddelPage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    currentBulletin {
+      asset-> {
+        _id,
+        url,
+        originalFilename,
+        size,
+        mimeType
+      }
+    },
+    bulletinTitle,
+    publishedDate,
+    description,
+    contactEmail,
+    contactPerson
+  }`,
 }

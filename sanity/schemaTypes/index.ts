@@ -5,5 +5,6 @@ import {kommunikanterPage} from './1kommunikanterPage'
 import {firmanderPage} from './firmanderPage'
 import {ministranterPage} from './ministranterPage'
 import {newsPost} from './newsPost'
+import {ugeseddelPage} from './ugeseddelPage'
 
-export const schemaTypes = [homePage, dukPage, besoesgruppenPage, kommunikanterPage, firmanderPage, ministranterPage, newsPost]
+export const schemaTypes = [homePage, dukPage, besoesgruppenPage, kommunikanterPage, firmanderPage, ministranterPage, newsPost, ugeseddelPage]

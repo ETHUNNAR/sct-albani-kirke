@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: https: blob:",
               "connect-src 'self' https://*.sanity.io https://*.sanitycdn.com",
-              "frame-src 'self' https://www.google.com",
+              "frame-src 'self' https://www.google.com https://cdn.sanity.io",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
