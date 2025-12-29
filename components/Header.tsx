@@ -30,6 +30,9 @@ export function Header() {
         { name: '1. Kommunikanter', href: '/aktiviteter/1kommunikanter' },
         { name: 'Firmander', href: '/aktiviteter/firmander' },
         { name: 'Ministranter', href: '/aktiviteter/ministranter' },
+        { name: 'Familiegruppen', href: '/aktiviteter/familiegruppen' },
+        { name: 'Bibelgruppe', href: '/aktiviteter/bibelgruppe' },
+        { name: 'Kirkekaffe', href: '/aktiviteter/kirkekaffe' },
       ]
     },
     {
