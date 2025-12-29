@@ -259,62 +259,6 @@ export default async function UgeseddelPage() {
               </div>
             </div>
           </section>
-
-          {/* Contact Section (if available) */}
-          {(pageData.contactEmail || pageData.contactPerson) && (
-            <section className="py-20 bg-white">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-gradient-to-br from-[#1e3a8a] to-[#2a5aa8] text-white rounded-2xl shadow-xl p-12 relative overflow-hidden">
-                  {/* Decorative elements */}
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-[#c5a059] rounded-full blur-3xl opacity-10 transform translate-x-32 -translate-y-32" />
-                  <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl opacity-5 transform -translate-x-32 translate-y-32" />
-
-                  <div className="relative">
-                    <div className="text-center mb-10">
-                      <div className="inline-flex items-center gap-2 mb-4">
-                        <div className="h-px w-8 bg-[#c5a059]" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#c5a059]" />
-                        <div className="h-px w-8 bg-[#c5a059]" />
-                      </div>
-                      <h2 className="font-serif text-4xl font-bold mb-3">
-                        Har du spørgsmål?
-                      </h2>
-                      <p className="text-slate-200 text-lg">
-                        Kontakt os gerne om ugesedlen
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
-                      {pageData.contactEmail && (
-                        <a
-                          href={`mailto:${pageData.contactEmail}`}
-                          className="flex flex-col items-center p-6 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-sm border border-white/10 group"
-                        >
-                          <div className="w-12 h-12 rounded-full bg-[#c5a059]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                            <Mail className="h-6 w-6 text-[#c5a059]" />
-                          </div>
-                          <span className="text-sm text-slate-300 mb-2">Email</span>
-                          <span className="font-semibold text-center break-all">
-                            {pageData.contactEmail}
-                          </span>
-                        </a>
-                      )}
-
-                      {pageData.contactPerson && (
-                        <div className="flex flex-col items-center p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10">
-                          <div className="w-12 h-12 rounded-full bg-[#c5a059]/20 flex items-center justify-center mb-4">
-                            <User className="h-6 w-6 text-[#c5a059]" />
-                          </div>
-                          <span className="text-sm text-slate-300 mb-2">Kontaktperson</span>
-                          <span className="font-semibold">{pageData.contactPerson}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
         </>
       ) : (
         /* No PDF Fallback State */
@@ -343,22 +287,6 @@ export default async function UgeseddelPage() {
                 Der er i øjeblikket ingen ugeseddel uploadet.<br />
                 Kom gerne tilbage senere for at se den nyeste udgave.
               </p>
-
-              {pageData.contactEmail && (
-                <div className="inline-flex items-center gap-2 text-slate-500 bg-white px-6 py-3 rounded-lg border border-slate-200 shadow-sm">
-                  <Mail className="h-4 w-4 text-[#c5a059]" />
-                  <span className="text-sm">
-                    Kontakt{' '}
-                    <a
-                      href={`mailto:${pageData.contactEmail}`}
-                      className="text-[#1e3a8a] hover:text-[#c5a059] font-medium transition-colors underline decoration-[#c5a059]/30 hover:decoration-[#c5a059]"
-                    >
-                      {pageData.contactEmail}
-                    </a>
-                    {' '}for mere information
-                  </span>
-                </div>
-              )}
             </div>
           </div>
         </section>
