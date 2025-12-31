@@ -14,12 +14,12 @@ export function Button({
   disabled,
   ...props
 }: ButtonProps) {
-  const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-[#fdfbf7]';
+  const baseStyles = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-cream';
   const variants = {
-    primary: 'bg-[#1e3a8a] text-white hover:bg-[#172554]',
-    secondary: 'bg-[#c5a059] text-white hover:bg-[#b08d45]',
-    outline: 'border border-[#1e3a8a] text-[#1e3a8a] hover:bg-[#1e3a8a]/5',
-    ghost: 'text-[#1e3a8a] hover:bg-[#1e3a8a]/5'
+    primary: 'bg-navy text-white hover:bg-navy-dark',
+    secondary: 'bg-gold text-white hover:bg-gold/80',
+    outline: 'border border-navy text-navy hover:bg-navy/5',
+    ghost: 'text-navy hover:bg-navy/5'
   };
   const sizes = {
     sm: 'h-9 px-3 text-sm',

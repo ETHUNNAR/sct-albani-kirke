@@ -77,11 +77,11 @@ export function CookieConsent() {
             {!showSettings ? (
               <div className="p-6 md:p-8">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 bg-[#1e3a8a] rounded-full p-3">
+                  <div className="flex-shrink-0 bg-navy rounded-full p-3">
                     <Cookie className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-serif text-xl md:text-2xl font-bold text-[#1e3a8a] mb-3">
+                    <h3 className="font-serif text-xl md:text-2xl font-bold text-navy mb-3">
                       Vi bruger cookies
                     </h3>
                     <p className="text-slate-600 mb-4">
@@ -89,7 +89,7 @@ export function CookieConsent() {
                     </p>
                     <p className="text-sm text-slate-500 mb-6">
                       Læs mere i vores{' '}
-                      <Link href="/privatlivspolitik" className="text-[#1e3a8a] hover:text-[#c5a059] underline">
+                      <Link href="/privatlivspolitik" className="text-navy hover:text-gold underline">
                         privatlivspolitik
                       </Link>
                       .
@@ -132,7 +132,7 @@ export function CookieConsent() {
                 <div className="p-6 md:p-8 max-h-[80vh] overflow-y-auto">
                   <div className="flex items-start justify-between mb-6">
                     <div>
-                      <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-2">
+                      <h3 className="font-serif text-2xl font-bold text-navy mb-2">
                         Cookie indstillinger
                       </h3>
                       <p className="text-slate-600">
@@ -152,10 +152,10 @@ export function CookieConsent() {
                     {/* Necessary Cookies */}
                     <div className="border border-slate-200 rounded-lg p-4 bg-slate-50">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-semibold text-[#1e3a8a]">
+                        <h4 className="font-semibold text-navy">
                           Nødvendige cookies
                         </h4>
-                        <div className="bg-[#1e3a8a] text-white text-xs px-3 py-1 rounded-full">
+                        <div className="bg-navy text-white text-xs px-3 py-1 rounded-full">
                           Altid aktiv
                         </div>
                       </div>
@@ -167,7 +167,7 @@ export function CookieConsent() {
                     {/* Functional Cookies */}
                     <div className="border border-slate-200 rounded-lg p-4">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-semibold text-[#1e3a8a]">
+                        <h4 className="font-semibold text-navy">
                           Præference cookies
                         </h4>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -182,7 +182,7 @@ export function CookieConsent() {
                             }
                             className="sr-only peer"
                           />
-                          <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#1e3a8a]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1e3a8a]"></div>
+                          <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-navy/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-navy"></div>
                         </label>
                       </div>
                       <p className="text-sm text-slate-600">
@@ -193,7 +193,7 @@ export function CookieConsent() {
                     {/* Analytics Cookies */}
                     <div className="border border-slate-200 rounded-lg p-4">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-semibold text-[#1e3a8a]">
+                        <h4 className="font-semibold text-navy">
                           Statistik cookies
                         </h4>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -208,7 +208,7 @@ export function CookieConsent() {
                             }
                             className="sr-only peer"
                           />
-                          <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-[#1e3a8a]/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#1e3a8a]"></div>
+                          <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-navy/20 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-navy"></div>
                         </label>
                       </div>
                       <p className="text-sm text-slate-600">

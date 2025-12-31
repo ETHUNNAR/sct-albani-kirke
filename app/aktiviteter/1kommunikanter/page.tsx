@@ -71,14 +71,14 @@ export default async function KommunikanterPage() {
       </section>
 
       {pageData.aboutText && pageData.aboutText.length > 0 && (
-        <section className="py-20 bg-[#f8f6f1]">
+        <section className="py-20 bg-cream">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="inline-block mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-navy/10 text-navy text-sm font-semibold">
                 Information
               </span>
             </div>
-            <h2 className="font-serif text-4xl font-bold text-[#1e3a8a] mb-8">{pageData.aboutTitle}</h2>
+            <h2 className="font-serif text-4xl font-bold text-navy mb-8">{pageData.aboutTitle}</h2>
             <div className="prose prose-lg max-w-none">
               <PortableText value={pageData.aboutText} components={portableTextComponents} />
             </div>
@@ -87,9 +87,9 @@ export default async function KommunikanterPage() {
       )}
 
       {pageData.requirements && pageData.requirements.length > 0 && (
-        <section className="py-20 bg-[#f8f6f1]">
+        <section className="py-20 bg-cream">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="font-serif text-4xl font-bold text-[#1e3a8a] mb-8">{pageData.requirementsTitle}</h2>
+            <h2 className="font-serif text-4xl font-bold text-navy mb-8">{pageData.requirementsTitle}</h2>
             <div className="bg-white rounded-xl p-8 border border-slate-200">
               <PortableText value={pageData.requirements} components={portableTextComponents} />
             </div>

@@ -12,19 +12,19 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
 
   return <section id="mass-times" className="py-24 bg-gradient-to-b from-[#fdfbf7] to-white relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#1e3a8a] via-[#c5a059] to-[#1e3a8a] shadow-lg" />
-      <div className="absolute top-20 right-0 w-72 h-72 bg-[#c5a059]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-gold to-navy shadow-lg" />
+      <div className="absolute top-20 right-0 w-72 h-72 bg-gold/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <div className="inline-block mb-4">
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-navy/10 text-navy text-sm font-semibold">
               <CalendarDays className="h-4 w-4 mr-2" />
               Program
             </span>
           </div>
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1e3a8a] mb-6">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mb-6">
             Kommende Begivenheder
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
@@ -32,9 +32,9 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
             Kom og vær med i fællesskabet omkring alteret. Kirken er åben for bøn i dagtimerne.
           </p>
           <div className="flex items-center justify-center gap-2 mt-6">
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full" />
-            <div className="w-16 h-1 bg-[#c5a059]/50 rounded-full" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full" />
+            <div className="w-2 h-2 bg-gold rounded-full" />
+            <div className="w-16 h-1 bg-gold/50 rounded-full" />
+            <div className="w-2 h-2 bg-gold rounded-full" />
           </div>
         </div>
 
@@ -43,15 +43,15 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
           <div className="group bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500
                           border border-slate-200/50 p-8 relative overflow-hidden">
             {/* Decorative gradient */}
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-[#c5a059]/10 to-transparent rounded-full blur-2xl" />
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-gold/10 to-transparent rounded-full blur-2xl" />
 
             <div className="relative z-10">
               <div className="flex items-center mb-8 pb-6 border-b border-slate-200">
-                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#1e3a8a]/10 text-[#1e3a8a] mr-4
-                              group-hover:bg-[#1e3a8a] group-hover:text-white transition-all duration-500">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-navy/10 text-navy mr-4
+                              group-hover:bg-navy group-hover:text-white transition-all duration-500">
                   <CalendarDays className="h-6 w-6" />
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-[#1e3a8a]">
+                <h3 className="font-serif text-2xl font-bold text-navy">
                   Ugens Program
                 </h3>
               </div>
@@ -71,7 +71,7 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                     return <div key={`program-${index}`}
                                 className="group/item flex items-center justify-between p-4 rounded-xl
                                          hover:bg-[#fdfbf7] transition-all duration-300
-                                         border border-transparent hover:border-[#c5a059]/20
+                                         border border-transparent hover:border-gold/20
                                          hover:shadow-md cursor-pointer">
                       <div className="flex items-center gap-4">
                         <div className="min-w-[120px]">
@@ -83,9 +83,9 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                           </span>
                         </div>
                         <div className="flex items-center justify-center px-3 py-1.5 rounded-lg
-                                      bg-[#c5a059]/10 group-hover/item:bg-[#c5a059] transition-colors duration-300">
-                          <Clock className="h-4 w-4 mr-1.5 text-[#c5a059] group-hover/item:text-white transition-colors" />
-                          <span className="text-[#c5a059] group-hover/item:text-white font-bold text-sm transition-colors">
+                                      bg-gold/10 group-hover/item:bg-gold transition-colors duration-300">
+                          <Clock className="h-4 w-4 mr-1.5 text-gold group-hover/item:text-white transition-colors" />
+                          <span className="text-gold group-hover/item:text-white font-bold text-sm transition-colors">
                             {time}
                           </span>
                         </div>
@@ -116,16 +116,16 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
 
           {/* Info / Confession */}
           <div className="space-y-6">
-            <div className="group/confession bg-gradient-to-br from-[#1e3a8a] to-[#2a4a9a] text-white rounded-2xl
+            <div className="group/confession bg-gradient-to-br from-navy to-[#2a4a9a] text-white rounded-2xl
                           shadow-xl hover:shadow-2xl transition-all duration-500 p-8 relative overflow-hidden">
               {/* Decorative elements */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#c5a059]/10 rounded-full blur-3xl" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/5 rounded-full blur-2xl" />
 
               <div className="relative z-10">
                 <div className="flex items-center mb-6 pb-4 border-b border-white/20">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#c5a059]/20 text-[#c5a059] mr-4
-                                group-hover/confession:bg-[#c5a059] group-hover/confession:text-white transition-all duration-500">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gold/20 text-gold mr-4
+                                group-hover/confession:bg-gold group-hover/confession:text-white transition-all duration-500">
                     <Clock className="h-6 w-6" />
                   </div>
                   <h3 className="font-serif text-2xl font-bold">
@@ -150,15 +150,15 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
             <div className="group/holidays bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500
                           border border-slate-200/50 p-8 relative overflow-hidden">
               {/* Decorative gradient */}
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-[#1e3a8a]/5 to-transparent rounded-full blur-2xl" />
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-tr from-navy/5 to-transparent rounded-full blur-2xl" />
 
               <div className="relative z-10">
                 <div className="flex items-center mb-6 pb-4 border-b border-slate-200">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#c5a059]/10 text-[#c5a059] mr-3
-                                group-hover/holidays:bg-[#c5a059] group-hover/holidays:text-white transition-all duration-500">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gold/10 text-gold mr-3
+                                group-hover/holidays:bg-gold group-hover/holidays:text-white transition-all duration-500">
                     <CalendarDays className="h-5 w-5" />
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-[#1e3a8a]">
+                  <h3 className="font-serif text-xl font-bold text-navy">
                     Særlige Højtider
                   </h3>
                 </div>
@@ -166,8 +166,8 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                   For messetider i julen, påsken og pinsen, se venligst vores
                   ugeseddel eller kalender for opdaterede tider.
                 </p>
-                <a href="#" className="inline-flex items-center text-[#1e3a8a] font-semibold
-                                      hover:text-[#c5a059] transition-colors group/link">
+                <a href="#" className="inline-flex items-center text-navy font-semibold
+                                      hover:text-gold transition-colors group/link">
                   Se kalenderen
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                 </a>

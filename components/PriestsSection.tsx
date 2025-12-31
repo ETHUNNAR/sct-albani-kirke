@@ -34,17 +34,17 @@ export function PriestsSection({ priests = [] }: PriestsSectionProps) {
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
             Vores Præster
           </h2>
-          <div className="w-24 h-1 bg-[#c5a059] mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {priestsList.map((priest) => (
             <div
               key={priest._id}
-              className="bg-[#f8f6f1] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
+              className="bg-cream rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
             >
               {priest.photo && (
                 <div className="relative h-64 overflow-hidden">
@@ -57,10 +57,10 @@ export function PriestsSection({ priests = [] }: PriestsSectionProps) {
               )}
 
               <div className="p-6">
-                <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-2">
+                <h3 className="font-serif text-2xl font-bold text-navy mb-2">
                   {priest.name}
                 </h3>
-                <p className="text-[#c5a059] font-semibold mb-4">
+                <p className="text-gold font-semibold mb-4">
                   {priest.title}
                 </p>
 
@@ -71,10 +71,10 @@ export function PriestsSection({ priests = [] }: PriestsSectionProps) {
                 <div className="space-y-2">
                   {priest.email && (
                     <div className="flex items-center text-sm text-slate-600">
-                      <Mail className="h-4 w-4 mr-2 text-[#1e3a8a]" />
+                      <Mail className="h-4 w-4 mr-2 text-navy" />
                       <a
                         href={`mailto:${priest.email}`}
-                        className="hover:text-[#1e3a8a] transition-colors"
+                        className="hover:text-navy transition-colors"
                       >
                         {priest.email}
                       </a>
@@ -82,10 +82,10 @@ export function PriestsSection({ priests = [] }: PriestsSectionProps) {
                   )}
                   {priest.phone && (
                     <div className="flex items-center text-sm text-slate-600">
-                      <Phone className="h-4 w-4 mr-2 text-[#1e3a8a]" />
+                      <Phone className="h-4 w-4 mr-2 text-navy" />
                       <a
                         href={`tel:${priest.phone}`}
-                        className="hover:text-[#1e3a8a] transition-colors"
+                        className="hover:text-navy transition-colors"
                       >
                         {priest.phone}
                       </a>

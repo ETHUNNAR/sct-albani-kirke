@@ -25,11 +25,11 @@ export function Hero({ siteSettings }: HeroProps) {
           alt="Church Interior"
           className="w-full h-full object-cover scale-105 transition-transform duration-[2000ms]"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a8a]/80 via-black/50 to-[#1e3a8a]/95" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy/80 via-black/50 to-navy/95" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         {/* Decorative gradient orbs */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-[#c5a059]/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-[#1e3a8a]/30 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-navy/30 rounded-full blur-3xl" />
       </div>
 
       {/* Content with Glassmorphism */}
@@ -37,7 +37,7 @@ export function Hero({ siteSettings }: HeroProps) {
         {/* Crest/Logo with Enhanced Animation */}
         <div className="mb-8 animate-in fade-in zoom-in duration-1000">
           <div className="relative group">
-            <div className="absolute inset-0 bg-[#c5a059]/20 rounded-full blur-xl group-hover:bg-[#c5a059]/30 transition-all duration-500" />
+            <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl group-hover:bg-gold/30 transition-all duration-500" />
             <div
               className="relative w-24 h-24 md:w-32 md:h-32 mx-auto bg-contain bg-center bg-no-repeat opacity-90
                          transition-all duration-500 group-hover:scale-110 drop-shadow-2xl"
@@ -56,7 +56,7 @@ export function Hero({ siteSettings }: HeroProps) {
                          animate-in slide-in-from-bottom-5 duration-1000 delay-150
                          [text-shadow:_0_4px_12px_rgb(0_0_0_/40%)]">
             {siteSettings?.heroTitle || 'Sct. Albani Kirke'}
-            <span className="block text-2xl md:text-4xl font-normal mt-4 text-[#c5a059] italic
+            <span className="block text-2xl md:text-4xl font-normal mt-4 text-gold italic
                            animate-in fade-in duration-1000 delay-300
                            [text-shadow:_0_2px_8px_rgb(0_0_0_/30%)]">
               {siteSettings?.heroSubtitle || 'Den katolske kirke i Odense'}
@@ -64,11 +64,11 @@ export function Hero({ siteSettings }: HeroProps) {
           </h1>
 
           <div className="flex items-center justify-center gap-3 mb-8 animate-in zoom-in duration-700 delay-300">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold" />
+            <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-24 h-1 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold" />
           </div>
 
           <p className="text-lg md:text-2xl text-slate-100 max-w-2xl mx-auto mb-8 font-light tracking-wide
@@ -82,7 +82,7 @@ export function Hero({ siteSettings }: HeroProps) {
               variant="secondary"
               size="lg"
               className="min-w-[180px] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300
-                         bg-[#c5a059] hover:bg-[#d4b06d] font-semibold"
+                         bg-gold hover:bg-[#d4b06d] font-semibold"
             >
               Messetider
             </Button>
@@ -90,7 +90,7 @@ export function Hero({ siteSettings }: HeroProps) {
               variant="outline"
               size="lg"
               className="min-w-[180px] border-2 border-white/80 text-white font-semibold
-                         hover:bg-white hover:text-[#1e3a8a] backdrop-blur-sm bg-white/10
+                         hover:bg-white hover:text-navy backdrop-blur-sm bg-white/10
                          shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
             >
               Ny i kirken?

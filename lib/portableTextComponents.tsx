@@ -16,15 +16,15 @@ export const portableTextComponents = {
   block: {
     normal: ({ children }: any) => <p className="text-slate-700 mb-4">{children}</p>,
     h1: ({ children }: any) => (
-      <h1 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mt-8 mb-6">
+      <h1 className="font-serif text-3xl md:text-4xl font-bold text-navy mt-8 mb-6">
         {children}
       </h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="font-serif text-2xl font-bold text-[#1e3a8a] mt-6 mb-4">{children}</h2>
+      <h2 className="font-serif text-2xl font-bold text-navy mt-6 mb-4">{children}</h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="font-serif text-xl font-bold text-[#1e3a8a] mt-5 mb-3">{children}</h3>
+      <h3 className="font-serif text-xl font-bold text-navy mt-5 mb-3">{children}</h3>
     ),
   },
 };

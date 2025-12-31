@@ -43,20 +43,20 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
 
   if (news.length === 0) return null;
 
-  return <section id="activities" className="py-24 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+  return <section id="activities" className="py-24 bg-gradient-to-b from-cream to-white relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+      <div className="absolute top-40 left-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-40 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <div className="mb-8 md:mb-0">
             <div className="inline-block mb-4">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-navy/10 text-navy text-sm font-semibold">
                 Nyheder & Aktiviteter
               </span>
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1e3a8a] mb-6">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mb-6">
               Aktuelt i Kirken
             </h2>
             <p className="text-lg text-slate-600 max-w-xl leading-relaxed">
@@ -67,8 +67,8 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
           <Link href="/nyheder">
             <Button
               variant="outline"
-              className="mt-6 md:mt-0 hidden md:flex border-2 border-[#1e3a8a] text-[#1e3a8a]
-                       hover:!bg-[#1e3a8a] hover:text-white font-semibold
+              className="mt-6 md:mt-0 hidden md:flex border-2 border-navy text-navy
+                       hover:!bg-navy hover:text-white font-semibold
                        shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Se alle nyheder
@@ -93,7 +93,7 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent
                               opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-full
-                              text-xs font-bold text-[#1e3a8a] uppercase tracking-wide shadow-lg">
+                              text-xs font-bold text-navy uppercase tracking-wide shadow-lg">
                   {item.category}
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
@@ -106,7 +106,7 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
 
               <div className="p-6 flex flex-col flex-grow">
                 <h3 className="font-serif text-xl font-bold text-slate-900 mb-3 leading-tight
-                             group-hover:text-[#1e3a8a] transition-colors duration-300">
+                             group-hover:text-navy transition-colors duration-300">
                   {item.title}
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
@@ -115,15 +115,15 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
                 {item.slug ? (
                   <Link
                     href={`/nyheder/${item.slug}`}
-                    className="inline-flex items-center text-sm font-bold text-[#1e3a8a]
-                             hover:text-[#c5a059] transition-all duration-300 mt-auto group/link"
+                    className="inline-flex items-center text-sm font-bold text-navy
+                             hover:text-gold transition-all duration-300 mt-auto group/link"
                   >
                     Læs mere
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                   </Link>
                 ) : (
-                  <span className="inline-flex items-center text-sm font-bold text-[#1e3a8a]
-                               hover:text-[#c5a059] transition-all duration-300 mt-auto group/link cursor-pointer">
+                  <span className="inline-flex items-center text-sm font-bold text-navy
+                               hover:text-gold transition-all duration-300 mt-auto group/link cursor-pointer">
                     Læs mere
                     <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                   </span>
@@ -136,8 +136,8 @@ export function NewsSection({ newsItems = [] }: NewsSectionProps) {
           <Link href="/nyheder">
             <Button
               variant="outline"
-              className="w-full border-2 border-[#1e3a8a] text-[#1e3a8a]
-                       hover:!bg-[#1e3a8a] hover:text-white font-semibold
+              className="w-full border-2 border-navy text-navy
+                       hover:!bg-navy hover:text-white font-semibold
                        shadow-lg hover:shadow-xl transition-all duration-300"
             >
               Se alle nyheder

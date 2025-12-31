@@ -11,14 +11,14 @@ export default function PrivatlivspolitikPage() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px] w-full overflow-hidden bg-[#1e3a8a]">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-[#1e3a8a]" />
+      <section className="relative h-[40vh] min-h-[300px] w-full overflow-hidden bg-navy">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-navy" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Privatlivspolitik
           </h1>
-          <div className="w-24 h-1 bg-[#c5a059] rounded-full" />
+          <div className="w-24 h-1 bg-gold rounded-full" />
         </div>
 
         {/* Breadcrumb */}
@@ -34,33 +34,33 @@ export default function PrivatlivspolitikPage() {
       </section>
 
       {/* Content */}
-      <section className="py-24 bg-gradient-to-b from-white via-[#f8f6f1] to-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-white via-cream to-white relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-        <div className="absolute top-[800px] right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
-        <div className="absolute top-[1600px] left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 right-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute top-40 left-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute top-[800px] right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
+        <div className="absolute top-[1600px] left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="prose prose-lg max-w-none">
-            <div className="bg-[#f8f6f1] rounded-xl p-6 mb-12 border-l-4 border-[#c5a059]">
+            <div className="bg-cream rounded-xl p-6 mb-12 border-l-4 border-gold">
               <p className="text-slate-700 mb-0">
                 <strong>Sidst opdateret:</strong> {new Date().toLocaleDateString('da-DK', { day: 'numeric', month: 'long', year: 'numeric' })}
               </p>
             </div>
 
             <div className="inline-block mb-6">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-navy/10 text-navy text-sm font-semibold">
                 Dataansvarlig
               </span>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mt-0 mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mt-0 mb-6">
               1. Hvem er vi?
             </h2>
 
             <div className="flex items-start gap-3 mb-8">
-              <div className="w-12 h-px bg-gradient-to-r from-[#c5a059] to-transparent mt-3" />
-              <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50 mt-2.5" />
+              <div className="w-12 h-px bg-gradient-to-r from-gold to-transparent mt-3" />
+              <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50 mt-2.5" />
             </div>
             <p>
               Sct. Albani Kirke er en katolsk sognekirke i Odense, Danmark. Vi tager din personlige
@@ -68,7 +68,7 @@ export default function PrivatlivspolitikPage() {
               overensstemmelse med den Europæiske Unions Databeskyttelsesforordning (GDPR).
             </p>
             <div className="bg-white rounded-xl shadow-lg p-8 my-8 border border-slate-200">
-              <p className="mb-3 text-lg"><strong className="text-[#1e3a8a]">Dataansvarlig:</strong></p>
+              <p className="mb-3 text-lg"><strong className="text-navy">Dataansvarlig:</strong></p>
               <p className="mb-1 text-slate-700">Sct. Albani Kirke</p>
               <p className="mb-1 text-slate-700">Adelgade 1</p>
               <p className="mb-1 text-slate-700">5000 Odense C</p>
@@ -77,11 +77,11 @@ export default function PrivatlivspolitikPage() {
             </div>
 
             <div className="inline-block mb-6 mt-16">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-gold/10 text-gold text-sm font-semibold">
                 Dataindsamling
               </span>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mt-0 mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mt-0 mb-6">
               2. Hvilke oplysninger indsamler vi?
             </h2>
             <p>Vi kan indsamle følgende typer af personoplysninger:</p>
@@ -93,11 +93,11 @@ export default function PrivatlivspolitikPage() {
             </ul>
 
             <div className="inline-block mb-6 mt-16">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-navy/10 text-navy text-sm font-semibold">
                 Anvendelse
               </span>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mt-0 mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mt-0 mb-6">
               3. Hvordan bruger vi dine oplysninger?
             </h2>
             <p>Vi bruger dine personoplysninger til:</p>
@@ -109,7 +109,7 @@ export default function PrivatlivspolitikPage() {
               <li>At overholde juridiske forpligtelser</li>
             </ul>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               4. Retsgrundlag for behandling
             </h2>
             <p>Vi behandler dine personoplysninger baseret på:</p>
@@ -119,7 +119,7 @@ export default function PrivatlivspolitikPage() {
               <li><strong>Kontraktlig forpligtelse:</strong> Ved medlemskab af kirkelige organisationer</li>
             </ul>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               5. Videregivelse af oplysninger
             </h2>
             <p>
@@ -131,7 +131,7 @@ export default function PrivatlivspolitikPage() {
               <li>Vi er juridisk forpligtet til det</li>
             </ul>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               6. Opbevaring af data
             </h2>
             <p>
@@ -145,11 +145,11 @@ export default function PrivatlivspolitikPage() {
             </ul>
 
             <div className="inline-block mb-6 mt-16">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-gold/10 text-gold text-sm font-semibold">
                 Dine rettigheder
               </span>
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mt-0 mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mt-0 mb-6">
               7. Dine rettigheder
             </h2>
             <p>Du har følgende rettigheder i henhold til GDPR:</p>
@@ -163,7 +163,7 @@ export default function PrivatlivspolitikPage() {
               <li><strong>Ret til at trække samtykke tilbage:</strong> Du kan til enhver tid trække dit samtykke tilbage</li>
             </ul>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               8. Cookies
             </h2>
             <p>
@@ -179,7 +179,7 @@ export default function PrivatlivspolitikPage() {
               <li><strong>Statistik cookies:</strong> Hjælper os med at forstå, hvordan hjemmesiden bruges</li>
             </ul>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               9. Børn og unge
             </h2>
             <p>
@@ -188,7 +188,7 @@ export default function PrivatlivspolitikPage() {
               ikke billeder af børn uden udtrykkelig tilladelse fra forældrene.
             </p>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               10. Sikkerhed
             </h2>
             <p>
@@ -196,7 +196,7 @@ export default function PrivatlivspolitikPage() {
               for at beskytte dine personoplysninger mod uautoriseret adgang, tab eller ødelæggelse.
             </p>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               11. Ændringer til denne politik
             </h2>
             <p>
@@ -204,7 +204,7 @@ export default function PrivatlivspolitikPage() {
               blive kommunikeret på vores hjemmeside.
             </p>
 
-            <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-6">
+            <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-6">
               12. Kontakt os
             </h2>
             <p>
@@ -212,7 +212,7 @@ export default function PrivatlivspolitikPage() {
               rettigheder, er du velkommen til at kontakte os:
             </p>
             <div className="bg-white rounded-xl shadow-lg p-8 my-8 border border-slate-200">
-              <p className="mb-3 text-lg"><strong className="text-[#1e3a8a]">Sct. Albani Kirke</strong></p>
+              <p className="mb-3 text-lg"><strong className="text-navy">Sct. Albani Kirke</strong></p>
               <p className="mb-1 text-slate-700">Adelgade 1, 5000 Odense C</p>
               <p className="mb-1 text-slate-700">Email: sognepraest@sct-albani.dk</p>
               <p className="mb-6 text-slate-700">Telefon: 2896 5517</p>
@@ -222,7 +222,7 @@ export default function PrivatlivspolitikPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] text-white rounded-xl shadow-xl p-8 my-8 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-navy to-[#2563eb] text-white rounded-xl shadow-xl p-8 my-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
               <div className="relative z-10">
                 <p className="text-sm leading-relaxed">

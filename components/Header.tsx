@@ -69,10 +69,10 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo / Brand */}
           <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-full bg-[#1e3a8a] text-white">
+            <div className="p-2 rounded-full bg-navy text-white">
               <Church className="h-6 w-6" />
             </div>
-            <div className="flex flex-col text-[#1e3a8a]">
+            <div className="flex flex-col text-navy">
               <span className="font-serif font-bold text-lg leading-none">
                 Sct. Albani Kirke
               </span>
@@ -93,7 +93,7 @@ export function Header() {
               >
                 {link.dropdown ? (
                   <>
-                    <button className="text-sm font-medium transition-colors hover:text-[#c5a059] flex items-center gap-1 text-slate-700">
+                    <button className="text-sm font-medium transition-colors hover:text-gold flex items-center gap-1 text-slate-700">
                       {link.name}
                       <ChevronDown className="h-4 w-4" />
                     </button>
@@ -104,7 +104,7 @@ export function Header() {
                             <Link
                               key={item.name}
                               href={item.href}
-                              className="block px-4 py-2 text-sm text-slate-700 hover:bg-[#f8f6f1] hover:text-[#1e3a8a] transition-colors"
+                              className="block px-4 py-2 text-sm text-slate-700 hover:bg-cream hover:text-navy transition-colors"
                             >
                               {item.name}
                             </Link>
@@ -114,7 +114,7 @@ export function Header() {
                     )}
                   </>
                 ) : (
-                  <Link href={link.href} className="text-sm font-medium transition-colors hover:text-[#c5a059] text-slate-700">
+                  <Link href={link.href} className="text-sm font-medium transition-colors hover:text-gold text-slate-700">
                     {link.name}
                   </Link>
                 )}
@@ -149,7 +149,7 @@ export function Header() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        className="block text-slate-600 hover:text-[#1e3a8a] py-2 px-4 rounded-md hover:bg-slate-50"
+                        className="block text-slate-600 hover:text-navy py-2 px-4 rounded-md hover:bg-slate-50"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {item.name}
@@ -160,7 +160,7 @@ export function Header() {
               ) : (
                 <Link
                   href={link.href}
-                  className="block text-slate-700 hover:text-[#1e3a8a] font-medium py-2 px-4 rounded-md hover:bg-slate-50"
+                  className="block text-slate-700 hover:text-navy font-medium py-2 px-4 rounded-md hover:bg-slate-50"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}

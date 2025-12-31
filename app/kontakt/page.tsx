@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <Layout>
-      <section className="relative h-[40vh] min-h-[300px] w-full overflow-hidden bg-[#1e3a8a]">
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-[#1e3a8a]" />
+      <section className="relative h-[40vh] min-h-[300px] w-full overflow-hidden bg-navy">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-navy" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">Kontakt</h1>
-          <div className="w-24 h-1 bg-[#c5a059] rounded-full" />
+          <div className="w-24 h-1 bg-gold rounded-full" />
         </div>
         <div className="absolute bottom-6 left-6 z-10">
           <nav className="flex items-center space-x-2 text-sm text-white/80">
@@ -33,14 +33,14 @@ export default function KontaktPage() {
           <SectionHeader tag="Kontor" title="Kirkens Kontor" />
           <div className="max-w-2xl mx-auto">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all border border-slate-100">
-              <div className="w-16 h-16 rounded-full bg-[#c5a059]/10 flex items-center justify-center mx-auto mb-6">
-                <MapPin className="h-8 w-8 text-[#c5a059]" />
+              <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-6">
+                <MapPin className="h-8 w-8 text-gold" />
               </div>
               <div className="text-center space-y-3">
-                <h3 className="font-serif text-2xl font-bold text-[#1e3a8a]">Adelgade 1</h3>
+                <h3 className="font-serif text-2xl font-bold text-navy">Adelgade 1</h3>
                 <p className="text-lg text-slate-700">5000 Odense C</p>
-                <p className="text-sm text-[#c5a059] font-semibold italic">Kun efter aftale</p>
-                <a href="mailto:sognepraest@sct-albani.dk" className="inline-flex items-center gap-2 text-slate-600 hover:text-[#1e3a8a] transition-colors mt-4">
+                <p className="text-sm text-gold font-semibold italic">Kun efter aftale</p>
+                <a href="mailto:sognepraest@sct-albani.dk" className="inline-flex items-center gap-2 text-slate-600 hover:text-navy transition-colors mt-4">
                   <Mail className="h-4 w-4" />
                   <span>sognepraest@sct-albani.dk</span>
                 </a>
@@ -50,7 +50,7 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-white via-[#f8f6f1] to-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-white via-cream to-white relative overflow-hidden">
         <DecorativeBlobs variant="reversed" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader tag="Præster" tagVariant="blue" title="Præster og Sjælesørgere" />
@@ -73,7 +73,7 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-white via-[#f8f6f1] to-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-white via-cream to-white relative overflow-hidden">
         <DecorativeBlobs variant="reversed" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader tag="Foreninger" tagVariant="blue" title="Foreninger og Grupper" />

@@ -85,17 +85,17 @@ const portableTextComponents = {
   },
   block: {
     h2: ({ children }: any) => (
-      <h2 className="font-serif text-3xl font-bold text-[#1e3a8a] mt-12 mb-4">
+      <h2 className="font-serif text-3xl font-bold text-navy mt-12 mb-4">
         {children}
       </h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mt-8 mb-3">
+      <h3 className="font-serif text-2xl font-bold text-navy mt-8 mb-3">
         {children}
       </h3>
     ),
     blockquote: ({ children }: any) => (
-      <blockquote className="border-l-4 border-[#c5a059] pl-6 my-6 italic text-lg text-slate-700">
+      <blockquote className="border-l-4 border-gold pl-6 my-6 italic text-lg text-slate-700">
         {children}
       </blockquote>
     ),
@@ -123,7 +123,7 @@ const portableTextComponents = {
           href={value.href}
           rel={rel}
           target={value.href.startsWith('/') ? '_self' : '_blank'}
-          className="text-[#1e3a8a] hover:text-[#c5a059] underline transition-colors"
+          className="text-navy hover:text-gold underline transition-colors"
         >
           {children}
         </a>
@@ -152,9 +152,9 @@ export default async function NewsPostPage({ params }: PageProps) {
               className="w-full h-full object-cover"
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-br from-[#1e3a8a] to-[#2563eb]" />
+            <div className="w-full h-full bg-gradient-to-br from-navy to-[#2563eb]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1e3a8a]/90 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-navy/90 mix-blend-multiply" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
@@ -183,7 +183,7 @@ export default async function NewsPostPage({ params }: PageProps) {
             </time>
           </div>
 
-          <div className="w-24 h-1 bg-[#c5a059] rounded-full" />
+          <div className="w-24 h-1 bg-gold rounded-full" />
         </div>
 
         {/* Breadcrumb */}
@@ -203,11 +203,11 @@ export default async function NewsPostPage({ params }: PageProps) {
       </section>
 
       {/* Article Content */}
-      <article className="py-24 bg-gradient-to-b from-white via-[#f8f6f1] to-white relative overflow-hidden">
+      <article className="py-24 bg-gradient-to-b from-white via-cream to-white relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-        <div className="absolute top-[800px] right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <div className="absolute top-40 left-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute top-[800px] right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Excerpt/Lead */}
@@ -226,7 +226,7 @@ export default async function NewsPostPage({ params }: PageProps) {
           <div className="mt-16 pt-8 border-t border-slate-200">
             <Link
               href="/nyheder"
-              className="inline-flex items-center text-[#1e3a8a] hover:text-[#c5a059] font-semibold transition-colors group"
+              className="inline-flex items-center text-navy hover:text-gold font-semibold transition-colors group"
             >
               <ArrowLeft className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" />
               Tilbage til alle nyheder
@@ -236,27 +236,27 @@ export default async function NewsPostPage({ params }: PageProps) {
       </article>
 
       {/* Share Section */}
-      <section className="py-20 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-cream to-white relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-gold/10 text-gold text-sm font-semibold">
               Del artiklen
             </span>
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6">
             Del denne nyhed
           </h2>
 
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold" />
+            <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-24 h-1 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold" />
           </div>
 
           <p className="text-lg text-slate-600 mb-8">

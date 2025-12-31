@@ -57,17 +57,17 @@ export default async function NyhederPage() {
             alt="Church community"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1e3a8a]/90 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-navy/90 mix-blend-multiply" />
         </div>
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
           <h1 className="font-serif text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
             Nyheder
           </h1>
-          <p className="text-xl md:text-2xl text-[#c5a059] font-medium mb-6">
+          <p className="text-xl md:text-2xl text-gold font-medium mb-6">
             Hold dig opdateret med livet i Sct. Albani
           </p>
-          <div className="w-24 h-1 bg-[#c5a059] rounded-full" />
+          <div className="w-24 h-1 bg-gold rounded-full" />
         </div>
 
         {/* Breadcrumb */}
@@ -83,10 +83,10 @@ export default async function NyhederPage() {
       </section>
 
       {/* News Grid */}
-      <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-white to-cream relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-40 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-40 right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <div className="absolute top-40 left-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {posts.length === 0 ? (
@@ -119,7 +119,7 @@ export default async function NyhederPage() {
                       </div>
                     </div>
                   ) : (
-                    <div className="relative h-56 bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] flex items-center justify-center">
+                    <div className="relative h-56 bg-gradient-to-br from-navy to-[#2563eb] flex items-center justify-center">
                       <div className="text-white/20 text-6xl font-serif">SA</div>
                       {/* Category Badge */}
                       <div className="absolute top-4 right-4">
@@ -146,7 +146,7 @@ export default async function NyhederPage() {
                     </div>
 
                     {/* Title */}
-                    <h2 className="font-serif text-xl font-bold text-[#1e3a8a] mb-3 group-hover:text-[#c5a059] transition-colors">
+                    <h2 className="font-serif text-xl font-bold text-navy mb-3 group-hover:text-gold transition-colors">
                       {post.title}
                     </h2>
 
@@ -158,7 +158,7 @@ export default async function NyhederPage() {
                     {/* Read More Link */}
                     <Link
                       href={`/nyheder/${post.slug.current}`}
-                      className="inline-flex items-center text-[#1e3a8a] hover:text-[#c5a059] font-semibold transition-colors group"
+                      className="inline-flex items-center text-navy hover:text-gold font-semibold transition-colors group"
                     >
                       Læs mere
                       <svg
@@ -184,27 +184,27 @@ export default async function NyhederPage() {
       </section>
 
       {/* Newsletter CTA */}
-      <section className="py-20 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-b from-cream to-white relative overflow-hidden">
         {/* Decorative Background Elements */}
-        <div className="absolute top-20 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <div className="inline-block mb-6">
-            <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+            <span className="inline-flex items-center px-4 py-2 rounded-full bg-gold/10 text-gold text-sm font-semibold">
               Hold dig opdateret
             </span>
           </div>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6">
             Vil du holde dig opdateret?
           </h2>
 
           <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#c5a059]" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-24 h-1 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-2 h-2 bg-[#c5a059] rounded-full shadow-lg shadow-[#c5a059]/50" />
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-[#c5a059]" />
+            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold" />
+            <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-24 h-1 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-2 h-2 bg-gold rounded-full shadow-lg shadow-gold/50" />
+            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold" />
           </div>
 
           <p className="text-lg text-slate-600 mb-12">
@@ -213,13 +213,13 @@ export default async function NyhederPage() {
           <div className="flex flex-wrap justify-center gap-4">
             <Link
               href="/#contact"
-              className="inline-flex items-center px-6 py-3 bg-[#1e3a8a] text-white font-semibold rounded-lg hover:bg-[#172554] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy-dark shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               Kontakt os
             </Link>
             <a
               href="#"
-              className="inline-flex items-center px-6 py-3 bg-white text-[#1e3a8a] font-semibold rounded-lg hover:bg-[#1e3a8a] hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-[#1e3a8a]"
+              className="inline-flex items-center px-6 py-3 bg-white text-navy font-semibold rounded-lg hover:bg-navy hover:text-white shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-navy"
             >
               Følg os på Facebook
             </a>

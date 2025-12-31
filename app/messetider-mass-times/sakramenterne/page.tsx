@@ -22,8 +22,8 @@ export default function SakramenternePage() {
     <Layout>
       <section className="relative min-h-[70vh] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1e3a8a] via-[#1e3a8a]/95 to-[#0f172a]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#c5a059]/10 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/95 to-[#0f172a]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent" />
         </div>
 
         {/* 7 circles positioned around center using trigonometry */}
@@ -37,7 +37,7 @@ export default function SakramenternePage() {
               return (
                 <div
                   key={i}
-                  className="absolute w-3 h-3 rounded-full bg-[#c5a059]/40 border border-[#c5a059]/60"
+                  className="absolute w-3 h-3 rounded-full bg-gold/40 border border-gold/60"
                   style={{
                     left: `calc(50% + ${x}px - 6px)`,
                     top: `calc(50% + ${y}px - 6px)`,
@@ -45,9 +45,9 @@ export default function SakramenternePage() {
                 />
               );
             })}
-            <div className="w-20 h-20 rounded-full border-2 border-[#c5a059]/30 flex items-center justify-center">
-              <div className="w-12 h-12 rounded-full border border-[#c5a059]/50 flex items-center justify-center">
-                <div className="w-4 h-4 rounded-full bg-[#c5a059]/60" />
+            <div className="w-20 h-20 rounded-full border-2 border-gold/30 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full border border-gold/50 flex items-center justify-center">
+                <div className="w-4 h-4 rounded-full bg-gold/60" />
               </div>
             </div>
           </div>
@@ -55,12 +55,12 @@ export default function SakramenternePage() {
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 py-32 max-w-5xl mx-auto">
           <div className="mb-8 flex items-center gap-4">
-            <div className="w-16 h-px bg-[#c5a059]" />
-            <span className="text-[#c5a059] font-serif text-4xl tracking-wide">VII</span>
-            <div className="w-16 h-px bg-[#c5a059]" />
+            <div className="w-16 h-px bg-gold" />
+            <span className="text-gold font-serif text-4xl tracking-wide">VII</span>
+            <div className="w-16 h-px bg-gold" />
           </div>
 
-          <p className="text-[#c5a059] uppercase tracking-[0.3em] text-sm font-medium mb-4">
+          <p className="text-gold uppercase tracking-[0.3em] text-sm font-medium mb-4">
             De syv sakramenter
           </p>
 
@@ -90,22 +90,22 @@ export default function SakramenternePage() {
             <Link href="/" className="hover:text-white transition-colors">
               Forside
             </Link>
-            <span className="text-[#c5a059]">/</span>
+            <span className="text-gold">/</span>
             <Link href="/#mass-times" className="hover:text-white transition-colors">
               Messe
             </Link>
-            <span className="text-[#c5a059]">/</span>
+            <span className="text-gold">/</span>
             <span className="text-white">Sakramenterne</span>
           </nav>
         </div>
       </section>
 
       <section className="py-24 bg-white relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-[#1e3a8a] to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-navy to-transparent" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block px-4 py-1 bg-[#1e3a8a]/5 text-[#1e3a8a] text-sm tracking-wider uppercase rounded-full mb-6">
+            <span className="inline-block px-4 py-1 bg-navy/5 text-navy text-sm tracking-wider uppercase rounded-full mb-6">
               Hvad er et sakramente?
             </span>
           </div>
@@ -122,8 +122,8 @@ export default function SakramenternePage() {
               kirken og det gjorde Han, for at fortsætte sin frelsende gerning iblandt os.
             </p>
 
-            <blockquote className="relative bg-gradient-to-r from-[#fdfbf7] to-white border-l-4 border-[#c5a059] pl-8 py-6 my-12 italic">
-              <p className="text-xl text-[#1e3a8a] font-serif mb-0">
+            <blockquote className="relative bg-gradient-to-r from-[#fdfbf7] to-white border-l-4 border-gold pl-8 py-6 my-12 italic">
+              <p className="text-xl text-navy font-serif mb-0">
                 Et sakramente kan man derfor kort og godt kalde en Kristus-handling.
               </p>
             </blockquote>
@@ -137,17 +137,17 @@ export default function SakramenternePage() {
       </section>
 
       <section className="py-24 bg-[#fdfbf7] relative overflow-hidden">
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-[#c5a059]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
-              <div className="w-8 h-px bg-[#c5a059]" />
-              <span className="text-[#c5a059] font-serif text-2xl">VII</span>
-              <div className="w-8 h-px bg-[#c5a059]" />
+              <div className="w-8 h-px bg-gold" />
+              <span className="text-gold font-serif text-2xl">VII</span>
+              <div className="w-8 h-px bg-gold" />
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a]">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy">
               De syv sakramenter
             </h2>
           </div>
@@ -156,12 +156,12 @@ export default function SakramenternePage() {
             {sacraments.slice(0, 4).map((sacrament) => (
               <div
                 key={sacrament.name}
-                className="group bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-[#c5a059]/30 transition-all duration-300 text-center"
+                className="group bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-gold/30 transition-all duration-300 text-center"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1e3a8a] text-white font-serif text-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-[#c5a059] transition-colors">
+                <div className="w-10 h-10 rounded-full bg-navy text-white font-serif text-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
                   {sacrament.number}
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-[#1e3a8a]">
+                <h3 className="font-serif text-lg font-semibold text-navy">
                   {sacrament.name}
                 </h3>
               </div>
@@ -172,12 +172,12 @@ export default function SakramenternePage() {
             {sacraments.slice(4).map((sacrament) => (
               <div
                 key={sacrament.name}
-                className="group bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-[#c5a059]/30 transition-all duration-300 text-center"
+                className="group bg-white rounded-xl p-6 shadow-sm border border-slate-100 hover:shadow-lg hover:border-gold/30 transition-all duration-300 text-center"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1e3a8a] text-white font-serif text-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-[#c5a059] transition-colors">
+                <div className="w-10 h-10 rounded-full bg-navy text-white font-serif text-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-gold transition-colors">
                   {sacrament.number}
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-[#1e3a8a]">
+                <h3 className="font-serif text-lg font-semibold text-navy">
                   {sacrament.name}
                 </h3>
               </div>
@@ -190,15 +190,15 @@ export default function SakramenternePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 rounded-full bg-[#c5a059]" />
-              <div className="w-2 h-2 rounded-full bg-[#c5a059]/60" />
-              <div className="w-2 h-2 rounded-full bg-[#c5a059]/30" />
-              <div className="w-12 h-px bg-[#c5a059]" />
-              <div className="w-2 h-2 rounded-full bg-[#c5a059]/30" />
-              <div className="w-2 h-2 rounded-full bg-[#c5a059]/60" />
-              <div className="w-2 h-2 rounded-full bg-[#c5a059]" />
+              <div className="w-2 h-2 rounded-full bg-gold" />
+              <div className="w-2 h-2 rounded-full bg-gold/60" />
+              <div className="w-2 h-2 rounded-full bg-gold/30" />
+              <div className="w-12 h-px bg-gold" />
+              <div className="w-2 h-2 rounded-full bg-gold/30" />
+              <div className="w-2 h-2 rounded-full bg-gold/60" />
+              <div className="w-2 h-2 rounded-full bg-gold" />
             </div>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
               Kontakt
             </h2>
           </div>
@@ -222,7 +222,7 @@ export default function SakramenternePage() {
                 href="https://katolsk.dk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1e3a8a] hover:text-[#c5a059] underline transition-colors"
+                className="text-navy hover:text-gold underline transition-colors"
               >
                 Katolsk.dk
               </a>
@@ -232,7 +232,7 @@ export default function SakramenternePage() {
           <div className="mt-12 text-center">
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#1e3a8a] text-white rounded-lg font-medium hover:bg-[#2a5aa8] transition-colors shadow-lg shadow-[#1e3a8a]/20"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-navy text-white rounded-lg font-medium hover:bg-[#2a5aa8] transition-colors shadow-lg shadow-navy/20"
             >
               <span>Kontakt os</span>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

@@ -32,7 +32,7 @@ export function PageHero({
             className="w-full h-full object-cover"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1e3a8a]/90 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-navy/90 mix-blend-multiply" />
       </div>
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
@@ -40,11 +40,11 @@ export function PageHero({
           {title}
         </h1>
         {subtitle && (
-          <p className="text-xl md:text-2xl text-[#c5a059] font-medium mb-6">
+          <p className="text-xl md:text-2xl text-gold font-medium mb-6">
             {subtitle}
           </p>
         )}
-        <div className="w-24 h-1 bg-[#c5a059] rounded-full" />
+        <div className="w-24 h-1 bg-gold rounded-full" />
       </div>
 
       <div className="absolute bottom-6 left-6 z-10">

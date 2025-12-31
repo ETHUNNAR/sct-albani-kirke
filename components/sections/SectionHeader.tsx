@@ -16,8 +16,8 @@ export function SectionHeader({
   className = '',
 }: SectionHeaderProps) {
   const tagColors = {
-    gold: 'bg-[#c5a059]/10 text-[#c5a059]',
-    blue: 'bg-[#1e3a8a]/10 text-[#1e3a8a]',
+    gold: 'bg-gold/10 text-gold',
+    blue: 'bg-navy/10 text-navy',
   };
 
   return (
@@ -29,7 +29,7 @@ export function SectionHeader({
           </span>
         </div>
       )}
-      <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+      <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6">
         {title}
       </h2>
       <SectionDivider />

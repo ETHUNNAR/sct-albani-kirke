@@ -7,8 +7,8 @@ interface StatCardProps {
 
 export function StatCard({ value, label, variant = 'blue', className = '' }: StatCardProps) {
   const variants = {
-    blue: 'bg-gradient-to-br from-[#1e3a8a] to-[#2d4a9a]',
-    gold: 'bg-gradient-to-br from-[#c5a059] to-[#d4b06a]',
+    blue: 'bg-gradient-to-br from-navy to-navy-light',
+    gold: 'bg-gradient-to-br from-gold to-gold/80',
   };
 
   return (

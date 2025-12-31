@@ -30,7 +30,7 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="space-y-4">
-            <h3 className="font-serif text-2xl font-bold text-[#c5a059]">
+            <h3 className="font-serif text-2xl font-bold text-gold">
               Sct. Albani Kirke
             </h3>
             <p className="text-slate-400 text-sm leading-relaxed">
@@ -43,7 +43,7 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
                 href="https://www.facebook.com/SctAlbaniDuk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-[#c5a059] transition-colors"
+                className="text-slate-400 hover:text-gold transition-colors"
                 aria-label="Facebook"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
                 href="https://www.instagram.com/sctalbaniduk/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-[#c5a059] transition-colors"
+                className="text-slate-400 hover:text-gold transition-colors"
                 aria-label="Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -69,21 +69,21 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
             <h4 className="font-serif text-lg font-semibold">Kontakt</h4>
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start">
-                <MapPin className="h-5 w-5 text-[#c5a059] mr-3 shrink-0" />
+                <MapPin className="h-5 w-5 text-gold mr-3 shrink-0" />
                 <span>
                   Adelgade 1<br />
                   5000 Odense C
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="h-5 w-5 text-[#c5a059] mr-3 shrink-0" />
-                <a href="tel:28965517" className="hover:text-[#c5a059] transition-colors">
+                <Phone className="h-5 w-5 text-gold mr-3 shrink-0" />
+                <a href="tel:28965517" className="hover:text-gold transition-colors">
                   2896 5517
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail className="h-5 w-5 text-[#c5a059] mr-3 shrink-0" />
-                <a href="mailto:sognepraest@sct-albani.dk" className="hover:text-[#c5a059] transition-colors">
+                <Mail className="h-5 w-5 text-gold mr-3 shrink-0" />
+                <a href="mailto:sognepraest@sct-albani.dk" className="hover:text-gold transition-colors">
                   sognepraest@sct-albani.dk
                 </a>
               </li>
@@ -95,27 +95,27 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
             <h4 className="font-serif text-lg font-semibold">Genveje</h4>
             <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <a href="#" className="hover:text-[#c5a059] transition-colors">
+                <a href="#" className="hover:text-gold transition-colors">
                   Ugeseddel
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#c5a059] transition-colors">
+                <a href="#" className="hover:text-gold transition-colors">
                   Menighedsrådet
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#c5a059] transition-colors">
+                <a href="#" className="hover:text-gold transition-colors">
                   Katolsk Web
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#c5a059] transition-colors">
+                <a href="#" className="hover:text-gold transition-colors">
                   Caritas Danmark
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-[#c5a059] transition-colors">
+                <a href="#" className="hover:text-gold transition-colors">
                   Bliv Katolik
                 </a>
               </li>
@@ -126,15 +126,15 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
           <div className="space-y-4">
             <h4 className="font-serif text-lg font-semibold">Næste Begivenhed</h4>
             {!isClient ? (
-              <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
+              <div className="bg-navy/50 p-4 rounded-lg border border-navy">
                 <p className="text-sm text-slate-300">
                   Indlæser...
                 </p>
               </div>
             ) : nextMass ? (
-              <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
+              <div className="bg-navy/50 p-4 rounded-lg border border-navy">
                 <div className="flex items-start mb-2">
-                  <Calendar className="h-5 w-5 text-[#c5a059] mr-2 mt-0.5" />
+                  <Calendar className="h-5 w-5 text-gold mr-2 mt-0.5" />
                   <div>
                     <p className="font-medium text-white">{nextMass.massType}</p>
                     <p className="text-sm text-slate-300">
@@ -164,7 +164,7 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
                 )}
               </div>
             ) : (
-              <div className="bg-[#1e3a8a]/50 p-4 rounded-lg border border-[#1e3a8a]">
+              <div className="bg-navy/50 p-4 rounded-lg border border-navy">
                 <p className="text-sm text-slate-300">
                   Se vores messetider i menuen ovenfor.
                 </p>

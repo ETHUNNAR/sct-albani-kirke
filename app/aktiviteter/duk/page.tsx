@@ -65,9 +65,9 @@ export default async function DukPage() {
         ]}
       />
 
-      <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
-        <div className="absolute top-20 right-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+      <section className="py-24 bg-gradient-to-b from-white to-cream relative overflow-hidden">
+        <div className="absolute top-20 right-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div>
@@ -77,8 +77,8 @@ export default async function DukPage() {
           </div>
 
           {(pageData.membershipFee || pageData.registrationUrl) && (
-            <div className="mt-12 bg-[#f8f6f1] rounded-xl p-8 border-l-4 border-[#c5a059]">
-              <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-4 flex items-center gap-3">
+            <div className="mt-12 bg-cream rounded-xl p-8 border-l-4 border-gold">
+              <h3 className="font-serif text-2xl font-bold text-navy mb-4 flex items-center gap-3">
                 <Users className="h-6 w-6" />
                 Bliv Medlem
               </h3>
@@ -101,18 +101,18 @@ export default async function DukPage() {
       </section>
 
       {pageData.ageGroups && pageData.ageGroups.length > 0 && (
-        <section className="py-24 bg-gradient-to-b from-[#f8f6f1] to-white relative overflow-hidden">
-          <div className="absolute top-40 left-1/4 w-64 h-64 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-40 right-1/4 w-80 h-80 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <section className="py-24 bg-gradient-to-b from-cream to-white relative overflow-hidden">
+          <div className="absolute top-40 left-1/4 w-64 h-64 bg-navy/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-40 right-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
               <div className="inline-block mb-6">
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#c5a059]/10 text-[#c5a059] text-sm font-semibold">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-gold/10 text-gold text-sm font-semibold">
                   Grupper
                 </span>
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6">
                 {pageData.ageGroupsTitle || 'Vores Grupper'}
               </h2>
               <SectionDivider />
@@ -126,8 +126,8 @@ export default async function DukPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {pageData.ageGroups.map((group: any, index: number) => (
                 <div key={index} className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-slate-100">
-                  <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-2">{group.name}</h3>
-                  {group.ageRange && <p className="text-[#c5a059] font-semibold mb-4">{group.ageRange}</p>}
+                  <h3 className="font-serif text-2xl font-bold text-navy mb-2">{group.name}</h3>
+                  {group.ageRange && <p className="text-gold font-semibold mb-4">{group.ageRange}</p>}
                   {group.description && <p className="text-slate-600">{group.description}</p>}
                 </div>
               ))}
@@ -137,18 +137,18 @@ export default async function DukPage() {
       )}
 
       {pageData.boardMembers && pageData.boardMembers.length > 0 && (
-        <section className="py-24 bg-gradient-to-b from-white to-[#f8f6f1] relative overflow-hidden">
-          <div className="absolute top-20 left-0 w-96 h-96 bg-[#1e3a8a]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-0 w-96 h-96 bg-[#c5a059]/10 rounded-full blur-3xl" />
+        <section className="py-24 bg-gradient-to-b from-white to-cream relative overflow-hidden">
+          <div className="absolute top-20 left-0 w-96 h-96 bg-navy/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
               <div className="inline-block mb-6">
-                <span className="inline-flex items-center px-4 py-2 rounded-full bg-[#1e3a8a]/10 text-[#1e3a8a] text-sm font-semibold">
+                <span className="inline-flex items-center px-4 py-2 rounded-full bg-navy/10 text-navy text-sm font-semibold">
                   Bestyrelse
                 </span>
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6">
                 {pageData.boardTitle || 'Bestyrelsen'}
               </h2>
               <SectionDivider />
@@ -167,17 +167,17 @@ export default async function DukPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {pageData.boardMembers.map((member: any, index: number) => (
-                <div key={index} className="bg-[#f8f6f1] rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+                <div key={index} className="bg-cream rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
                   {member.photo && (
                     <div className="relative h-64 overflow-hidden">
                       <img src={urlFor(member.photo).width(400).height(400).url()} alt={member.name} className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div className="p-6">
-                    <h3 className="font-serif text-xl font-bold text-[#1e3a8a] mb-1">{member.name}</h3>
-                    <p className="text-[#c5a059] font-semibold mb-2">{member.role}</p>
+                    <h3 className="font-serif text-xl font-bold text-navy mb-1">{member.name}</h3>
+                    <p className="text-gold font-semibold mb-2">{member.role}</p>
                     {member.email && (
-                      <a href={`mailto:${member.email}`} className="text-sm text-slate-600 hover:text-[#1e3a8a] transition-colors flex items-center gap-2">
+                      <a href={`mailto:${member.email}`} className="text-sm text-slate-600 hover:text-navy transition-colors flex items-center gap-2">
                         <Mail className="h-4 w-4" />
                         Email
                       </a>
@@ -190,9 +190,9 @@ export default async function DukPage() {
         </section>
       )}
 
-      <section className="py-24 bg-[#1e3a8a] text-white relative overflow-hidden">
+      <section className="py-24 bg-navy text-white relative overflow-hidden">
         <div className="absolute top-20 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-[#c5a059]/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-1/4 w-80 h-80 bg-gold/20 rounded-full blur-3xl" />
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">Kontakt Os</h2>
@@ -201,7 +201,7 @@ export default async function DukPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {pageData.contactEmail && (
               <div className="flex flex-col items-center">
-                <Mail className="h-8 w-8 text-[#c5a059] mb-4" />
+                <Mail className="h-8 w-8 text-gold mb-4" />
                 <h3 className="font-semibold mb-2">Email</h3>
                 <a href={`mailto:${pageData.contactEmail}`} className="text-slate-200 hover:text-white transition-colors">
                   {pageData.contactEmail}
@@ -210,7 +210,7 @@ export default async function DukPage() {
             )}
             {pageData.contactPhone && (
               <div className="flex flex-col items-center">
-                <Phone className="h-8 w-8 text-[#c5a059] mb-4" />
+                <Phone className="h-8 w-8 text-gold mb-4" />
                 <h3 className="font-semibold mb-2">Telefon</h3>
                 <a href={`tel:${pageData.contactPhone}`} className="text-slate-200 hover:text-white transition-colors">
                   {pageData.contactPhone}

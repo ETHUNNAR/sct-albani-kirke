@@ -73,7 +73,7 @@ export default async function FamiliegruppenPage() {
                   />
                 </div>
               ) : (
-                <div className="w-full h-96 bg-gradient-to-br from-[#f8f6f1] to-[#e8e5df] rounded-lg flex items-center justify-center">
+                <div className="w-full h-96 bg-gradient-to-br from-cream to-[#e8e5df] rounded-lg flex items-center justify-center">
                   <p className="text-slate-500 text-center">Billede vil blive tilføjet snart</p>
                 </div>
               )}

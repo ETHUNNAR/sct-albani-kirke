@@ -6,7 +6,7 @@ export function LocationMap() {
     <section className="py-20 bg-[#fdfbf7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-4">
             Find Os
           </h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
@@ -33,9 +33,9 @@ export function LocationMap() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow-md border border-slate-100 p-6">
             <div className="flex items-start">
-              <MapPin className="h-6 w-6 text-[#c5a059] mr-3 mt-1 shrink-0" />
+              <MapPin className="h-6 w-6 text-gold mr-3 mt-1 shrink-0" />
               <div>
-                <h3 className="font-serif text-lg font-semibold text-[#1e3a8a] mb-2">
+                <h3 className="font-serif text-lg font-semibold text-navy mb-2">
                   Adresse
                 </h3>
                 <p className="text-slate-700 mb-1">Adelgade 1</p>
@@ -44,7 +44,7 @@ export function LocationMap() {
                   href="https://www.google.com/maps/dir/?api=1&destination=Adelgade+1,+5000+Odense+C,+Denmark"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#1e3a8a] hover:text-[#c5a059] font-medium text-sm transition-colors inline-flex items-center"
+                  className="text-navy hover:text-gold font-medium text-sm transition-colors inline-flex items-center"
                 >
                   Få kørevejledning →
                 </a>
@@ -54,9 +54,9 @@ export function LocationMap() {
 
           <div className="bg-white rounded-xl shadow-md border border-slate-100 p-6">
             <div className="flex items-start">
-              <Clock className="h-6 w-6 text-[#c5a059] mr-3 mt-1 shrink-0" />
+              <Clock className="h-6 w-6 text-gold mr-3 mt-1 shrink-0" />
               <div>
-                <h3 className="font-serif text-lg font-semibold text-[#1e3a8a] mb-2">
+                <h3 className="font-serif text-lg font-semibold text-navy mb-2">
                   Åbningstider
                 </h3>
                 <p className="text-slate-700 mb-2">
@@ -71,7 +71,7 @@ export function LocationMap() {
         </div>
 
         {/* Parking Notice */}
-        <div className="bg-[#1e3a8a] text-white rounded-xl shadow-lg p-6 mt-8">
+        <div className="bg-navy text-white rounded-xl shadow-lg p-6 mt-8">
           <p className="text-slate-200 text-sm leading-relaxed">
             <strong className="text-white">Parkering:</strong> Der er begrænsede
             parkeringspladser ved kirken. Vi anbefaler offentlig transport

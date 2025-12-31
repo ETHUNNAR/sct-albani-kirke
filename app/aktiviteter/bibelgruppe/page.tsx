@@ -64,7 +64,7 @@ export default async function BibelgruppePage() {
         </div>
       </section>
 
-      <section className="py-12 bg-[#f8f6f1]">
+      <section className="py-12 bg-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {pageData.featureImage ? (
             <div className="rounded-lg overflow-hidden shadow-xl">

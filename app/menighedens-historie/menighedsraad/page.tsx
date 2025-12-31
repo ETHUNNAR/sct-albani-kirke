@@ -16,15 +16,15 @@ export default function Menighedsraad() {
     <Layout>
       <GradientDivider />
 
-      <section className="relative bg-white border-b-4 border-[#c5a059]">
+      <section className="relative bg-white border-b-4 border-gold">
         <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e3a8a]/5 rounded-lg mb-6 border-l-4 border-[#1e3a8a]">
-                <Calendar size={20} className="text-[#1e3a8a]" />
-                <span className="text-sm font-bold text-[#1e3a8a] uppercase tracking-wider">Pr. januar 2020</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-navy/5 rounded-lg mb-6 border-l-4 border-navy">
+                <Calendar size={20} className="text-navy" />
+                <span className="text-sm font-bold text-navy uppercase tracking-wider">Pr. januar 2020</span>
               </div>
-              <h1 className="font-serif text-5xl md:text-6xl font-bold text-[#1e3a8a] mb-6 leading-tight">Menighedsrådet</h1>
+              <h1 className="font-serif text-5xl md:text-6xl font-bold text-navy mb-6 leading-tight">Menighedsrådet</h1>
               <p className="text-xl text-slate-700 leading-relaxed mb-8">
                 Menighedsrådet forvalter det kirkelige arbejde og består af sognepræsterne og flere medlemmer valgt af menighedens medlemmer.
               </p>
@@ -35,10 +35,10 @@ export default function Menighedsraad() {
             </div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a8a]/5 to-[#c5a059]/5 rounded-2xl transform rotate-3" />
+              <div className="absolute inset-0 bg-gradient-to-br from-navy/5 to-gold/5 rounded-2xl transform rotate-3" />
               <div className="relative bg-white border-2 border-slate-200 rounded-2xl p-8 shadow-lg">
-                <Users className="text-[#c5a059] mb-4" size={48} />
-                <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-3">Rådets opgaver</h3>
+                <Users className="text-gold mb-4" size={48} />
+                <h3 className="font-serif text-2xl font-bold text-navy mb-3">Rådets opgaver</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Menighedsrådet forvalter det kirkelige arbejde og består af sognepræsterne og flere medlemmer valgt af menighedens medlemmer.
                 </p>
@@ -48,32 +48,32 @@ export default function Menighedsraad() {
         </div>
       </section>
 
-      <div className="bg-[#f8f6f1] w-full">
+      <div className="bg-cream w-full">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="mb-16">
             <div className="flex items-center gap-4 mb-8">
-              <div className="h-12 w-1 bg-[#c5a059]" />
+              <div className="h-12 w-1 bg-gold" />
               <div>
-                <h2 className="font-serif text-4xl font-bold text-[#1e3a8a]">Rådets medlemmer</h2>
+                <h2 className="font-serif text-4xl font-bold text-navy">Rådets medlemmer</h2>
                 <p className="text-slate-600 mt-1">Pr. januar 2020</p>
               </div>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {councilMembers.map((member, index) => (
-                <div key={index} className="group bg-white rounded-xl border-2 border-slate-200 p-6 hover:border-[#c5a059] transition-all duration-300 hover:shadow-xl relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-[#1e3a8a]/5 to-transparent rounded-bl-full" />
+                <div key={index} className="group bg-white rounded-xl border-2 border-slate-200 p-6 hover:border-gold transition-all duration-300 hover:shadow-xl relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-navy/5 to-transparent rounded-bl-full" />
                   <div className="relative">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#1e3a8a] to-[#2d4a9a] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-gradient-to-br from-navy to-[#2d4a9a] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Shield className="text-white" size={24} />
                     </div>
-                    <h3 className="font-bold text-xl text-[#1e3a8a] mb-2">{member.name}</h3>
-                    <div className="inline-block px-3 py-1 bg-[#c5a059]/10 rounded-full mb-3">
-                      <span className="text-sm font-semibold text-[#c5a059]">{member.role}</span>
+                    <h3 className="font-bold text-xl text-navy mb-2">{member.name}</h3>
+                    <div className="inline-block px-3 py-1 bg-gold/10 rounded-full mb-3">
+                      <span className="text-sm font-semibold text-gold">{member.role}</span>
                     </div>
                     {member.phone && (
                       <div className="flex items-center gap-2 text-sm text-slate-600 mb-2">
-                        <Phone size={14} className="text-[#c5a059]" />
+                        <Phone size={14} className="text-gold" />
                         <span>{member.phone}</span>
                       </div>
                     )}
@@ -86,7 +86,7 @@ export default function Menighedsraad() {
 
           <div className="bg-white rounded-2xl border-2 border-slate-200 p-8 md:p-12 mb-16">
             <div className="max-w-3xl mx-auto">
-              <h3 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a] mb-6 text-center">Om menighedsrådet</h3>
+              <h3 className="font-serif text-3xl md:text-4xl font-bold text-navy mb-6 text-center">Om menighedsrådet</h3>
               <p className="text-lg text-slate-700 leading-relaxed text-center">
                 Menighedsrådet forvalter det kirkelige arbejde og består af sognepræsterne og flere medlemmer valgt af menighedens medlemmer. Rådet har ansvaret for menighedens drift, økonomiske forhold og udvikling i samarbejde med præsterne.
               </p>

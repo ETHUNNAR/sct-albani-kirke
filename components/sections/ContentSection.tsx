@@ -18,7 +18,7 @@ export function ContentSection({
 
   const bgColors = {
     white: 'bg-white',
-    cream: 'bg-[#f8f6f1]',
+    cream: 'bg-cream',
   };
 
   const maxWidths = {

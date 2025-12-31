@@ -67,7 +67,7 @@ export default async function UgeseddelPage() {
               className="w-full h-full object-cover"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#1e3a8a]/90 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-navy/90 mix-blend-multiply" />
 
           {/* Decorative golden cross pattern overlay */}
           <div className="absolute inset-0 opacity-5" style={{
@@ -79,16 +79,16 @@ export default async function UgeseddelPage() {
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
           {/* Decorative top ornament */}
           <div className="mb-6 flex items-center gap-3">
-            <div className="h-px w-12 bg-[#c5a059]" />
-            <div className="w-2 h-2 rotate-45 bg-[#c5a059]" />
-            <div className="h-px w-12 bg-[#c5a059]" />
+            <div className="h-px w-12 bg-gold" />
+            <div className="w-2 h-2 rotate-45 bg-gold" />
+            <div className="h-px w-12 bg-gold" />
           </div>
 
           <h1 className="font-serif text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight drop-shadow-lg">
             {pageData.title}
           </h1>
           {pageData.subtitle && (
-            <p className="text-xl md:text-2xl text-[#c5a059] font-light mb-6 italic">
+            <p className="text-xl md:text-2xl text-gold font-light mb-6 italic">
               {pageData.subtitle}
             </p>
           )}
@@ -97,7 +97,7 @@ export default async function UgeseddelPage() {
           <div className="flex items-center gap-2 mb-4">
             <div className="w-1 h-1 rounded-full bg-white/60" />
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-            <div className="w-2 h-2 rounded-full bg-[#c5a059]" />
+            <div className="w-2 h-2 rounded-full bg-gold" />
             <div className="w-16 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
             <div className="w-1 h-1 rounded-full bg-white/60" />
           </div>
@@ -130,17 +130,17 @@ export default async function UgeseddelPage() {
               <div className="text-center mb-8">
                 {pageData.bulletinTitle && (
                   <div className="inline-flex items-center gap-3 mb-4">
-                    <div className="h-px w-8 bg-[#c5a059]" />
-                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-[#1e3a8a]">
+                    <div className="h-px w-8 bg-gold" />
+                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy">
                       {pageData.bulletinTitle}
                     </h2>
-                    <div className="h-px w-8 bg-[#c5a059]" />
+                    <div className="h-px w-8 bg-gold" />
                   </div>
                 )}
 
                 {pageData.publishedDate && (
                   <div className="flex items-center justify-center gap-2 text-slate-600 mb-4">
-                    <Calendar className="h-4 w-4 text-[#c5a059]" />
+                    <Calendar className="h-4 w-4 text-gold" />
                     <time className="text-sm font-medium tracking-wide uppercase">
                       {formatDate(pageData.publishedDate)}
                     </time>
@@ -157,16 +157,16 @@ export default async function UgeseddelPage() {
           </section>
 
           {/* PDF Viewer Section */}
-          <section className="py-16 bg-[#f8f6f1]">
+          <section className="py-16 bg-cream">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Desktop PDF Viewer */}
               <div className="hidden md:block">
-                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#c5a059]/20">
+                <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-gold/20">
                   {/* Viewer Header */}
-                  <div className="bg-gradient-to-r from-[#1e3a8a] to-[#2a5aa8] px-6 py-4 flex items-center justify-between">
+                  <div className="bg-gradient-to-r from-navy to-[#2a5aa8] px-6 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#c5a059]/20 flex items-center justify-center">
-                        <FileText className="h-5 w-5 text-[#c5a059]" />
+                      <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
+                        <FileText className="h-5 w-5 text-gold" />
                       </div>
                       <div>
                         <h3 className="font-serif text-lg font-semibold text-white">
@@ -180,7 +180,7 @@ export default async function UgeseddelPage() {
                     <a
                       href={pageData.currentBulletin.asset.url}
                       download={pageData.currentBulletin.asset.originalFilename || 'ugeseddel.pdf'}
-                      className="flex items-center gap-2 bg-[#c5a059] text-white px-5 py-2.5 rounded-lg hover:bg-[#b89549] transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                      className="flex items-center gap-2 bg-gold text-white px-5 py-2.5 rounded-lg hover:bg-[#b89549] transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
                       <Download className="h-4 w-4" />
                       Download PDF
@@ -205,21 +205,21 @@ export default async function UgeseddelPage() {
               {/* Mobile Download Card */}
               <div className="md:hidden">
                 <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
-                  <div className="relative h-48 bg-gradient-to-br from-[#1e3a8a] via-[#2a5aa8] to-[#1e3a8a] flex items-center justify-center overflow-hidden">
+                  <div className="relative h-48 bg-gradient-to-br from-navy via-[#2a5aa8] to-navy flex items-center justify-center overflow-hidden">
                     {/* Decorative background */}
                     <div className="absolute inset-0 opacity-10">
-                      <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-[#c5a059] blur-3xl" />
+                      <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-gold blur-3xl" />
                       <div className="absolute bottom-10 right-10 w-32 h-32 rounded-full bg-white blur-3xl" />
                     </div>
 
                     <div className="relative w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
-                      <FileText className="h-10 w-10 text-[#c5a059]" />
+                      <FileText className="h-10 w-10 text-gold" />
                     </div>
                   </div>
 
                   <div className="p-8 text-center">
                     {pageData.bulletinTitle && (
-                      <h3 className="font-serif text-2xl font-bold text-[#1e3a8a] mb-2">
+                      <h3 className="font-serif text-2xl font-bold text-navy mb-2">
                         {pageData.bulletinTitle}
                       </h3>
                     )}
@@ -230,7 +230,7 @@ export default async function UgeseddelPage() {
                     )}
                     {pageData.publishedDate && (
                       <p className="text-sm text-slate-500 mb-8 flex items-center justify-center gap-2">
-                        <Calendar className="h-4 w-4 text-[#c5a059]" />
+                        <Calendar className="h-4 w-4 text-gold" />
                         {formatDate(pageData.publishedDate)}
                       </p>
                     )}
@@ -238,7 +238,7 @@ export default async function UgeseddelPage() {
                     <a
                       href={pageData.currentBulletin.asset.url}
                       download={pageData.currentBulletin.asset.originalFilename || 'ugeseddel.pdf'}
-                      className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1e3a8a] to-[#2a5aa8] text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 w-full justify-center"
+                      className="inline-flex items-center gap-3 bg-gradient-to-r from-navy to-[#2a5aa8] text-white px-8 py-4 rounded-xl text-lg font-semibold hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 w-full justify-center"
                     >
                       <Download className="h-6 w-6" />
                       Download Ugeseddel
@@ -262,25 +262,25 @@ export default async function UgeseddelPage() {
         </>
       ) : (
         /* No PDF Fallback State */
-        <section className="py-32 bg-gradient-to-b from-white via-[#f8f6f1] to-white">
+        <section className="py-32 bg-gradient-to-b from-white via-cream to-white">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               {/* Decorative icon container */}
               <div className="relative inline-block mb-8">
-                <div className="absolute inset-0 bg-[#c5a059]/10 rounded-full blur-2xl scale-150" />
-                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-[#f8f6f1] to-white border-2 border-[#c5a059]/30 flex items-center justify-center mx-auto">
-                  <FileQuestion className="h-12 w-12 text-[#c5a059]" />
+                <div className="absolute inset-0 bg-gold/10 rounded-full blur-2xl scale-150" />
+                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-cream to-white border-2 border-gold/30 flex items-center justify-center mx-auto">
+                  <FileQuestion className="h-12 w-12 text-gold" />
                 </div>
               </div>
 
-              <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1e3a8a] mb-6">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-navy mb-6">
                 Ingen ugeseddel tilgængelig
               </h2>
 
               <div className="flex items-center justify-center gap-2 mb-6">
-                <div className="h-px w-12 bg-[#c5a059]/30" />
-                <div className="w-1.5 h-1.5 rounded-full bg-[#c5a059]" />
-                <div className="h-px w-12 bg-[#c5a059]/30" />
+                <div className="h-px w-12 bg-gold/30" />
+                <div className="w-1.5 h-1.5 rounded-full bg-gold" />
+                <div className="h-px w-12 bg-gold/30" />
               </div>
 
               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
