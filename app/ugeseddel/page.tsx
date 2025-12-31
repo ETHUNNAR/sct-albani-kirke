@@ -1,6 +1,6 @@
 import { ServerLayout } from '@/components/ServerLayout';
 import { client, queries, urlFor } from '@/lib/sanity';
-import { Download, FileText, FileQuestion, Mail, User, Calendar } from 'lucide-react';
+import { Download, FileText, FileQuestion, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
