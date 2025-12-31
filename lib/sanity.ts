@@ -267,4 +267,19 @@ export const queries = {
     contactPhone,
     contactPerson
   }`,
+
+  // Get Katolske Informationssider page content (there should only be one)
+  katolskeInformationssiderPage: `*[_type == "katolskeInformationssiderPage"] [0] {
+    _id,
+    title,
+    subtitle,
+    heroImage,
+    description,
+    resourceLinks[] {
+      title,
+      url,
+      description,
+      image
+    }
+  }`,
 }

@@ -56,6 +56,10 @@ export function Header() {
       ]
     },
     {
+      name: 'Katolske informationssider',
+      href: '/katolske-informationssider'
+    },
+    {
       name: 'Ugeseddel',
       href: '/ugeseddel'
     },
