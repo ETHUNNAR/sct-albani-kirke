@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { HandHeart, Landmark, Smartphone, Download } from 'lucide-react';
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function StotKirkenPage() {
   return (
-    <ServerLayout>
+    <Layout>
       <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden bg-[#1e3a8a]">
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-[#1e3a8a]/90 to-[#1e3a8a]" />
         <DecorativeBlobs variant="centered" />
@@ -121,6 +121,6 @@ export default function StotKirkenPage() {
           </div>
         </div>
       </section>
-    </ServerLayout>
+    </Layout>
   );
 }

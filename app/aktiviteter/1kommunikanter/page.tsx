@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { client, queries } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/lib/portableTextComponents';
@@ -47,7 +47,7 @@ export default async function KommunikanterPage() {
   };
 
   return (
-    <ServerLayout>
+    <Layout>
       <PageHero
         title={pageData.title}
         subtitle={pageData.subtitle}
@@ -106,6 +106,6 @@ export default async function KommunikanterPage() {
         contactPerson={pageData.contactPerson}
         className="border-t-0"
       />
-    </ServerLayout>
+    </Layout>
   );
 }

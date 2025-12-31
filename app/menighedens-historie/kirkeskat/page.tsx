@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { Coins, Heart, AlertCircle, Info, CheckCircle2 } from 'lucide-react';
 import { GradientDivider, FeatureCard, ContactInfoGrid } from '@/components/sections';
 
@@ -11,7 +11,7 @@ export default function Kirkeskat() {
   ];
 
   return (
-    <ServerLayout>
+    <Layout>
       <GradientDivider />
 
       <section className="bg-white border-b border-slate-200">
@@ -140,6 +140,6 @@ export default function Kirkeskat() {
       </div>
 
       <GradientDivider />
-    </ServerLayout>
+    </Layout>
   );
 }

@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { Download, FileText, FileQuestion, Calendar } from 'lucide-react';
 import Link from 'next/link';
@@ -50,7 +50,7 @@ export default async function UgeseddelPage() {
   const hasPDF = pageData.currentBulletin?.asset?.url;
 
   return (
-    <ServerLayout>
+    <Layout>
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -291,6 +291,6 @@ export default async function UgeseddelPage() {
           </div>
         </section>
       )}
-    </ServerLayout>
+    </Layout>
   );
 }

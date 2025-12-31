@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { Users, Shield, Calendar, Phone } from 'lucide-react';
 import { GradientDivider, ContactInfoGrid, StatCard } from '@/components/sections';
 
@@ -13,7 +13,7 @@ export default function Menighedsraad() {
   ];
 
   return (
-    <ServerLayout>
+    <Layout>
       <GradientDivider />
 
       <section className="relative bg-white border-b-4 border-[#c5a059]">
@@ -104,6 +104,6 @@ export default function Menighedsraad() {
       </div>
 
       <GradientDivider />
-    </ServerLayout>
+    </Layout>
   );
 }

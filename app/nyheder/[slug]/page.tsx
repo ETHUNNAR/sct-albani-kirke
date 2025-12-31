@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { Calendar, Tag, ArrowLeft } from 'lucide-react';
@@ -141,7 +141,7 @@ export default async function NewsPostPage({ params }: PageProps) {
   }
 
   return (
-    <ServerLayout>
+    <Layout>
       {/* Hero Section with Featured Image */}
       <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -274,6 +274,6 @@ export default async function NewsPostPage({ params }: PageProps) {
           </div>
         </div>
       </section>
-    </ServerLayout>
+    </Layout>
   );
 }

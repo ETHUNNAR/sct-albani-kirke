@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { Calendar, Tag } from 'lucide-react';
 import Link from 'next/link';
@@ -48,7 +48,7 @@ export default async function NyhederPage() {
   const { posts } = await getNewsPosts();
 
   return (
-    <ServerLayout>
+    <Layout>
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px] w-full overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -226,6 +226,6 @@ export default async function NyhederPage() {
           </div>
         </div>
       </section>
-    </ServerLayout>
+    </Layout>
   );
 }

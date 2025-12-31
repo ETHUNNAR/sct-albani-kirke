@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { client, queries } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/lib/portableTextComponents';
@@ -40,7 +40,7 @@ export default async function MinstranterPage() {
   };
 
   return (
-    <ServerLayout>
+    <Layout>
       <PageHero
         title={pageData.title}
         heroImage={pageData.heroImage}
@@ -143,6 +143,6 @@ export default async function MinstranterPage() {
           </div>
         </div>
       </section>
-    </ServerLayout>
+    </Layout>
   );
 }

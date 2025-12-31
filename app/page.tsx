@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { Hero } from '@/components/Hero';
 import { WeeklyProgram } from '@/components/WeeklyProgram';
 import { NewsSection } from '@/components/NewsSection';
@@ -32,7 +32,7 @@ export default async function Home() {
   };
 
   return (
-    <ServerLayout>
+    <Layout>
       <Hero siteSettings={pageData} />
       <WeeklyProgram weeklyProgram={pageData.weeklyProgram || []} />
       <NewsSection newsItems={newsPosts || []} />
@@ -74,6 +74,6 @@ export default async function Home() {
 
       {/* Location Map */}
       <LocationMap />
-    </ServerLayout>
+    </Layout>
   );
 }

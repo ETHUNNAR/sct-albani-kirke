@@ -1,5 +1,5 @@
 import React from 'react';
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { Church, BookOpen, Landmark, Sparkles, Clock, MapPin, Bell, Users } from 'lucide-react';
 import { GradientDivider, StatCard } from '@/components/sections';
 
@@ -24,7 +24,7 @@ export default function KirkensHistorie() {
   ];
 
   return (
-    <ServerLayout>
+    <Layout>
       <GradientDivider className="h-1.5 from-[#c5a059] via-[#1e3a8a] to-[#c5a059]" />
 
       <section className="relative bg-gradient-to-b from-[#1e3a8a] via-[#1e3a8a] to-[#2d4a9a] text-white overflow-hidden">
@@ -155,6 +155,6 @@ export default function KirkensHistorie() {
       </div>
 
       <GradientDivider className="h-1.5 from-[#c5a059] via-[#1e3a8a] to-[#c5a059]" />
-    </ServerLayout>
+    </Layout>
   );
 }

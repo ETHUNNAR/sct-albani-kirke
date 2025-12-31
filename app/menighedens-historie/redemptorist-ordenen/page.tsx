@@ -1,11 +1,11 @@
 import React from 'react';
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { Cross, Book, Heart, Globe } from 'lucide-react';
 import { ContactInfoGrid } from '@/components/sections';
 
 export default function RedemptoristOrden() {
   return (
-    <ServerLayout>
+    <Layout>
       <div className="h-1 bg-gradient-to-r from-transparent via-[#c5a059] to-transparent" />
 
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1e3a8a] via-[#2d4a9a] to-[#1e3a8a] text-white">
@@ -151,6 +151,6 @@ export default function RedemptoristOrden() {
       </div>
 
       <div className="h-1 bg-gradient-to-r from-transparent via-[#c5a059] to-transparent" />
-    </ServerLayout>
+    </Layout>
   );
 }

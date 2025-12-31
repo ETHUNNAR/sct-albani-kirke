@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { MapPin, User, Users, Heart, Globe, Church, Calendar, GraduationCap, Mail } from 'lucide-react';
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <ServerLayout>
+    <Layout>
       <section className="relative h-[40vh] min-h-[300px] w-full overflow-hidden bg-[#1e3a8a]">
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-[#1e3a8a]" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4 max-w-5xl mx-auto">
@@ -95,6 +95,6 @@ export default function KontaktPage() {
           </div>
         </div>
       </section>
-    </ServerLayout>
+    </Layout>
   );
 }

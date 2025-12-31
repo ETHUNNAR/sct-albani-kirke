@@ -1,4 +1,4 @@
-import { ServerLayout } from '@/components/ServerLayout';
+import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/lib/portableTextComponents';
@@ -53,7 +53,7 @@ export default async function DukPage() {
   };
 
   return (
-    <ServerLayout>
+    <Layout>
       <PageHero
         title={pageData.title}
         subtitle={pageData.subtitle}
@@ -242,6 +242,6 @@ export default async function DukPage() {
           )}
         </div>
       </section>
-    </ServerLayout>
+    </Layout>
   );
 }
