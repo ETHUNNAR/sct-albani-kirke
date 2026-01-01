@@ -109,6 +109,12 @@ export const ministranterPage = defineType({
           description: 'Navn på kontaktperson',
           validation: (Rule) => Rule.required(),
         },
+        {
+          name: 'fysiskMoede',
+          title: 'Fysisk møde',
+          type: 'string',
+          description: 'Sted for fysisk møde',
+        },
       ],
       preview: {
         select: {
