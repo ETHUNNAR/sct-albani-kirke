@@ -4,184 +4,164 @@ export const dukPage = defineType({
   name: 'dukPage',
   title: 'DUK Side',
   type: 'document',
+  groups: [
+    {name: 'hero', title: 'Hero'},
+    {name: 'overview', title: 'Oversigt'},
+    {name: 'membership', title: 'Medlemskab'},
+    {name: 'board', title: 'Bestyrelse'},
+    {name: 'contact', title: 'Kontakt'},
+  ],
   fields: [
+    // Hero
     defineField({
       name: 'title',
       title: 'Titel',
       type: 'string',
       initialValue: 'Sct. Albani DUK',
       validation: (Rule) => Rule.required(),
+      group: 'hero',
     }),
     defineField({
       name: 'subtitle',
       title: 'Undertitel',
       type: 'string',
-      description: 'F.eks. "Danmarks Unge Katolikker"',
+      initialValue: 'Danmarks Unge Katolikker',
+      group: 'hero',
     }),
     defineField({
       name: 'heroImage',
       title: 'Hero Billede',
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
+      group: 'hero',
     }),
+
+    // Overview
     defineField({
-      name: 'description',
-      title: 'Beskrivelse',
-      type: 'array',
-      of: [{type: 'block'}],
-      description: 'Hovedbeskrivelse af DUK',
-    }),
-    defineField({
-      name: 'membershipFee',
-      title: 'Kontingent',
+      name: 'purpose',
+      title: 'Formål (Citat)',
       type: 'string',
-      description: 'F.eks. "100 kr. pr. år"',
+      description: 'Hovedformålet som vises som citat. F.eks. "At styrke fællesskab med Gud og med hinanden"',
+      initialValue: 'At styrke fællesskab med Gud og med hinanden',
+      group: 'overview',
     }),
     defineField({
-      name: 'registrationUrl',
-      title: 'Tilmeldings URL',
-      type: 'url',
-      description: 'Link til tilmelding (f.eks. www.duk.dk)',
-    }),
-    defineField({
-      name: 'ageGroupsTitle',
-      title: 'Vores Grupper Titel',
-      type: 'string',
-      initialValue: 'Vores Grupper',
-      description: 'Overskrift for aldersgruppe sektionen',
-    }),
-    defineField({
-      name: 'ageGroupsDescription',
-      title: 'Vores Grupper Beskrivelse',
+      name: 'overview',
+      title: 'Oversigt',
       type: 'text',
-      rows: 4,
-      description: 'Introduktionstekst om aldersgrupperne (vises over grupperne)',
+      rows: 3,
+      description: 'Kort beskrivelse af DUK',
+      group: 'overview',
     }),
     defineField({
-      name: 'ageGroups',
-      title: 'Aldersgrupper',
+      name: 'bishopNote',
+      title: 'Biskoppens Note',
+      type: 'text',
+      rows: 2,
+      description: 'Note om biskoppens ønske',
+      group: 'overview',
+    }),
+    defineField({
+      name: 'groups',
+      title: 'Grupper',
       type: 'array',
-      of: [
+      group: 'overview',
+      of: [{
+        type: 'object',
+        fields: [
+          { name: 'name', title: 'Navn', type: 'string', validation: (Rule) => Rule.required() },
+          { name: 'description', title: 'Beskrivelse', type: 'string' },
+        ],
+        preview: {
+          select: { title: 'name', subtitle: 'description' },
+        },
+      }],
+    }),
+
+    // Membership
+    defineField({
+      name: 'membership',
+      title: 'Medlemskab',
+      type: 'object',
+      group: 'membership',
+      fields: [
+        { name: 'registrationUrl', title: 'Tilmeldings URL', type: 'url' },
+        { name: 'registrationInfo', title: 'Tilmeldings Info', type: 'text', rows: 2 },
+        { name: 'fee', title: 'Kontingent', type: 'string' },
+        { name: 'paymentMethod', title: 'Betalingsmetode', type: 'string' },
+        { name: 'benefits', title: 'Fordele', type: 'text', rows: 2 },
         {
-          type: 'object',
-          fields: [
-            {
-              name: 'name',
-              title: 'Gruppe Navn',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'ageRange',
-              title: 'Aldersgruppe',
-              type: 'string',
-              description: 'F.eks. "7-12 år"',
-            },
-            {
-              name: 'description',
-              title: 'Beskrivelse',
-              type: 'text',
-              rows: 3,
-            },
-          ],
+          name: 'details',
+          title: 'Medlemskab Detaljer',
+          type: 'text',
+          rows: 5,
+          description: 'Uddybende information om medlemskab (MobilePay abonnement, støtte til DUK, blade, lejre osv.)'
         },
       ],
     }),
     defineField({
-      name: 'boardTitle',
-      title: 'Bestyrelse Titel',
-      type: 'string',
-      initialValue: 'Bestyrelsen',
-      description: 'Overskrift for bestyrelse sektionen',
+      name: 'financialSupport',
+      title: 'Økonomisk Støtte',
+      type: 'object',
+      group: 'membership',
+      fields: [
+        { name: 'bankAccount', title: 'Bankkonto', type: 'string' },
+        { name: 'reference', title: 'Reference', type: 'string' },
+      ],
     }),
+
+    // Board
     defineField({
-      name: 'boardDescription',
-      title: 'Bestyrelse Beskrivelse',
-      type: 'text',
-      rows: 4,
-      description: 'Introduktionstekst om bestyrelsen (vises over bestyrelsesmedlemmerne)',
-    }),
-    defineField({
-      name: 'boardMembers',
-      title: 'Bestyrelsesmedlemmer',
-      type: 'array',
-      of: [
+      name: 'board',
+      title: 'Bestyrelse',
+      type: 'object',
+      group: 'board',
+      fields: [
+        { name: 'description', title: 'Beskrivelse', type: 'text', rows: 3 },
         {
-          type: 'object',
-          fields: [
-            {
-              name: 'name',
-              title: 'Navn',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
+          name: 'photo',
+          title: 'Bestyrelsesbillede',
+          type: 'image',
+          description: 'Gruppebillede af hele bestyrelsen',
+          options: { hotspot: true },
+        },
+        {
+          name: 'members',
+          title: 'Medlemmer',
+          type: 'array',
+          of: [{
+            type: 'object',
+            fields: [
+              { name: 'name', title: 'Navn', type: 'string', validation: (Rule) => Rule.required() },
+              { name: 'role', title: 'Rolle', type: 'string', validation: (Rule) => Rule.required() },
+              { name: 'phone', title: 'Telefon', type: 'string' },
+              { name: 'email', title: 'Email', type: 'string' },
+            ],
+            preview: {
+              select: { title: 'name', subtitle: 'role' },
             },
-            {
-              name: 'role',
-              title: 'Rolle',
-              type: 'string',
-              description: 'F.eks. "Formand", "Næstformand"',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'photo',
-              title: 'Billede',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-            },
-            {
-              name: 'email',
-              title: 'Email',
-              type: 'string',
-            },
-          ],
+          }],
         },
       ],
     }),
-    defineField({
-      name: 'boardPhoto',
-      title: 'Bestyrelsesbillede',
-      type: 'image',
-      description: 'Gruppebillede af bestyrelsen',
-      options: {
-        hotspot: true,
-      },
-    }),
+
+    // Contact
     defineField({
       name: 'socialMedia',
       title: 'Sociale Medier',
       type: 'object',
+      group: 'contact',
       fields: [
-        {
-          name: 'facebook',
-          title: 'Facebook',
-          type: 'url',
-        },
-        {
-          name: 'instagram',
-          title: 'Instagram',
-          type: 'url',
-        },
+        { name: 'facebook', title: 'Facebook URL', type: 'url' },
+        { name: 'instagram', title: 'Instagram URL', type: 'url' },
       ],
-    }),
-    defineField({
-      name: 'contactEmail',
-      title: 'Kontakt Email',
-      type: 'string',
-    }),
-    defineField({
-      name: 'contactPhone',
-      title: 'Kontakt Telefon',
-      type: 'string',
     }),
   ],
   preview: {
     select: {
       title: 'title',
       subtitle: 'subtitle',
+      media: 'heroImage',
     },
   },
 })

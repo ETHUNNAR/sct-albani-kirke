@@ -49,28 +49,39 @@ export const queries = {
     title,
     subtitle,
     heroImage,
-    description,
-    membershipFee,
-    registrationUrl,
-    ageGroupsTitle,
-    ageGroupsDescription,
-    ageGroups[] {
+    purpose,
+    overview,
+    bishopNote,
+    groups[] {
       name,
-      ageRange,
       description
     },
-    boardTitle,
-    boardDescription,
-    boardMembers[] {
-      name,
-      role,
-      photo,
-      email
+    membership {
+      registrationUrl,
+      registrationInfo,
+      fee,
+      paymentMethod,
+      benefits,
+      details
     },
-    boardPhoto,
-    socialMedia,
-    contactEmail,
-    contactPhone
+    financialSupport {
+      bankAccount,
+      reference
+    },
+    board {
+      description,
+      photo,
+      members[] {
+        name,
+        role,
+        phone,
+        email
+      }
+    },
+    socialMedia {
+      facebook,
+      instagram
+    }
   }`,
 
   // Get Besøgsgruppen page content (there should only be one)
