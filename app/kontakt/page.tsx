@@ -50,7 +50,7 @@ export default function KontaktPage() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-white via-cream to-white relative overflow-hidden">
+      <section id="priests" className="py-24 bg-gradient-to-b from-white via-cream to-white relative overflow-hidden">
         <DecorativeBlobs variant="reversed" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader tag="Præster" tagVariant="blue" title="Præster og Sjælesørgere" />

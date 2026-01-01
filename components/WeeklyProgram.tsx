@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Clock, CalendarDays, ArrowRight } from 'lucide-react';
 import { WeeklyProgramItem } from '@/lib/types';
 import { expandRecurringEvents } from '@/lib/eventUtils';
@@ -137,13 +138,13 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                   eller efter aftale med præsten. Vi opfordrer til at komme i
                   god tid.
                 </p>
-                <button className="inline-flex items-center px-5 py-2.5 rounded-lg
+                <Link href="/kontakt#priests" className="inline-flex items-center px-5 py-2.5 rounded-lg
                                  bg-white/10 hover:bg-white/20 border border-white/20
                                  text-white font-semibold text-sm
                                  transition-all duration-300 hover:scale-105">
                   Kontakt præsten for aftale
                   <ArrowRight className="ml-2 h-4 w-4" />
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -166,11 +167,11 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                   For messetider i julen, påsken og pinsen, se venligst vores
                   ugeseddel for opdaterede tider.
                 </p>
-                <a href="#" className="inline-flex items-center text-navy font-semibold
+                <Link href="/ugeseddel" className="inline-flex items-center text-navy font-semibold
                                       hover:text-gold transition-colors group/link">
-                  Se kalenderen
+                  Se Ugeseddel
                   <ArrowRight className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

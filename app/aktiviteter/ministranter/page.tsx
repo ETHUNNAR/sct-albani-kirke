@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout';
 import { client, queries } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/lib/portableTextComponents';
-import { Mail, Phone, User } from 'lucide-react';
+import { Mail, Phone, User, MapPin } from 'lucide-react';
 import { PageHero } from '@/components/sections';
 import type { Metadata } from 'next';
 
@@ -36,7 +36,7 @@ export default async function MinstranterPage() {
     ],
     contactTitle: 'Kontakt og Spørgsmål',
     contact1: { sectionTitle: 'Højmessen og Aftenmessen', email: '', phone: '', person: '' },
-    contact2: { sectionTitle: 'Messe på vietnamesisk', email: '', phone: '', person: '' },
+    contact2: { sectionTitle: 'Messe på vietnamesisk', email: '', phone: '', person: '', fysiskMoede: '' },
   };
 
   return (
@@ -68,7 +68,7 @@ export default async function MinstranterPage() {
             {pageData.contactTitle}
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 items-start">
             <div className="bg-gradient-to-br from-navy to-[#2a5aa8] text-white rounded-2xl shadow-lg p-10">
               <h3 className="font-serif text-2xl font-bold mb-8 text-center">{pageData.contact1.sectionTitle}</h3>
               <div className="space-y-6">
@@ -122,6 +122,15 @@ export default async function MinstranterPage() {
                       <p className="font-semibold">{pageData.contact2.phone}</p>
                     </div>
                   </a>
+                )}
+                {pageData.contact2.fysiskMoede && (
+                  <div className="flex items-center gap-4 p-4 rounded-lg bg-white/10">
+                    <MapPin className="h-6 w-6 text-gold flex-shrink-0" />
+                    <div>
+                      <p className="text-xs text-slate-300 uppercase tracking-wide">Fysisk møde</p>
+                      <p className="font-semibold">{pageData.contact2.fysiskMoede}</p>
+                    </div>
+                  </div>
                 )}
                 {pageData.contact2.person && (
                   <div className="flex items-center gap-4 p-4 rounded-lg bg-white/10">

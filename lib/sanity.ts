@@ -164,7 +164,8 @@ export const queries = {
       sectionTitle,
       email,
       phone,
-      person
+      person,
+      fysiskMoede
     }
   }`,
 
