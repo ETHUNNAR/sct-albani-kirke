@@ -95,29 +95,29 @@ export function Footer({ weeklyProgram = [] }: FooterProps) {
             <h4 className="font-serif text-lg font-semibold">Genveje</h4>
             <ul className="space-y-2 text-sm text-slate-300">
               <li>
-                <a href="#" className="hover:text-gold transition-colors">
+                <Link href="/ugeseddel" className="hover:text-gold transition-colors">
                   Ugeseddel
+                </Link>
+              </li>
+              <li>
+                <a href="#mass-times" className="hover:text-gold transition-colors">
+                  Messetider
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gold transition-colors">
-                  Menighedsrådet
+                <a href="#activities" className="hover:text-gold transition-colors">
+                  Aktiviteter
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-gold transition-colors">
-                  Katolsk Web
-                </a>
+                <Link href="/stot-kirken" className="hover:text-gold transition-colors">
+                  Støt Kirken
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-gold transition-colors">
-                  Caritas Danmark
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-gold transition-colors">
-                  Bliv Katolik
-                </a>
+                <Link href="/kontakt" className="hover:text-gold transition-colors">
+                  Kontakt
+                </Link>
               </li>
             </ul>
           </div>

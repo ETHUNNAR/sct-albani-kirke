@@ -164,7 +164,7 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                 </div>
                 <p className="text-slate-600 mb-6 leading-relaxed">
                   For messetider i julen, påsken og pinsen, se venligst vores
-                  ugeseddel eller kalender for opdaterede tider.
+                  ugeseddel for opdaterede tider.
                 </p>
                 <a href="#" className="inline-flex items-center text-navy font-semibold
                                       hover:text-gold transition-colors group/link">

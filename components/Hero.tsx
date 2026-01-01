@@ -77,24 +77,17 @@ export function Hero({ siteSettings }: HeroProps) {
             {siteSettings?.heroTagline || 'Christus Vincit! Christus Regnat! Christus Imperat!'}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in duration-1000 delay-500">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="min-w-[180px] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300
-                         bg-gold hover:bg-[#d4b06d] font-semibold"
-            >
-              Messetider
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="min-w-[180px] border-2 border-white/80 text-white font-semibold
-                         hover:bg-white hover:text-navy backdrop-blur-sm bg-white/10
-                         shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              Ny i kirken?
-            </Button>
+          <div className="flex justify-center animate-in fade-in duration-1000 delay-500">
+            <a href="#mass-times">
+              <Button
+                variant="secondary"
+                size="lg"
+                className="min-w-[180px] shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300
+                           bg-gold hover:bg-[#d4b06d] font-semibold"
+              >
+                Messetider
+              </Button>
+            </a>
           </div>
         </div>
       </div>
