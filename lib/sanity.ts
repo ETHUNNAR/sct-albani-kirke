@@ -190,7 +190,18 @@ export const queries = {
     category,
     excerpt,
     featuredImage,
-    content,
+    content[] {
+      ...,
+      _type == "pdfFile" => {
+        ...,
+        asset-> {
+          _id,
+          url,
+          originalFilename,
+          size
+        }
+      }
+    },
     featured
   }`,
 

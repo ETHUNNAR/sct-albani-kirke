@@ -1,7 +1,7 @@
 import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { PortableText } from '@portabletext/react';
-import { Calendar, Tag, ArrowLeft } from 'lucide-react';
+import { Calendar, Tag, ArrowLeft, FileText, Download } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -80,6 +80,51 @@ const portableTextComponents = {
             </figcaption>
           )}
         </figure>
+      );
+    },
+    pdfFile: ({ value }: any) => {
+      const fileUrl = value.asset?.url;
+      const fileName = value.title || value.asset?.originalFilename || 'Download PDF';
+      const fileSize = value.asset?.size;
+      const formatFileSize = (bytes: number) => {
+        if (bytes < 1024) return `${bytes} B`;
+        if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+        return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+      };
+
+      if (!fileUrl) return null;
+
+      return (
+        <div className="my-8 rounded-lg border border-slate-200 bg-slate-50 p-6 hover:bg-slate-100 transition-colors">
+          <a
+            href={fileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-4 no-underline"
+          >
+            <div className="flex-shrink-0 rounded-lg bg-red-100 p-3">
+              <FileText className="h-8 w-8 text-red-600" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-navy mb-1">{fileName}</p>
+              {value.description && (
+                <p className="text-sm text-slate-600 mb-2">{value.description}</p>
+              )}
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <span>PDF</span>
+                {fileSize && (
+                  <>
+                    <span>•</span>
+                    <span>{formatFileSize(fileSize)}</span>
+                  </>
+                )}
+              </div>
+            </div>
+            <div className="flex-shrink-0 rounded-full bg-navy p-2 text-white hover:bg-gold transition-colors">
+              <Download className="h-5 w-5" />
+            </div>
+          </a>
+        </div>
       );
     },
   },

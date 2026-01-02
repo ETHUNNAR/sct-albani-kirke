@@ -44,80 +44,6 @@ export const homePage = defineType({
         'Sct. Albani Kirke er den katolske sognekirke i Odense. Vi er et levende fællesskab af mennesker fra mange forskellige nationer, der forenes i troen på Jesus Kristus. Uanset hvem du er, og hvor du kommer fra, er du velkommen her.',
     }),
 
-    // News/Announcements Section
-    defineField({
-      name: 'newsItems',
-      title: 'Nyheder',
-      type: 'array',
-      of: [
-        {
-          type: 'object',
-          fields: [
-            {
-              name: 'title',
-              title: 'Titel',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'date',
-              title: 'Dato',
-              type: 'datetime',
-              validation: (Rule) => Rule.required(),
-            },
-            {
-              name: 'excerpt',
-              title: 'Uddrag',
-              type: 'text',
-              rows: 3,
-              description: 'Kort beskrivelse (vises på forsiden)',
-            },
-            {
-              name: 'content',
-              title: 'Indhold',
-              type: 'array',
-              of: [{type: 'block'}],
-              description: 'Fuldt indhold af nyheden',
-            },
-            {
-              name: 'image',
-              title: 'Billede',
-              type: 'image',
-              options: {
-                hotspot: true,
-              },
-            },
-            {
-              name: 'category',
-              title: 'Kategori',
-              type: 'string',
-              options: {
-                list: [
-                  {title: 'Nyhed', value: 'news'},
-                  {title: 'Begivenhed', value: 'event'},
-                  {title: 'Meddelelse', value: 'announcement'},
-                ],
-              },
-            },
-          ],
-          preview: {
-            select: {
-              title: 'title',
-              date: 'date',
-              media: 'image',
-            },
-            prepare({title, date, media}) {
-              return {
-                title: title,
-                subtitle: new Date(date).toLocaleDateString('da-DK'),
-                media: media,
-              }
-            },
-          },
-        },
-      ],
-    }),
-
     // Weekly Program Section
     defineField({
       name: 'weeklyProgram',
@@ -155,6 +81,7 @@ export const homePage = defineType({
                   { title: 'Højtidsmesse', value: 'Højtidsmesse' },
                   { title: 'Højmesse', value: 'Højmesse' },
                   { title: 'Aftenmesse', value: 'Aftenmesse' },
+                  { title: 'Messe', value: 'Messe' },
                   { title: 'Rosenkrans', value: 'Rosenkrans' },
                   { title: 'Tilbedelse', value: 'Tilbedelse' },
                   { title: 'Andet', value: 'Andet' },

@@ -1,6 +1,8 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Clock, CalendarDays, ArrowRight } from 'lucide-react';
+import { Clock, CalendarDays, ArrowRight, ChevronDown } from 'lucide-react';
 import { WeeklyProgramItem } from '@/lib/types';
 import { expandRecurringEvents } from '@/lib/eventUtils';
 
@@ -8,8 +10,15 @@ interface WeeklyProgramProps {
   weeklyProgram?: WeeklyProgramItem[];
 }
 
+const INITIAL_VISIBLE_COUNT = 5;
+
 export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
   const schedule = expandRecurringEvents(weeklyProgram, 8);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const hasMoreItems = schedule.length > INITIAL_VISIBLE_COUNT;
+  const visibleSchedule = isExpanded ? schedule : schedule.slice(0, INITIAL_VISIBLE_COUNT);
+  const hiddenCount = schedule.length - INITIAL_VISIBLE_COUNT;
 
   return <section id="mass-times" className="py-24 bg-gradient-to-b from-[#fdfbf7] to-white relative overflow-hidden">
       {/* Decorative Elements */}
@@ -63,53 +72,80 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                     Ingen aktiviteter planlagt i øjeblikket.
                   </p>
                 ) : (
-                  schedule.map((item, index) => {
-                    const date = new Date(item.datetime);
-                    const dayName = date.toLocaleDateString('da-DK', { weekday: 'long' });
-                    const dayDate = date.toLocaleDateString('da-DK', { day: 'numeric', month: 'short' });
-                    const time = date.toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
+                  <>
+                    <div className={`space-y-3 transition-all duration-500 ease-out ${isExpanded ? 'opacity-100' : ''}`}>
+                      {visibleSchedule.map((item, index) => {
+                        const date = new Date(item.datetime);
+                        const dayName = date.toLocaleDateString('da-DK', { weekday: 'long' });
+                        const dayDate = date.toLocaleDateString('da-DK', { day: 'numeric', month: 'short' });
+                        const time = date.toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
 
-                    return <div key={`program-${index}`}
-                                className="group/item flex items-center justify-between p-4 rounded-xl
-                                         hover:bg-[#fdfbf7] transition-all duration-300
-                                         border border-transparent hover:border-gold/20
-                                         hover:shadow-md cursor-pointer">
-                      <div className="flex items-center gap-4">
-                        <div className="min-w-[120px]">
-                          <span className="block font-semibold text-slate-900 capitalize text-base">
-                            {dayName}
-                          </span>
-                          <span className="text-sm text-slate-500 font-medium">
-                            {dayDate}
-                          </span>
-                        </div>
-                        <div className="flex items-center justify-center px-3 py-1.5 rounded-lg
-                                      bg-gold/10 group-hover/item:bg-gold transition-colors duration-300">
-                          <Clock className="h-4 w-4 mr-1.5 text-gold group-hover/item:text-white transition-colors" />
-                          <span className="text-gold group-hover/item:text-white font-bold text-sm transition-colors">
-                            {time}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="block text-slate-900 font-semibold text-base">
-                          {item.massType}
-                        </span>
-                        <div className="flex items-center justify-end gap-2 mt-1.5">
-                          {item.language && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
-                              {item.language}
+                        return <div key={`program-${index}`}
+                                    className="group/item flex items-center justify-between p-4 rounded-xl
+                                             hover:bg-[#fdfbf7] transition-all duration-300
+                                             border border-transparent hover:border-gold/20
+                                             hover:shadow-md cursor-pointer">
+                          <div className="flex items-center gap-4">
+                            <div className="min-w-[120px]">
+                              <span className="block font-semibold text-slate-900 capitalize text-base">
+                                {dayName}
+                              </span>
+                              <span className="text-sm text-slate-500 font-medium">
+                                {dayDate}
+                              </span>
+                            </div>
+                            <div className="flex items-center justify-center px-3 py-1.5 rounded-lg
+                                          bg-gold/10 group-hover/item:bg-gold transition-colors duration-300">
+                              <Clock className="h-4 w-4 mr-1.5 text-gold group-hover/item:text-white transition-colors" />
+                              <span className="text-gold group-hover/item:text-white font-bold text-sm transition-colors">
+                                {time}
+                              </span>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <span className="block text-slate-900 font-semibold text-base">
+                              {item.massType}
                             </span>
-                          )}
-                          {item.location && (
-                            <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-wide">
-                              {item.location}
-                            </span>
-                          )}
+                            <div className="flex items-center justify-end gap-2 mt-1.5">
+                              {item.language && (
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
+                                  {item.language}
+                                </span>
+                              )}
+                              {item.location && (
+                                <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-wide">
+                                  {item.location}
+                                </span>
+                              )}
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      })}
                     </div>
-                  })
+
+                    {hasMoreItems && (
+                      <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className="w-full mt-4 py-3 px-4 rounded-xl
+                                 bg-gradient-to-r from-navy/5 via-gold/10 to-navy/5
+                                 hover:from-navy/10 hover:via-gold/20 hover:to-navy/10
+                                 border border-gold/20 hover:border-gold/40
+                                 text-navy font-semibold text-sm
+                                 flex items-center justify-center gap-2
+                                 transition-all duration-300 hover:shadow-md
+                                 group/btn"
+                      >
+                        <span>
+                          {isExpanded ? 'Vis mindre' : `Vis ${hiddenCount} flere begivenheder`}
+                        </span>
+                        <ChevronDown
+                          className={`h-4 w-4 text-gold transition-transform duration-300
+                                    group-hover/btn:text-navy
+                                    ${isExpanded ? 'rotate-180' : ''}`}
+                        />
+                      </button>
+                    )}
+                  </>
                 )}
               </div>
             </div>

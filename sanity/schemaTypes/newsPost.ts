@@ -121,6 +121,28 @@ export const newsPost = defineType({
             },
           ],
         },
+        {
+          type: 'file',
+          name: 'pdfFile',
+          title: 'PDF-fil',
+          options: {
+            accept: '.pdf',
+          },
+          fields: [
+            {
+              name: 'title',
+              type: 'string',
+              title: 'Titel',
+              description: 'Navn på PDF-filen (vises som linktekst)',
+            },
+            {
+              name: 'description',
+              type: 'string',
+              title: 'Beskrivelse',
+              description: 'Kort beskrivelse af PDF-filens indhold',
+            },
+          ],
+        },
       ],
       validation: (Rule) => Rule.required(),
     }),
