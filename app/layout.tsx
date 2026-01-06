@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'SCT Albani Website Redesign',
+  title: 'Sct. Albani Kirke',
   description: 'Sct. Albani Kirke - den katolske sognekirke i Odense',
 };
 
