@@ -2,7 +2,7 @@ import { Layout } from '@/components/Layout';
 import { client, queries, urlFor } from '@/lib/sanity';
 import { PageHero, SectionDivider } from '@/components/sections';
 import { Button } from '@/components/ui/Button';
-import { Mail, Phone, ExternalLink, Users, CreditCard, Facebook, Instagram, FileEdit } from 'lucide-react';
+import { Mail, Phone, ExternalLink, Users, CreditCard, Facebook, Instagram } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const revalidate = 60;

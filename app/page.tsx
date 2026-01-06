@@ -3,6 +3,7 @@ import { Hero } from '@/components/Hero';
 import { WeeklyProgram } from '@/components/WeeklyProgram';
 import { NewsSection } from '@/components/NewsSection';
 import { LocationMap } from '@/components/LocationMap';
+import { SchoolLink } from '@/components/SchoolLink';
 import { client, queries } from '@/lib/sanity';
 
 export const revalidate = 60; // Revalidate every 60 seconds
@@ -36,6 +37,8 @@ export default async function Home() {
       <Hero siteSettings={pageData} />
       <WeeklyProgram weeklyProgram={pageData.weeklyProgram || []} />
       <NewsSection newsItems={newsPosts || []} />
+
+      <SchoolLink />
 
       {/* Quick About Section */}
       <section className="py-32 bg-gradient-to-b from-white to-[#fdfbf7] text-center relative overflow-hidden">
