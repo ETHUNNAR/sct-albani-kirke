@@ -2,6 +2,15 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/admin',
+        destination: 'https://www.sanity.io/@oBr3jn0kI/studio/l8os1bmilq3c2uxx86jf56mx/default/structure',
+        permanent: false,
+      },
+    ];
+  },
   async headers() {
     return [
       {

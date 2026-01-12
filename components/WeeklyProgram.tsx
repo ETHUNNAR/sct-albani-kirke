@@ -81,42 +81,44 @@ export function WeeklyProgram({ weeklyProgram = [] }: WeeklyProgramProps) {
                         const time = date.toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' });
 
                         return <div key={`program-${index}`}
-                                    className="group/item flex items-center justify-between p-4 rounded-xl
+                                    className="group/item p-4 rounded-xl
                                              hover:bg-[#fdfbf7] transition-all duration-300
                                              border border-transparent hover:border-gold/20
                                              hover:shadow-md cursor-pointer">
-                          <div className="flex items-center gap-4">
-                            <div className="min-w-[120px]">
-                              <span className="block font-semibold text-slate-900 capitalize text-base">
-                                {dayName}
-                              </span>
-                              <span className="text-sm text-slate-500 font-medium">
-                                {dayDate}
-                              </span>
-                            </div>
-                            <div className="flex items-center justify-center px-3 py-1.5 rounded-lg
-                                          bg-gold/10 group-hover/item:bg-gold transition-colors duration-300">
-                              <Clock className="h-4 w-4 mr-1.5 text-gold group-hover/item:text-white transition-colors" />
-                              <span className="text-gold group-hover/item:text-white font-bold text-sm transition-colors">
-                                {time}
-                              </span>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <span className="block text-slate-900 font-semibold text-base">
-                              {item.massType}
-                            </span>
-                            <div className="flex items-center justify-end gap-2 mt-1.5">
-                              {item.language && (
-                                <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
-                                  {item.language}
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                            <div className="flex items-center gap-3 sm:gap-4">
+                              <div className="min-w-[100px] sm:min-w-[120px]">
+                                <span className="block font-semibold text-slate-900 capitalize text-sm sm:text-base">
+                                  {dayName}
                                 </span>
-                              )}
-                              {item.location && (
-                                <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-wide">
-                                  {item.location}
+                                <span className="text-xs sm:text-sm text-slate-500 font-medium">
+                                  {dayDate}
                                 </span>
-                              )}
+                              </div>
+                              <div className="flex items-center justify-center px-3 py-1.5 rounded-lg
+                                            bg-gold/10 group-hover/item:bg-gold transition-colors duration-300">
+                                <Clock className="h-4 w-4 mr-1.5 text-gold group-hover/item:text-white transition-colors" />
+                                <span className="text-gold group-hover/item:text-white font-bold text-sm transition-colors">
+                                  {time}
+                                </span>
+                              </div>
+                            </div>
+                            <div className="sm:text-right pl-0 sm:pl-4 flex-1 min-w-0">
+                              <span className="block text-slate-900 font-semibold text-sm sm:text-base break-words">
+                                {item.massType}
+                              </span>
+                              <div className="flex items-center sm:justify-end gap-2 mt-1.5 flex-wrap">
+                                {item.language && (
+                                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium">
+                                    {item.language}
+                                  </span>
+                                )}
+                                {item.location && (
+                                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-wide">
+                                    {item.location}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                           </div>
                         </div>
