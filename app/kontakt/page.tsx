@@ -55,9 +55,9 @@ export default function KontaktPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <SectionHeader tag="Præster" tagVariant="blue" title="Præster og Sjælesørgere" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <InfoCard icon={User} title="Bernhard Kofod" subtitle="Sognepræst" phone="28 96 55 17" />
-            <InfoCard icon={User} title="Livio Alloa Casale" subtitle="Andenpræst" phone="50 31 25 05" />
-            <InfoCard icon={User} title="P. Jacek Aniszewski" subtitle="Præst for polsktalende" phone="71 45 64 34" />
+            <InfoCard icon={User} title="Pater Bernhard Kofod C.Ss.R." subtitle="Sognepræst" phone="28 96 55 17" />
+            <InfoCard icon={User} title="Paster Livio Alloa Casale" subtitle="Andenpræst" phone="50 31 25 05" />
+            <InfoCard icon={User} title="Pater Jacek Aniszewski C.Ss.R." subtitle="Præst for polsktalende" phone="71 45 64 34" />
           </div>
         </div>
       </section>
