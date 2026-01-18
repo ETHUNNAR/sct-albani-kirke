@@ -9,6 +9,11 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+
+  const toggleMobileDropdown = (name: string) => {
+    setActiveMobileDropdown(activeMobileDropdown === name ? null : name);
+  };
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -69,113 +74,127 @@ export function Header() {
     }
   ];
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-md py-3' : 'bg-white/80 backdrop-blur-sm py-6'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo / Brand */}
-          <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-full bg-navy text-white">
-              <Church className="h-6 w-6" />
-            </div>
-            <div className="flex flex-col text-navy">
-              <span className="font-serif font-bold text-lg leading-none">
-                Sct. Albani Kirke
-              </span>
-              <span className="text-xs uppercase tracking-wider opacity-80">
-                Odense
-              </span>
-            </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between">
+        {/* Logo / Brand */}
+        <div className="flex items-center space-x-3">
+          <div className="p-2 rounded-full bg-navy text-white">
+            <Church className="h-6 w-6" />
           </div>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map(link => (
-              <div
-                key={link.name}
-                className="relative"
-                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                {link.dropdown ? (
-                  <>
-                    <button className="text-sm font-medium transition-colors hover:text-gold flex items-center gap-1 text-slate-700">
-                      {link.name}
-                      <ChevronDown className="h-4 w-4" />
-                    </button>
-                    {activeDropdown === link.name && (
-                      <div className="absolute top-full left-0 -mt-2 pt-4 w-56">
-                        <div className="bg-white rounded-lg shadow-lg border border-slate-200 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
-                          {link.dropdown.map(item => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              className="block px-4 py-2 text-sm text-slate-700 hover:bg-cream hover:text-navy transition-colors"
-                            >
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link href={link.href} className="text-sm font-medium transition-colors hover:text-gold text-slate-700">
-                    {link.name}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <Link href="/stot-kirken">
-              <Button variant="primary" size="sm">
-                Støt Kirken
-              </Button>
-            </Link>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <button className="md:hidden p-2 rounded-md text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex flex-col text-navy">
+            <span className="font-serif font-bold text-lg leading-none">
+              Sct. Albani Kirke
+            </span>
+            <span className="text-xs uppercase tracking-wider opacity-80">
+              Odense
+            </span>
+          </div>
         </div>
-      </div>
 
-      {/* Mobile Navigation Overlay */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white shadow-lg border-t border-slate-100 md:hidden p-4 flex flex-col space-y-2 animate-in slide-in-from-top-5">
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
-            <div key={link.name}>
+            <div
+              key={link.name}
+              className="relative"
+              onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
               {link.dropdown ? (
-                <div className="space-y-1">
-                  <div className="text-slate-700 font-medium py-2 px-4">
+                <>
+                  <button className="text-sm font-medium transition-colors hover:text-gold flex items-center gap-1 text-slate-700">
                     {link.name}
-                  </div>
-                  <div className="pl-4 space-y-1">
-                    {link.dropdown.map(item => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="block text-slate-600 hover:text-navy py-2 px-4 rounded-md hover:bg-slate-50"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
+                    <ChevronDown className="h-4 w-4" />
+                  </button>
+                  {activeDropdown === link.name && (
+                    <div className="absolute top-full left-0 -mt-2 pt-4 w-56">
+                      <div className="bg-white rounded-lg shadow-lg border border-slate-200 py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                        {link.dropdown.map(item => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            className="block px-4 py-2 text-sm text-slate-700 hover:bg-cream hover:text-navy transition-colors"
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
               ) : (
-                <Link
-                  href={link.href}
-                  className="block text-slate-700 hover:text-navy font-medium py-2 px-4 rounded-md hover:bg-slate-50"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
+                <Link href={link.href} className="text-sm font-medium transition-colors hover:text-gold text-slate-700">
                   {link.name}
                 </Link>
               )}
             </div>
           ))}
-          <Link href="/stot-kirken" className="w-full">
-            <Button className="w-full justify-center">Støt Kirken</Button>
+          <Link href="/stot-kirken">
+            <Button variant="primary" size="sm">
+              Støt Kirken
+            </Button>
           </Link>
-        </div>
-      )}
-    </header>;
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button className="md:hidden p-2 rounded-md text-slate-900" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
+          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </div>
+    </div>
+
+    {/* Mobile Navigation Overlay */}
+    {isMobileMenuOpen && (
+      <div className="absolute top-full left-0 right-0 bg-white shadow-lg border-t border-slate-100 md:hidden p-4 flex flex-col space-y-2 animate-in slide-in-from-top-5 max-h-[calc(100vh-80px)] overflow-y-auto">
+        {navLinks.map(link => (
+          <div key={link.name}>
+            {link.dropdown ? (
+              <div className="space-y-1">
+                <button
+                  onClick={() => toggleMobileDropdown(link.name)}
+                  className="w-full flex items-center justify-between text-slate-700 font-medium py-2 px-4 rounded-md hover:bg-slate-50 transition-colors"
+                >
+                  {link.name}
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      activeMobileDropdown === link.name ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div
+                  className={`pl-4 space-y-1 overflow-hidden transition-all duration-200 ${
+                    activeMobileDropdown === link.name
+                      ? 'max-h-96 opacity-100'
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  {link.dropdown.map(item => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block text-slate-600 hover:text-navy py-2 px-4 rounded-md hover:bg-slate-50"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <Link
+                href={link.href}
+                className="block text-slate-700 hover:text-navy font-medium py-2 px-4 rounded-md hover:bg-slate-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            )}
+          </div>
+        ))}
+        <Link href="/stot-kirken" className="w-full">
+          <Button className="w-full justify-center">Støt Kirken</Button>
+        </Link>
+      </div>
+    )}
+  </header>;
 }
