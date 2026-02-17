@@ -44,7 +44,7 @@ export default function KirkensHistorie() {
           <div className="mt-12 flex justify-center gap-8">
             <StatCard value="150+" label="År med tradition" variant="gold" className="bg-transparent border border-white/20" />
             <div className="w-px bg-white/20" />
-            <StatCard value="2,200+" label="Medlemmer i 2000" variant="gold" className="bg-transparent border border-white/20" />
+            <StatCard value="3,200+" label="Medlemmer i 2000" variant="gold" className="bg-transparent border border-white/20" />
           </div>
         </div>
 
